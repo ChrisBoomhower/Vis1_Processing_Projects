@@ -1,14 +1,16 @@
-/* MSDS 6390 - Homework 1 - 5/12/17 *
- * Alex Frye, Chris Boomhower       *
- * Replication of ......            */
+/* MSDS 6390 - Homework 1 - 5/12/17                                                          *
+ * Alex Frye, Chris Boomhower                                                                *
+ * Description: Replication of the geometric wolf art piece found at                         *
+ * https://s-media-cache-ak0.pinimg.com/736x/61/dd/d2/61ddd235519b767f76abddc2bc0697dd.jpg   *
+ * The gradient background image was created using the interactive tools available at        *
+ * http://angrytools.com/gradient/image.php                                                  */
 
 void setup(){
   //Set variables
   PImage grad;
   int grey = 80;
   
-  //Load gradient background image created using http://angrytools.com/gradient/image.php
-  //and make background
+  //Load gradient background image and set as background
   size(570,759); //Sized to match original art frame
   grad = loadImage("wrthjfim.png"); //gradient image 570x759 px to match
   background(grad);
@@ -187,7 +189,6 @@ void setup(){
   line(425, 550, 295, 635);
   
   // Right Ear and Side of Head
-  
   triangle(425, 550, 430, 595, 540, 450);
   triangle(417, 520, 425, 550, 540, 450);
   triangle(417, 520, 510, 390, 540, 450);

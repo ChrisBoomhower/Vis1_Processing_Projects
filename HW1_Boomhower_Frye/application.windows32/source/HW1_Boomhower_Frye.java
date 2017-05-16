@@ -14,17 +14,19 @@ import java.io.IOException;
 
 public class HW1_Boomhower_Frye extends PApplet {
 
-/* MSDS 6390 - Homework 1 - 5/12/17 *
- * Alex Frye, Chris Boomhower       *
- * Replication of ......            */
+/* MSDS 6390 - Homework 1 - 5/12/17                                                          *
+ * Alex Frye, Chris Boomhower                                                                *
+ * Description: Replication of the geometric wolf art piece found at                         *
+ * https://s-media-cache-ak0.pinimg.com/736x/61/dd/d2/61ddd235519b767f76abddc2bc0697dd.jpg   *
+ * The gradient background image was created using the interactive tools available at        *
+ * http://angrytools.com/gradient/image.php                                                  */
 
 public void setup(){
   //Set variables
   PImage grad;
   int grey = 80;
   
-  //Load gradient background image created using http://angrytools.com/gradient/image.php
-  //and make background
+  //Load gradient background image and set as background
    //Sized to match original art frame
   grad = loadImage("wrthjfim.png"); //gradient image 570x759 px to match
   background(grad);
@@ -203,7 +205,6 @@ public void setup(){
   line(425, 550, 295, 635);
   
   // Right Ear and Side of Head
-  
   triangle(425, 550, 430, 595, 540, 450);
   triangle(417, 520, 425, 550, 540, 450);
   triangle(417, 520, 510, 390, 540, 450);
@@ -226,7 +227,7 @@ public void setup(){
 }
   public void settings() {  size(570,759); }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "HW1_Boomhower_Frye" };
+    String[] appletArgs = new String[] { "--present", "--window-color=#666666", "--stop-color=#FF0004", "HW1_Boomhower_Frye" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
