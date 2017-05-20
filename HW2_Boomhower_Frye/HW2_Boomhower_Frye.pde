@@ -1,6 +1,6 @@
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 0;  // 0 runs pointillized background; 1 runs original background
+int debug = 1;  // 0 runs pointillized background; 1 runs original background
 //int pointillize = 32;
 
 void setup() {
@@ -31,11 +31,10 @@ void draw() {
     
     // Draw an ellipse at that location with that color
     fill(r,g,b,100);
-    ellipse(x,y,50,10);
+    ellipse(x,y,50,15);
   }
   else {
-    stroke(255, 127, 0);
-    strokeWeight(4);
+    noStroke();
     noFill();
 
     if (debug == 0) {
@@ -52,18 +51,17 @@ void draw() {
       println("curveVertex(" + mouseX + ", " + mouseY + ");");
     }
     
-    beginShape();
-    curveVertex(189, 416);
-    curveVertex(89, 389);
-    curveVertex(76, 321);
-    curveVertex(75, 248);
-    curveVertex(155, 142);
-    curveVertex(277, 161);
-    curveVertex(331, 284);
-    curveVertex(324, 426);
-    curveVertex(250, 508);
-    curveVertex(169, 525);
-    endShape();
+      // DRAWING CODE STARTS HERE!
+
+      // Pants
+    fill(79, 91, 107,20);
+    triangle(107, 911, 99, 952, 120, 941);
+  
+    quad(99, 945, 107, 984, 128, 964, 116, 931);
+    
+    triangle(105, 974, 118, 1004, 129, 965);
+
+    triangle(111, 1024, 195, 1024, 128, 966);
     
     saveFrame("Boogers.jpg");
   }
