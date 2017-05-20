@@ -54,7 +54,7 @@ void draw() {
       // DRAWING CODE STARTS HERE!
 
       // Pants
-    fill(79, 91, 107, 75);
+    fill(79, 91, 107);
     triangle(107, 911, 99, 952, 120, 941);
   
     quad(99, 945, 107, 984, 128, 964, 116, 931);
@@ -64,7 +64,24 @@ void draw() {
     triangle(111, 1024, 195, 1024, 128, 966);
     
     triangle(314, 1024, 394, 1024, 398, 993);
-    saveFrame("Boogers.jpg");
+    
+    quad(393, 1024, 394, 992, 423, 968, 440, 1024);
+    
+    beginShape();
+    curveVertex(394, 1024);
+    curveVertex(420, 1024);
+    curveVertex(457, 987);
+    curveVertex(445, 942);
+    curveVertex(401, 988);
+    curveVertex(416, 975);
+    endShape(CLOSE);
+    
+      //Shirt Bottom
+    fill(104, 46, 34);
+    quad(108, 915, 115, 893, 192, 941, 126, 964);
+    
+    saveFrame("Boogers.jpg");  
+    
   }
 }
 
