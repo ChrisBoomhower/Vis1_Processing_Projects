@@ -226,8 +226,80 @@ void draw() {
     endShape();
     //noStroke();
     
-    line(166, 386, 125, 558);
-    line(182, 390, 142, 563);
+      // Crayon
+    fill(41.0, 108.0, 117.0);
+    stroke(0);
+    strokeJoin(MITER);
+    beginShape();
+    vertex(165, 385);
+    vertex(125, 552);
+    vertex(126, 552);
+    vertex(124, 558);
+    vertex(127, 560);
+    vertex(141, 563);
+    vertex(143, 554);
+    vertex(182, 392);
+    vertex(177, 388);
+    vertex(171, 386);
+    vertex(168, 385);
+    vertex(164, 387);
+    endShape();
+    noFill();
+    
+      // Mouth
+    fill(94.0, 59.0, 46.0);
+    //stroke(120.0, 84.0, 50.0);
+    //stroke(0);
+    noStroke();
+    beginShape();
+    vertex(175, 422);
+    vertex(186, 422);
+    vertex(192, 423);
+    vertex(204, 421);
+    vertex(230, 424);
+    vertex(252, 430);
+    vertex(239, 452);
+    vertex(221, 470);
+    vertex(202, 476);
+    vertex(182, 472);
+    vertex(166, 460);
+    vertex(169, 449);
+    vertex(184, 459);
+    vertex(203, 463);
+    vertex(224, 455);
+    vertex(236, 446);
+    vertex(242, 429);
+    vertex(225, 425);
+    vertex(203, 424);
+    vertex(192, 425);
+    vertex(187, 425);
+    vertex(175, 424);
+    endShape();
+    
+    fill(255);
+    noStroke();
+    triangle(224, 425, 228, 429, 230, 426);
+    quad(211, 424, 218, 425, 217, 426, 211, 426);
+    triangle(207, 424, 204, 427, 200, 424);
+    rect(183, 425, 7, 1);
+    triangle(177, 424, 178, 424, 176, 425);
+    beginShape();
+    vertex(239, 438);
+    vertex(236, 446);
+    vertex(233, 448);
+    vertex(234, 441);
+    vertex(238, 437);
+    endShape();
+    beginShape();
+    vertex(174, 429);
+    vertex(179, 439);
+    vertex(181, 447);
+    vertex(179, 454);
+    vertex(170, 448);
+    //vertex(173, 428);
+    endShape(CLOSE);
+    noFill();
+    
       // Hair
     //fill(209.0, 203.0, 187.0);
 
