@@ -79,6 +79,8 @@ void draw() {
       //Shirt Bottom
     fill(104, 46, 34);
     quad(108, 915, 115, 893, 192, 941, 126, 964);
+    quad(123, 963, 186, 940, 260, 954, 192, 1021);
+    
     
     saveFrame("Boogers.jpg");  
     
