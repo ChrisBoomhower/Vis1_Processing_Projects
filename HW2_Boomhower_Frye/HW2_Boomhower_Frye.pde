@@ -45,7 +45,7 @@ void draw() {
       background(pic);
       
       if (mouseButton == RIGHT) {
-        
+        background(0);
       }
       
       println("curveVertex(" + mouseX + ", " + mouseY + ");");
@@ -54,7 +54,7 @@ void draw() {
       // DRAWING CODE STARTS HERE!
 
       // Pants
-    fill(79, 91, 107,20);
+    fill(79, 91, 107, 75);
     triangle(107, 911, 99, 952, 120, 941);
   
     quad(99, 945, 107, 984, 128, 964, 116, 931);
@@ -63,6 +63,7 @@ void draw() {
 
     triangle(111, 1024, 195, 1024, 128, 966);
     
+    triangle(314, 1024, 394, 1024, 398, 993);
     saveFrame("Boogers.jpg");
   }
 }
