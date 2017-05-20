@@ -48,10 +48,22 @@ void draw() {
         background(0);
       }
       
-      println("curveVertex(" + mouseX + ", " + mouseY + ");");
+      if (mouseButton == CENTER) {
+        int locx = mouseX;
+        int locy = mouseY;
+        int locxy = locx + locy*pic.width;
+        println(red(pic.pixels[locxy]) + ", " + green(pic.pixels[locxy]) + ", " + blue(pic.pixels[locxy]));
+      }
+      
+      if (mouseButton == LEFT) {
+        println("curveVertex(" + mouseX + ", " + mouseY + ");");
+      }
     }
     
       // DRAWING CODE STARTS HERE!
+      
+      // Head and face
+      
 
       // Pants
     fill(79, 91, 107);
