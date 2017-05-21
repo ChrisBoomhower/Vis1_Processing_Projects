@@ -1,6 +1,6 @@
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 1;  // 0 runs pointillized background; 1 runs original background
+int debug = 0;  // 0 runs pointillized background; 1 runs original background
 //int pointillize = 32;
 
 void setup() {
@@ -65,7 +65,7 @@ void draw() {
       // Face
     //stroke(255, 10, 10);
     strokeJoin(ROUND);
-    fill(172.0, 141.0, 95.0);
+    fill(192.0, 161.0, 115.0);
     beginShape();
     curveVertex(330, 391);
     curveVertex(326, 401);
@@ -282,7 +282,7 @@ void draw() {
     noFill();
     
       // Mouth
-    fill(94.0, 59.0, 46.0);
+    fill(114.0, 79.0, 66.0);
     //stroke(120.0, 84.0, 50.0);
     //stroke(0);
     noStroke();
