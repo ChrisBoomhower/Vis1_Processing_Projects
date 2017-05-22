@@ -609,7 +609,309 @@ void draw() {
     rect(97, 657, 16, 80);
 
 
+      // USA Dotted Line
+    strokeWeight(3);
+    fill(255);
+    stroke(255);
+    int steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(371, 362, 370, 386, t);
+      float y = bezierPoint(788, 763, 743, 724, t);
+      point(x, y);
+    }
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(386, 384, 384, 382, t);
+      float y = bezierPoint(724, 724, 697, 697, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(382, 397, 404, 385, t);
+      float y = bezierPoint(697, 665, 638, 659, t);
+      point(x, y);
+    }
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(385, 385, 376, 376, t);
+      float y = bezierPoint(659, 659, 685, 685, t);
+      point(x, y);
+    }
+
+    steps = 8;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(376, 358, 347, 338, t);
+      float y = bezierPoint(685, 715, 712, 692, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(338, 338, 325, 325, t);
+      float y = bezierPoint(692, 692, 689, 689, t);
+      point(x, y);
+    }
+    
+    steps = 8;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(325, 326, 326, 332, t);
+      float y = bezierPoint(689, 703, 725, 740, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(332, 332, 318, 318, t);
+      float y = bezierPoint(740, 740, 753, 753, t);
+      point(x, y);
+    }
+
+    steps = 8;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(318, 302, 276, 264, t);
+      float y = bezierPoint(753, 747, 733, 722, t);
+      point(x, y);
+    }
+
+    steps = 3;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(264, 264, 240, 240, t);
+      float y = bezierPoint(722, 722, 712, 712, t);
+      point(x, y);
+    }
+
+    steps = 12;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(240, 202, 166, 139, t);
+      float y = bezierPoint(712, 702, 698, 698, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(139, 139, 128, 128, t);
+      float y = bezierPoint(698, 698, 705, 705, t);
+      point(x, y);
+    }
+
+    steps = 8;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(128, 119, 108, 108, t);
+      float y = bezierPoint(705, 722, 708, 693, t);
+      point(x, y);
+    }
+        
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(108, 108, 121, 121, t);
+      float y = bezierPoint(693, 693, 685, 685, t);
+      point(x, y);
+    }
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(121, 130, 122, 114, t);
+      float y = bezierPoint(685, 677, 670, 670, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(114, 114, 107, 107, t);
+      float y = bezierPoint(670, 670, 677, 677, t);
+      point(x, y);
+    }
+
+    steps = 6;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(107, 106, 110, 122, t);
+      float y = bezierPoint(677, 666, 658, 652, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(122, 122, 141, 141, t);
+      float y = bezierPoint(652, 652, 657, 657, t);
+      point(x, y);
+    }
+
+    steps = 8;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(141, 144, 176, 189, t);
+      float y = bezierPoint(657, 667, 663, 672, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(189, 189, 219, 219, t);
+      float y = bezierPoint(672, 672, 669, 669, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(219, 241, 270, 289, t);
+      float y = bezierPoint(669, 684, 686, 698, t);
+      point(x, y);
+    }
+
+
+    steps = 2;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(289, 289, 292, 292, t);
+      float y = bezierPoint(698, 698, 712, 712, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(292, 293, 290, 241, t);
+      float y = bezierPoint(712, 735, 760, 746, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(241, 241, 209, 209, t);
+      float y = bezierPoint(746, 746, 744, 744, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(209, 213, 196, 155, t);
+      float y = bezierPoint(744, 780, 780, 748, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(155, 155, 149, 149, t);
+      float y = bezierPoint(748, 748, 727, 727, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(149, 127, 134, 148, t);
+      float y = bezierPoint(727, 733, 760, 778, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(148, 148, 166, 166, t);
+      float y = bezierPoint(778, 778, 787, 787, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(166, 202, 211, 236, t);
+      float y = bezierPoint(787, 795, 810, 812, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(236, 236, 255, 255, t);
+      float y = bezierPoint(812, 812, 839, 839, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(255, 273, 304, 312, t);
+      float y = bezierPoint(839, 814, 812, 799, t);
+      point(x, y);
+    }
+
+
+    steps = 4;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(312, 312, 299, 299, t);
+      float y = bezierPoint(799, 799, 785, 785, t);
+      point(x, y);
+    }
+
+    steps = 10;
+    for (int i = 0; i <= steps; i++) {
+      float t = i / float(steps);
+      float x = bezierPoint(299, 332, 350, 366, t);
+      float y = bezierPoint(785, 773, 774, 787, t);
+      point(x, y);
+    }
+
+      // USA Figures
+        //Tree
+
+        //Tent
+
+        //Plane
+
+        //Wagon
+
+        //Cactus
+
+        //Star
+
+        //Horse
+
+        //Truck
+
+        //Anchor
+
+
       // Collar
+    strokeWeight(1);
     fill(31, 34, 51);
     noStroke();
     beginShape();
