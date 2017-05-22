@@ -1,6 +1,6 @@
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 1;  // 0 runs pointillized background; 1 runs original background
+int debug = 0;  // 0 runs pointillized background; 1 runs original background
 //int pointillize = 32;
 
 void setup() {
@@ -872,10 +872,153 @@ void draw() {
 
       // USA Figures
         //Tree
+        float x = 130;
+        float y = 620;
+        fill(133, 202, 94);
+        noStroke();
+        triangle(0 + x,0  + y, -10 + x,15 + y, 10 + x,15 + y);
+        triangle(0 + x,8  + y, -15 + x,28 + y, 15 + x,28 + y);
+        triangle(0 + x,20 + y, -22 + x,42 + y, 22 + x,42 + y);
+        
+        fill(20, 98, 21);
+        beginShape();
+        curveVertex(0 + x,  8  + y);
+        curveVertex(0 + x,  8  + y);
+        curveVertex(-15 + x,28 + y);
+        curveVertex(0 + x,  15 + y);
+        curveVertex(15 + x, 28 + y);
+        curveVertex(15 + x, 28 + y);
+        endShape(CLOSE);
+
+        beginShape();
+        curveVertex(0 + x,  20 + y);
+        curveVertex(0 + x,  20 + y);
+        curveVertex(-22 + x,42 + y);
+        curveVertex(0 + x,  27 + y);
+        curveVertex(22 + x, 42 + y);
+        curveVertex(22 + x, 42 + y);
+        endShape(CLOSE);
+
+
+        strokeWeight(4);
+        stroke(133, 202, 94);
+        line(0 + x,42 + y, 0 + x, 60 + y);
+        stroke(20, 98, 21);
+        strokeWeight(2);
+        line(-3 + x,42 + y, -3 + x, 60 + y);
+        
+        strokeWeight(2.5);
+        stroke(20, 98, 21);
+        line(-22 + x,42 + y, 22 + x, 42 + y);
 
         //Tent
-
+        x = 175;
+        y = 702;
+        fill(123, 125, 19);
+        noStroke();
+        quad(-4 + x, 3 + y, 12 + x, 6 + y, 20 + x, -10 + y, 5 + x, -15 + y);
+        triangle(22 + x, -9 + y, 13 + x, 6 + y, 19 + x, 5 + y);
+        triangle(23 + x, -9 + y, 23 + x, 4 + y, 28 + x, 3 + y);
+        
         //Plane
+        x = 222;
+        y = 650;
+        fill(58, 50, 67);
+        stroke(58, 50, 67);
+        strokeWeight(3);
+        line(5 + x, 5 + y, 5 + x, 15 + y);
+        strokeWeight(2);
+        line(0 + x, 10 + y, 5 + x, 10 + y);
+        strokeWeight(1);
+        triangle(5 + x, 10 + y, 15 + x, 6 + y, 15 + x, 14 + y);
+        quad(15 + x, 6 + y, 15 + x, 14 + y, 20 + x, 13 + y, 20 + x, 7 + y);
+        triangle(20 + x, 7 + y, 20 + x, 13 + y, 32 + x, 10 + y);
+        
+        strokeWeight(2);
+        beginShape();
+        curveVertex(15 + x, 6 + y);
+        curveVertex(15 + x, 6 + y);
+        curveVertex(11 + x, 2 + y);
+        curveVertex(12.5 + x, 0 + y);
+        curveVertex(14 + x, 2 + y);        
+        curveVertex(20 + x, 7 + y);
+        curveVertex(20 + x, 7 + y);
+        endShape(CLOSE);
+        
+        beginShape();
+        curveVertex(15 + x, 14 + y);
+        curveVertex(15 + x, 14 + y);
+        curveVertex(11 + x, 18 + y);
+        curveVertex(12.5 + x, 20 + y);
+        curveVertex(14 + x, 18 + y);      
+        curveVertex(20 + x, 13 + y);
+        curveVertex(20 + x, 13 + y);
+        endShape(CLOSE);      
+        
+        beginShape();
+        curveVertex(26 + x, 10 + y);
+        curveVertex(26 + x, 10 + y);
+        curveVertex(27 + x, 5 + y);
+        curveVertex(23 + x, 3 + y);
+        curveVertex(23 + x, 3 + y);
+        endShape();      
+        
+        beginShape();
+        curveVertex(26 + x, 10 + y);
+        curveVertex(26 + x, 10 + y);
+        curveVertex(27 + x, 15 + y);
+        curveVertex(23 + x, 18 + y);
+        curveVertex(23 + x, 18 + y);
+        endShape();                     
+
+        fill(117, 122, 128);
+        stroke(117, 122, 128);
+        strokeWeight(1);
+        line(6 + x, 5 + y, 6 + x, 15 + y);
+        line(0 + x, 9 + y, 3.5 + x, 9 + y);
+        line(7 + x, 8 + y, 14 + x, 6 + y);
+
+        noFill();
+        beginShape();
+        curveVertex(12 + x, 18 + y);
+        curveVertex(12 + x, 18 + y);
+        curveVertex(13.5 + x, 20 + y);
+        curveVertex(15 + x, 18 + y);      
+        curveVertex(20 + x, 14 + y);
+        curveVertex(20 + x, 14 + y);
+        endShape(); 
+
+        beginShape();
+        curveVertex(12 + x, 2 + y);
+        curveVertex(12 + x, 2 + y);
+        curveVertex(13.5 + x, 0 + y);
+        curveVertex(15 + x, 2 + y);        
+        curveVertex(20 + x, 6 + y);
+        curveVertex(20 + x, 6 + y);
+        endShape();
+
+        line(21 + x, 6 + y, 31 + x, 9 + y);
+
+        beginShape();
+        curveVertex(27 + x, 9 + y);
+        curveVertex(27 + x, 9 + y);
+        curveVertex(28 + x, 6 + y);
+        curveVertex(24 + x, 4 + y);
+        curveVertex(24 + x, 4 + y);
+        endShape();      
+        
+        beginShape();
+        curveVertex(27 + x, 11 + y);
+        curveVertex(27 + x, 11 + y);
+        curveVertex(28 + x, 14 + y);
+        curveVertex(24 + x, 17 + y);
+        curveVertex(24 + x, 17 + y);
+        endShape();  
+
+        stroke(57, 8, 17);
+        strokeWeight(2);
+        line(15 + x, 14 + y, 20 + x, 13 + y);
+        line(15 + x, 6 + y, 20 + x, 7 + y);
 
         //Wagon
 
