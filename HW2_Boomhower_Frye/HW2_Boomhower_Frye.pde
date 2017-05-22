@@ -1,6 +1,6 @@
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 1;  // 0 runs pointillized background; 1 runs original background
+int debug = 0;  // 0 runs pointillized background; 1 runs original background
 //int pointillize = 32;
 
 void setup() {
@@ -346,6 +346,7 @@ void draw() {
     fill(104, 46, 34);
     beginShape();
     curveVertex(389, 793);
+    curveVertex(389, 793);
     curveVertex(395, 784);
     curveVertex(400, 776);
     curveVertex(411, 771);
@@ -472,7 +473,121 @@ void draw() {
     curveVertex(389, 754);
     curveVertex(381, 765);
     curveVertex(381, 780);
+    curveVertex(381, 780);
     endShape(CLOSE);
+
+
+      // USA
+    noStroke();
+    fill(24, 27, 42);
+    beginShape();
+    curveVertex(106, 739);
+    curveVertex(106, 739);
+    curveVertex(110, 717);
+    curveVertex(119, 715);
+    curveVertex(117, 698);
+    curveVertex(103, 688);
+    curveVertex(112, 670);
+    
+    curveVertex(107, 644);
+    curveVertex(117, 635);
+    curveVertex(138, 643);
+    curveVertex(164, 651);
+    curveVertex(191, 656);
+    curveVertex(260, 659);
+    curveVertex(261, 654);
+    curveVertex(264, 656);
+    curveVertex(264, 664);
+    curveVertex(274, 664);
+    curveVertex(286, 664);
+    curveVertex(292, 664);
+    curveVertex(285, 675);
+    curveVertex(292, 679);
+    curveVertex(305, 665);
+    curveVertex(311, 672);
+    curveVertex(323, 665);
+    curveVertex(334, 669);
+    curveVertex(321, 677);
+    curveVertex(314, 683);
+    curveVertex(315, 692);
+    curveVertex(315, 701);
+    curveVertex(314, 710);
+    curveVertex(319, 711);
+    curveVertex(325, 708);
+    curveVertex(321, 697);
+    curveVertex(319, 691);
+    curveVertex(319, 686);
+    curveVertex(322, 683);
+    curveVertex(333, 673);
+    curveVertex(344, 679);
+    curveVertex(343, 689);
+    curveVertex(351, 686);
+    curveVertex(356, 697);
+    curveVertex(350, 703);
+    curveVertex(355, 705);
+    curveVertex(363, 692);
+    curveVertex(367, 682);
+    curveVertex(380, 665);
+    curveVertex(389, 651);
+    curveVertex(398, 641);
+    curveVertex(402, 632);
+    curveVertex(406, 618);
+    curveVertex(418, 612);
+    curveVertex(423, 625);
+    curveVertex(415, 634);
+    curveVertex(415, 648);
+    curveVertex(413, 663);
+    curveVertex(405, 679);
+    curveVertex(402, 689);
+    curveVertex(402, 707);
+    curveVertex(404, 715);
+    curveVertex(404, 731);
+    curveVertex(398, 740);
+    curveVertex(389, 754);
+    curveVertex(381, 765);
+    curveVertex(383, 784);
+    curveVertex(383, 786);
+    curveVertex(389, 793);
+    
+    curveVertex(376, 806);
+    curveVertex(365, 800);
+    curveVertex(356, 806);
+    curveVertex(347, 804);
+    curveVertex(336, 807);
+    curveVertex(327, 814);
+    curveVertex(333, 820);
+    curveVertex(322, 824);
+    curveVertex(308, 824);
+    curveVertex(298, 827);
+    curveVertex(292, 830);
+    curveVertex(285, 835);
+    curveVertex(276, 840);
+    curveVertex(274, 850);
+    curveVertex(274, 856);
+    curveVertex(277, 862);
+    curveVertex(264, 862);
+    curveVertex(254, 859);
+    curveVertex(248, 850);
+    curveVertex(242, 839);
+    curveVertex(235, 832);
+    curveVertex(231, 832);
+    curveVertex(223, 836);
+    curveVertex(216, 829);
+    curveVertex(209, 823);
+    curveVertex(200, 816);
+    curveVertex(194, 812);
+    curveVertex(183, 813);
+    curveVertex(174, 813);
+    curveVertex(155, 805);
+    curveVertex(145, 793);
+    curveVertex(132, 781);
+    curveVertex(124, 774);
+    curveVertex(114, 763);
+    curveVertex(106, 749);
+    curveVertex(106, 749);
+
+    endShape(CLOSE);
+
 
       // Collar
     fill(31, 34, 51);
