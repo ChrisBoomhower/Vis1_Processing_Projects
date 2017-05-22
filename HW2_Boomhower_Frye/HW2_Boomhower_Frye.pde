@@ -475,6 +475,24 @@ void draw() {
     curveVertex(381, 780);
     curveVertex(381, 780);
     endShape(CLOSE);
+    
+    quad(5, 647, 10, 695, 143, 591, 54, 593);
+    
+    fill(25, 150);
+    beginShape();
+    curveVertex(112, 615);
+    curveVertex(112, 615);
+    curveVertex(112, 606);
+    curveVertex(104, 601);
+    curveVertex(93, 604);
+    curveVertex(89, 609);
+    curveVertex(83, 607);
+    curveVertex(69, 615);
+    curveVertex(51, 621);
+    curveVertex(37, 630);
+    curveVertex(32, 642);
+    curveVertex(32, 642);
+    endShape(CLOSE);
 
 
       // USA
@@ -587,6 +605,8 @@ void draw() {
     curveVertex(106, 749);
 
     endShape(CLOSE);
+    
+    rect(97, 657, 16, 80);
 
 
       // USA Dotted Line
@@ -1075,9 +1095,249 @@ void draw() {
     curveVertex(158, 496);
     curveVertex(158, 496);
     endShape(CLOSE);
+    
+      // Left Arm
+    fill(132.0, 101.0, 55.0);
+    fill(162, 131, 85);
+    beginShape();
+    curveVertex(11, 698);
+    curveVertex(3, 715);
+    curveVertex(3, 741);
+    curveVertex(23, 773);
+    curveVertex(58, 791);
+    curveVertex(91, 778);
+    curveVertex(104, 757);
+    curveVertex(105, 736);
+    curveVertex(97, 745);
+    curveVertex(71, 756);
+    curveVertex(51, 752);
+    curveVertex(39, 746);
+    curveVertex(38, 731);
+    curveVertex(29, 722);
+    curveVertex(27, 708);
+    curveVertex(34, 702);
+    curveVertex(23, 696);
+    curveVertex(22, 678);
+    curveVertex(21, 662);
+    curveVertex(16, 680);
+    curveVertex(13, 697);
+    curveVertex(13, 697);
+    endShape();
+    
+    stroke(55.0, 52.0, 43.0);
+    curve(20, 661, 20, 661, 21, 690, 41, 747);
+    curve(20, 661, 21, 690, 26, 715, 41, 747);
+    curve(20, 661, 26, 715, 41, 747, 41, 747);
+    
+      // Left Arm Shadowing
+    noStroke();
+    //fill(162-30, 131-50, 85-50, 100);
+    fill(50, 25);
+    beginShape();
+    curveVertex(20, 688);
+    curveVertex(20, 688);
+    curveVertex(15, 707);
+    curveVertex(2, 726);
+    curveVertex(10, 754);
+    curveVertex(38, 783);
+    curveVertex(63, 791);
+    curveVertex(92, 776);
+    curveVertex(106, 757);
+    curveVertex(103, 736);
+    curveVertex(75, 712);
+    curveVertex(35, 681);
+    curveVertex(20, 676);
+    curveVertex(20, 676);
+    endShape(CLOSE);
+    
+      //Left Palm
+    fill(162, 131, 85);
+    rect(32, 658, 70, 52);
+    line(67, 699, 68, 704);
+    
+      //Left pinky
+    strokeWeight(1.5);
+    stroke(55.0, 52.0, 43.0);
+    fill(162, 131, 85);
+    beginShape();
+    curveVertex(95, 726);
+    curveVertex(95, 726);
+    curveVertex(102, 729);
+    curveVertex(100, 741);
+    curveVertex(88, 749);
+    curveVertex(71, 756);
+    curveVertex(41, 747);
+    curveVertex(40, 729);
+    curveVertex(63, 733);
+    curveVertex(85, 728);
+    curveVertex(93, 724);
+    curveVertex(93, 724);
+    endShape(CLOSE);
+    
+    curve(98, 726, 98, 726, 90, 736, 100, 741);
+    curve(98, 726, 90, 736, 92, 741, 100, 741);
+    curve(98, 726, 92, 741, 100, 741, 100, 741);
+    
+    curve(45, 734, 45, 734, 43, 738, 45, 743);
+    curve(45, 734, 43, 738, 45, 743, 45, 743);
+    
+    curve(76, 739, 76, 739, 75, 744, 80, 748);
+    curve(76, 739, 75, 744, 80, 748, 80, 748);
+    
+    
+      // Left Ring
+    beginShape();
+    curveVertex(35, 701);
+    curveVertex(35, 701);
+    curveVertex(52, 703);
+    curveVertex(61, 706);
+    curveVertex(71, 703);
+    curveVertex(85, 702);
+    curveVertex(105, 695);
+    curveVertex(116, 698);
+    curveVertex(118, 711);
+    curveVertex(110, 717);
+    curveVertex(103, 721);
+    curveVertex(76, 731);
+    curveVertex(58, 733);
+    curveVertex(38, 728);
+    curveVertex(31, 723);
+    curveVertex(27, 709);
+    curveVertex(35, 701);
+    curveVertex(35, 701);
+    endShape(CLOSE);
+    
+    curve(112, 697, 112, 697, 106, 704, 111, 715);
+    curve(112, 697, 106, 704, 106, 711, 111, 715);
+    curve(112, 697, 106, 711, 111, 715, 111, 715);
+    
+    curve(47, 712, 47, 712, 45, 717, 46, 724);
+    curve(47, 712, 45, 717, 46, 724, 46, 724);
+    
+    curve(86, 709, 86, 709, 84, 715, 88, 719);
+    curve(86, 709, 84, 715, 88, 719, 88, 719);
+    
+      // Left Middle
+    beginShape();
+    curveVertex(35, 667);
+    curveVertex(35, 667);
+    curveVertex(52, 671);
+    curveVertex(70, 669);
+    curveVertex(91, 666);
+    curveVertex(105, 664);
+    curveVertex(113, 671);
+    curveVertex(112, 684);
+    curveVertex(102, 689);
+    curveVertex(92, 691);
+    curveVertex(81, 695);
+    curveVertex(63, 699);
+    curveVertex(43, 701);
+    curveVertex(23, 695);
+    curveVertex(21, 684);
+    curveVertex(25, 673);
+    curveVertex(32, 668);
+    curveVertex(32, 668);
+    endShape(CLOSE);
+    
+    curve(110, 668, 110, 668, 102, 672, 107, 687);
+    curve(110, 668, 102, 672, 101, 679, 107, 687);
+    curve(110, 668, 101, 679, 107, 687, 107, 687);
+    
+    curve(40, 676, 40, 676, 36, 683, 37, 695);
+    curve(40, 676, 36, 683, 37, 695, 37, 695);
+    
+    curve(43, 677, 43, 677, 39, 684, 40, 696);
+    curve(43, 677, 39, 684, 40, 696, 40, 696);
+    
+    curve(80, 674, 80, 674, 77, 684, 80, 690);
+    curve(80, 674, 77, 684, 80, 690, 80, 690);
+    
+      // Left Index
+    beginShape();
+    curveVertex(98, 642);
+    curveVertex(98, 642);
+    curveVertex(103, 646);
+    curveVertex(106, 653);
+    curveVertex(101, 663);
+    curveVertex(65, 666);
+    curveVertex(46, 666);
+    curveVertex(33, 663);
+    curveVertex(30, 652);
+    curveVertex(37, 637);
+    curveVertex(58, 637);
+    curveVertex(77, 639);
+    curveVertex(95, 641);
+    curveVertex(95, 641);
+    endShape(CLOSE);
+    
+    curve(101, 644, 101, 644, 87, 647, 100, 662);
+    curve(101, 644, 87, 647, 88, 657, 100, 662);
+    curve(101, 644, 88, 657, 100, 662, 100, 662);
+    
+    curve(48, 644, 48, 644, 46, 650, 47, 659);
+    curve(48, 644, 46, 650, 47, 659, 47, 659);
+    
+    curve(72, 647, 72, 647, 70, 651, 71, 657);
+    curve(72, 647, 70, 651, 71, 657, 71, 657);
+    
+      //Left Thumb
+    beginShape();
+    curveVertex(21, 661);
+    curveVertex(21, 661);
+    curveVertex(28, 642);
+    curveVertex(47, 626);
+    curveVertex(73, 617);
+    curveVertex(82, 611);
+    curveVertex(91, 611);
+    curveVertex(96, 607);
+    curveVertex(107, 607);
+    curveVertex(113, 612);
+    curveVertex(114, 625);
+    curveVertex(103, 633);
+    curveVertex(97, 641);
+    curveVertex(68, 638);
+    curveVertex(52, 637);
+    curveVertex(38, 637);
+    curveVertex(31, 657);
+    curveVertex(35, 666);
+    curveVertex(35, 667);
+    curveVertex(26, 672);
+    curveVertex(22, 682);
+    curveVertex(21, 661);
+    curveVertex(21, 661);
+    endShape(CLOSE);
+    
+    stroke(132.0, 101.0, 55.0);
+    curve(87, 614, 87, 614, 82, 626, 100, 633);
+    curve(87, 614, 88, 632, 100, 633, 100, 633);
+    
+    stroke(55.0, 52.0, 43.0);
+    curve(57, 626, 57, 626, 63, 630, 67, 636);
+    curve(57, 626, 63, 630, 67, 636, 67, 636);
+    
+    curve(52, 630, 52, 630, 57, 630, 65, 633);
+    curve(52, 630, 57, 630, 65, 633, 65, 633);
+    
+    curve(70, 627, 70, 627, 73, 632, 77, 637);
+    curve(70, 627, 73, 632, 77, 637, 77, 637);
+    
+      // Thumb Shading
+    noStroke();
+    fill(50, 100);
+    beginShape();
+    curveVertex(33, 645);
+    curveVertex(33, 645);
+    curveVertex(28, 654);
+    curveVertex(31, 666);
+    curveVertex(35, 663);
+    curveVertex(32, 658);
+    curveVertex(33, 647);
+    curveVertex(33, 647);
+    endShape(CLOSE);
 
       // Face
     //stroke(255, 10, 10);
+    noStroke();
     strokeJoin(ROUND);
     fill(192.0, 161.0, 115.0);
     beginShape();
@@ -1166,10 +1426,12 @@ void draw() {
     ellipse(141, 325, 3, 3);
     noFill();
     
+    strokeWeight(0.5);
     stroke(55.0, 52.0, 43.0);
     curve(160, 339, 160, 339, 148, 348, 119, 354);
     curve(160, 339, 148, 348, 119, 354, 119, 354);
     //noStroke();
+    strokeWeight(2);
     
       // Left eyebrow
     fill(126.0, 101.0, 73.0);
@@ -1233,10 +1495,12 @@ void draw() {
     ellipse(250, 322, 3, 3);
     noFill();
     
+    strokeWeight(0.5);
     stroke(55.0, 52.0, 43.0);
     curve(226, 337, 226, 337, 235, 344, 257, 348);
     curve(226, 337, 235, 344, 257, 348, 257, 348);
     //noStroke();
+    strokeWeight(2);
     
       // Right eyebrow
     fill(126.0, 101.0, 73.0);
@@ -1335,6 +1599,8 @@ void draw() {
     endShape(CLOSE);
     noFill();
     
+      // Chin
+    strokeWeight(1);
     stroke(55.0, 52.0, 43.0);
     beginShape();
     vertex(177, 481);
@@ -1342,6 +1608,7 @@ void draw() {
     vertex(217, 485);
     vertex(225, 480);
     endShape();
+    strokeWeight(2);
 
     
       // Cheeks
