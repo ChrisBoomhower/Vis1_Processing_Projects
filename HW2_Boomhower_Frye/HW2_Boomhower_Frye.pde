@@ -1,6 +1,11 @@
+//https://processing.org/examples/star.html
+//https://processing.org/reference/bezierPoint_.html
+//https://processing.org/tutorials/pixels/
+
+
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 0;  // 0 runs pointillized background; 1 runs original background
+int debug = 0;  // 0 runs pointillized background; 1 runs debug/dev background toggles
 //int pointillize = 32;
 
 void setup() {
@@ -494,7 +499,126 @@ void draw() {
     curveVertex(32, 642);
     endShape(CLOSE);
 
+      // Shirt Top Accents
+    
+    fill(97, 41, 40);
+    stroke(97, 41, 40);
+    
+    beginShape();
+    curveVertex(279, 623);
+    curveVertex(279, 623);
+    curveVertex(278, 627);
+    curveVertex(279, 632);
+    curveVertex(285, 635);
+    curveVertex(292, 633);
+    curveVertex(293, 629);
+    curveVertex(294, 623);
+    endShape(CLOSE);
+    
+    beginShape();
+    curveVertex(312, 605);
+    curveVertex(312, 605);
+    curveVertex(312, 611);
+    curveVertex(310, 613);
+    curveVertex(311, 620);
+    curveVertex(314, 623);
+    curveVertex(314, 631);
+    curveVertex(316, 635);
+    curveVertex(318, 635);
+    curveVertex(321, 629);
+    curveVertex(321, 621);
+    curveVertex(319, 616);
+    curveVertex(317, 609);
+    curveVertex(317, 602);
+    curveVertex(314, 600);
+    curveVertex(314, 600);
+    endShape(CLOSE);
+    
+    
+    strokeWeight(2);
+    stroke(84, 31, 17);
+    noFill();
+    
+    beginShape();
+    curveVertex(358, 488);
+    curveVertex(358, 488);
+    curveVertex(376, 494);
+    curveVertex(400, 498);
+    curveVertex(431, 508);
+    curveVertex(444, 517);
+    curveVertex(444, 517);
+    endShape();
 
+    beginShape();
+    curveVertex(359, 479);
+    curveVertex(359, 479);
+    curveVertex(377, 486);
+    curveVertex(389, 488);
+    curveVertex(401, 492);
+    curveVertex(419, 496);
+    curveVertex(441, 505);
+    curveVertex(450, 513);
+    curveVertex(450, 513);
+    endShape();
+
+    beginShape();
+    curveVertex(422, 537);
+    curveVertex(422, 537);
+    curveVertex(417, 569);
+    curveVertex(419, 597);
+    curveVertex(419, 597);
+    endShape();
+    
+    beginShape();
+    curveVertex(416, 540);
+    curveVertex(416, 540);
+    curveVertex(411, 561);
+    curveVertex(407, 579);
+    curveVertex(408, 593);
+    curveVertex(408, 593);
+    endShape();
+
+    beginShape();
+    curveVertex(437, 666);
+    curveVertex(437, 666);
+    curveVertex(464, 659);
+    curveVertex(485, 652);
+    curveVertex(500, 640);
+    curveVertex(500, 640);
+    endShape();
+    
+    beginShape();
+    curveVertex(57, 525);
+    curveVertex(57, 525);
+    curveVertex(76, 512);
+    curveVertex(91, 500);
+    curveVertex(115, 492);
+    curveVertex(123, 488);
+    curveVertex(123, 488);
+    endShape();
+
+    beginShape();
+    curveVertex(53, 519);
+    curveVertex(53, 519);
+    curveVertex(65, 512);
+    curveVertex(72, 505);
+    curveVertex(78, 499);
+    curveVertex(86, 494);
+    curveVertex(105, 489);
+    curveVertex(118, 484);
+    curveVertex(118, 484);
+    endShape();
+
+    beginShape();
+    curveVertex(94, 527);
+    curveVertex(94, 527);
+    curveVertex(90, 547);
+    curveVertex(89, 564);
+    curveVertex(90, 582);
+    curveVertex(90, 582);
+
+    endShape();
+    
       // USA
     noStroke();
     fill(24, 27, 42);
@@ -1041,17 +1165,363 @@ void draw() {
         line(15 + x, 6 + y, 20 + x, 7 + y);
 
         //Wagon
+        x = 270;
+        y = 741;
+        noFill();
+        stroke(105, 36, 34);
+        strokeWeight(3);
+        ellipse(0 + x, 0 + y, 20, 20);
 
+        fill(105, 36, 34);
+        ellipse(0 + x, 0 + y, 5, 5);
+        
+        line(0 + x, 0 + y,  10 + x, 0 + y);
+        line(0 + x, 0 + y, -25 + x, 0 + y);
+        line(0 + x, 0 + y, 0 + x,  10 + y);
+        line(0 + x, 0 + y, 0 + x, -10 + y);
+        
+        noFill();
+        strokeWeight(2);
+        ellipse(-27 + x, 2 + y, 8, 8);
+        line(-27 + x, 2 + y,  -23 + x, 2 + y);
+        line(-27 + x, 2 + y, -31 + x, 2 + y);
+        line(-27 + x, 2 + y, -27 + x, 6 + y);
+        line(-27 + x, 2 + y, -27 + x, -2 + y);
+        
+        fill(105, 36, 34);
+        quad(-13 + x, -2 + y, -13 + x, -10 + y, -30 + x, -12 + y, -30 + x, -4 + y);
+        
+        line(-22 + x, -11 + y,  -22 + x, -17 + y);
+        line(-26 + x, -11 + y,  -26 + x, -14 + y);
+        
         //Cactus
+        x = 176;
+        y = 770;
+        strokeWeight(3);
+        noFill();
+        stroke(75, 138, 64);
+        
+        strokeJoin(ROUND);
+        strokeCap(ROUND);
+        
+        beginShape();
+        curveVertex(0 + x, 0 + y);
+        curveVertex(0 + x, 0 + y);
+        curveVertex(0 + x, 10 + y);
+        curveVertex(4 + x, 14 + y);
+        curveVertex(16 + x, 14 + y);
+        curveVertex(20 + x, 10 + y);
+        curveVertex(20 + x, 0 + y);
+        curveVertex(20 + x, 0 + y);
+        endShape();
+        
+        line(10 + x, -12 + y, 10 + x, 36 + y);
 
+        strokeJoin(MITER);
+        strokeCap(MITER);
+        
         //Star
+        x = 253;
+        y = 819;
+        fill(73, 78, 83); 
+        noStroke();
+        beginShape();
+        line(-3.5 + x, 0 + y, 0 + x, -3.5 + y);
+        endShape(CLOSE);
+        
+        star(x, y, 7, 20, 5);
 
         //Horse
-
+        x = 321;
+        y = 776;
+        fill(96, 85, 10);
+        noStroke();
+        beginShape();
+        curveVertex(x + 23, y + 7);
+        curveVertex(x + 23, y + 7);
+        curveVertex(x + 21, y + 7);
+        curveVertex(x + 20, y + 8);
+        curveVertex(x + 20, y + 6);
+        curveVertex(x + 20, y + 4);
+        curveVertex(x + 21, y + 0);
+        curveVertex(x + 22, y + -4);
+        curveVertex(x + 21, y + -8);
+        curveVertex(x + 18, y + -10);
+        curveVertex(x + 14, y + -11);
+        curveVertex(x + 8, y + -10);
+        curveVertex(x + 0, y + -8);
+        curveVertex(x + -2, y + -10);
+        curveVertex(x + -3, y + -14);
+        curveVertex(x + -9, y + -17);
+        curveVertex(x + -13, y + -17);
+        curveVertex(x + -15, y + -20);
+        curveVertex(x + -16, y + -15);
+        curveVertex(x + -21, y + -16);
+        curveVertex(x + -21, y + -12);
+        curveVertex(x + -21, y + -8);
+        curveVertex(x + -22, y + -6);
+        curveVertex(x + -22, y + -2);
+        curveVertex(x + -23, y + 0);
+        curveVertex(x + -20, y + 0);
+        curveVertex(x + -16, y + 0);
+        curveVertex(x + -15, y + -5);
+        curveVertex(x + -13, y + -1);
+        curveVertex(x + -14, y + 3);
+        curveVertex(x + -17, y + 7);
+        curveVertex(x + -21, y + 10);
+        curveVertex(x + -20, y + 15);
+        curveVertex(x + -15, y + 18);
+        curveVertex(x + -12, y + 15);
+        curveVertex(x + -14, y + 13);
+        curveVertex(x + -16, y + 13);
+        curveVertex(x + -16, y + 11);
+        curveVertex(x + -13, y + 11);
+        curveVertex(x + -11, y + 12);
+        curveVertex(x + -9, y + 13);
+        curveVertex(x + -8, y + 16);
+        curveVertex(x + -7, y + 23);
+        curveVertex(x + -7, y + 27);
+        curveVertex(x + -4, y + 27);
+        curveVertex(x + -2, y + 26);
+        curveVertex(x + -2, y + 22);
+        curveVertex(x + -1, y + 16);
+        curveVertex(x + -2, y + 11);
+        curveVertex(x + 0, y + 10);
+        curveVertex(x + 3, y + 13);
+        curveVertex(x + 3, y + 17);
+        curveVertex(x + 4, y + 21);
+        curveVertex(x + 7, y + 21);
+        curveVertex(x + 8, y + 19);
+        curveVertex(x + 8, y + 15);
+        curveVertex(x + 8, y + 14);
+        curveVertex(x + 9, y + 10);
+        curveVertex(x + 10, y + 15);
+        curveVertex(x + 10, y + 19);
+        curveVertex(x + 11, y + 21);
+        curveVertex(x + 12, y + 23);
+        curveVertex(x + 15, y + 20);
+        curveVertex(x + 15, y + 17);
+        curveVertex(x + 16, y + 11);
+        curveVertex(x + 16, y + 9);
+        curveVertex(x + 15, y + 3);
+        curveVertex(x + 17, y + -2);
+        curveVertex(x + 17, y + 7);
+        curveVertex(x + 21, y + 12);
+        curveVertex(x + 21, y + 12);
+        endShape(CLOSE);
+        
         //Truck
+        x = 341;
+        y = 719;
+        fill(56, 55, 63);
+        
+        beginShape();
+        curveVertex(x + -22, y + 9);
+        curveVertex(x + -22, y + 9);
+        curveVertex(x + -27, y + 10);
+        curveVertex(x + -29, y + 2);
+        curveVertex(x + -5, y + -2);
+        curveVertex(x + 16, y + -6);
+        curveVertex(x + 29, y + -10);
+        curveVertex(x + 30, y + -4);
+        curveVertex(x + 25, y + -2);
+        curveVertex(x + 23, y + -4);
+        curveVertex(x + 20, y + -4);
+        curveVertex(x + 16, y + -2);
+        curveVertex(x + 12, y + 2);
+        curveVertex(x + -7, y + 7);
+        curveVertex(x + -8, y + 4);
+        curveVertex(x + -12, y + 3);
+        curveVertex(x + -17, y + 3);
+        curveVertex(x + -20, y + 6);
+        curveVertex(x + -22, y + 9);
+        curveVertex(x + -22, y + 9);
+        endShape(CLOSE);
+        
+        noFill();
+        stroke(56, 55, 63);
+        beginShape();
+        curveVertex(x + -5, y + -2);
+        curveVertex(x + -5, y + -2);
+        curveVertex(x + -5, y + -10);
+        curveVertex(x + 11, y + -14);
+        curveVertex(x + 16, y + -6);
+        curveVertex(x + 16, y + -6);
+        endShape();
 
+        stroke(76, 83, 89);
+        strokeWeight(3);
+        ellipse(-15 + x, 9 + y, 8, 8);
+        ellipse(20  + x, 3 + y, 8, 8);
+        
+        strokeWeight(2);
+        beginShape();
+        curveVertex(x + -6, y + 8);
+        curveVertex(x + -6, y + 8);
+        curveVertex(x + 3, y + 6);
+        curveVertex(x + 12, y + 5);
+        curveVertex(x + 12, y + 5);
+        endShape();
+        
         //Anchor
+        x = 398;
+        y = 636;
+        strokeWeight(2);
+        noFill();
+        stroke(169, 142, 55);
+        
+        ellipse(0 + x, 0 + y, 5, 5);
+        line(-11 + x, 5 + y, 8 + x, 6 + y);
+        
+        strokeWeight(3);
+        line(x + -2, y + 9, x + -3, y + 29);
 
+        beginShape();
+        curveVertex(x + -15, y + 15);
+        curveVertex(x + -15, y + 15);
+        curveVertex(x + -13, y + 25);
+        curveVertex(x + -11, y + 28);
+        curveVertex(x + -8, y + 30);
+        curveVertex(x + -4, y + 30);
+        curveVertex(x + 2, y + 27);
+        curveVertex(x + 6, y + 22);
+        curveVertex(x + 7, y + 15);
+        curveVertex(x + 7, y + 15);
+        endShape();
+        
+        //palm tree
+        x = 393;
+        y = 763;
+        strokeWeight(2);
+        fill(74.0, 21.0, 23.0);
+        stroke(74.0, 21.0, 23.0);
+        
+        beginShape();
+        curveVertex(x + 0, y + 0);
+        curveVertex(x + 0, y + 0);
+        curveVertex(x + -2, y + -5);
+        curveVertex(x + -2, y + -9);
+        curveVertex(x + -3, y + -13);
+        curveVertex(x + -3, y + -13);
+        endShape();
+
+        beginShape();
+        curveVertex(x + -3, y + -15);
+        curveVertex(x + -3, y + -15);
+        curveVertex(x + -6, y + -13);
+        curveVertex(x + -6, y + -12);
+        curveVertex(x + -7, y + -12);
+        curveVertex(x + -10, y + -12);
+        curveVertex(x + -11, y + -12);
+        curveVertex(x + -10, y + -18);
+        curveVertex(x + -9, y + -19);
+        curveVertex(x + -9, y + -20);
+        curveVertex(x + -9, y + -20);
+        curveVertex(x + -9, y + -20);
+        curveVertex(x + -12, y + -19);
+        curveVertex(x + -13, y + -18);
+        curveVertex(x + -14, y + -17);
+        curveVertex(x + -16, y + -17);
+        curveVertex(x + -17, y + -17);
+        curveVertex(x + -18, y + -23);
+        curveVertex(x + -18, y + -23);
+        curveVertex(x + -15, y + -23);
+        curveVertex(x + -10, y + -26);
+        curveVertex(x + -9, y + -26);
+        curveVertex(x + -8, y + -31);
+        curveVertex(x + -4, y + -34);
+        curveVertex(x + 0, y + -36);
+        curveVertex(x + 1, y + -37);
+        curveVertex(x + 1, y + -40);
+        curveVertex(x + 1, y + -40);
+        curveVertex(x + 7, y + -40);
+        curveVertex(x + 9, y + -40);
+        curveVertex(x + 9, y + -40);
+        curveVertex(x + 9, y + -36);
+        curveVertex(x + 10, y + -35);
+        curveVertex(x + 10, y + -32);
+        curveVertex(x + 10, y + -30);
+        curveVertex(x + 10, y + -27);
+        curveVertex(x + 7, y + -25);
+        curveVertex(x + 7, y + -20);
+        curveVertex(x + 7, y + -17);
+        curveVertex(x + 4, y + -21);
+        curveVertex(x + 3, y + -19);
+        curveVertex(x + 2, y + -16);
+        curveVertex(x + -1, y + -16);
+        curveVertex(x + -1, y + -16);
+        endShape();
+
+        // florida
+        x = 368;
+        y = 794;
+        fill(37.0, 84.0, 27.0);
+        noStroke();
+        beginShape();
+        curveVertex(x + 0, y + 0);
+        curveVertex(x + -1, y + 1);
+        curveVertex(x + -5, y + -6);
+        curveVertex(x + -5, y + -6);
+        curveVertex(x + -5, y + -9);
+        curveVertex(x + -2, y + -10);
+        curveVertex(x + 2, y + -10);
+        curveVertex(x + 9, y + -8);
+        curveVertex(x + 17, y + -10);
+        curveVertex(x + 21, y + -13);
+        curveVertex(x + 24, y + -17);
+        curveVertex(x + 28, y + -21);
+        curveVertex(x + 32, y + -24);
+        curveVertex(x + 34, y + -23);
+        curveVertex(x + 36, y + -22);
+        curveVertex(x + 38, y + -15);
+        curveVertex(x + 38, y + -15);
+        curveVertex(x + 34, y + -8);
+        curveVertex(x + 32, y + -11);
+        curveVertex(x + 29, y + -9);
+        curveVertex(x + 29, y + -6);
+        curveVertex(x + 25, y + -1);
+        curveVertex(x + 19, y + 3);
+        curveVertex(x + 13, y + 8);
+        curveVertex(x + 8, y + 11);
+        curveVertex(x + 6, y + 10);
+        curveVertex(x + 4, y + 8);
+        curveVertex(x + 7, y + 5);
+        curveVertex(x + 9, y + 5);
+        curveVertex(x + 11, y + 4);
+        curveVertex(x + 13, y + 3);
+        curveVertex(x + 12, y + 0);
+        curveVertex(x + 16, y + 0);
+        curveVertex(x + 18, y + -2);
+        curveVertex(x + 18, y + -3);
+        curveVertex(x + 20, y + -5);
+        curveVertex(x + 22, y + -8);
+        curveVertex(x + 17, y + -5);
+        curveVertex(x + 14, y + -3);
+        curveVertex(x + 13, y + -3);
+        curveVertex(x + 12, y + -4);
+        curveVertex(x + 9, y + -2);
+        curveVertex(x + 7, y + -1);
+        curveVertex(x + 2, y + -1);
+        endShape(CLOSE);
+
+        noFill();
+        stroke(114, 186, 88);
+        
+        beginShape();
+        curveVertex(x + -4, y + -10);
+        curveVertex(x + -4, y + -10);
+        curveVertex(x + -1, y + -10);
+        curveVertex(x + 2, y + -10);
+        curveVertex(x + 6, y + -8);
+        curveVertex(x + 12, y + -9);
+        curveVertex(x + 18, y + -11);
+        curveVertex(x + 24, y + -16);
+        curveVertex(x + 28, y + -20);
+        curveVertex(x + 31, y + -23);
+        curveVertex(x + 32, y + -22);
+        curveVertex(x + 36, y + -19);
+        curveVertex(x + 36, y + -19);
+        endShape();
 
       // Collar
     strokeWeight(1);
@@ -1836,6 +2306,9 @@ void draw() {
 
     saveFrame("Boogers.jpg");  
     
+    if (debug == 0){
+      stop();
+    }
   }
 }
 
@@ -1848,4 +2321,28 @@ void mousePressed(){
   else {
     redraw();
   }  
+}
+
+void star(float x, float y, float radius1, float radius2, int npoints) {
+  float angle = TWO_PI / npoints;
+  float halfAngle = angle/2.0;
+  beginShape();
+  int i = 0;
+  for (float a = 0; a < TWO_PI; a += angle) {
+    float sx = x + cos(a) * radius2;
+    float sy = y + sin(a) * radius2;
+    noStroke();
+    vertex(sx, sy);
+    float sx2 = x + cos(a+halfAngle) * radius1;
+    float sy2 = y + sin(a+halfAngle) * radius1;
+    vertex(sx2, sy2);
+    if (i % 2 == 0) {
+      stroke(100, 106, 112);
+      strokeWeight(4);
+      line(sx, sy, sx2, sy2);
+      noStroke();
+    }
+    i = i + 1;
+  }
+  endShape(CLOSE);
 }
