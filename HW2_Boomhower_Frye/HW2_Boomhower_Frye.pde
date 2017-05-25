@@ -5,7 +5,7 @@
 
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 0;  // 0 runs pointillized background; 1 runs debug/dev background toggles
+int debug = 1;  // 0 runs pointillized background; 1 runs debug/dev background toggles
 //int pointillize = 32;
 
 void setup() {
@@ -346,7 +346,33 @@ void draw() {
     curveVertex(381, 902);
     endShape();
     
+      // Right Arm
+    strokeWeight(1.5);
+    stroke(55.0, 52.0, 43.0);
+    fill(162, 131, 85);
+    beginShape();
+    curveVertex(519, 657);
+    curveVertex(519, 657);
+    curveVertex(522, 661);
+    curveVertex(528, 685);
+    curveVertex(528, 699);
+    curveVertex(524, 719);
+    curveVertex(498, 790);
+    curveVertex(487, 809);
+    curveVertex(483, 819);
+    curveVertex(477, 792);
+    curveVertex(445, 770);
+    curveVertex(423, 769);
+    curveVertex(431, 754);
+    curveVertex(437, 743);
+    curveVertex(437, 717);
+    curveVertex(436, 696);
+    curveVertex(435, 687);
+    curveVertex(435, 687);
+    endShape();
+    
       //Shirt Top
+    strokeWeight(2);
     noStroke();
     fill(104, 46, 34);
     beginShape();
@@ -1804,6 +1830,108 @@ void draw() {
     curveVertex(33, 647);
     curveVertex(33, 647);
     endShape(CLOSE);
+    
+    
+      // Right thumb and back of palm
+    stroke(55.0, 52.0, 43.0);
+    fill(162, 131, 85);
+    beginShape();
+    curveVertex(423, 766);
+    curveVertex(423, 766);
+    curveVertex(420, 769);
+    curveVertex(413, 774);
+    curveVertex(400, 782);
+    curveVertex(395, 791);
+    curveVertex(392, 797);
+    curveVertex(387, 801);
+    curveVertex(382, 811);
+    curveVertex(378, 819);
+    curveVertex(376, 824);
+    curveVertex(372, 836);
+    curveVertex(373, 843);
+    curveVertex(387, 843);
+    curveVertex(401, 834);
+    curveVertex(404, 825);
+    curveVertex(409, 819);
+    curveVertex(419, 793);
+    curveVertex(419, 795);
+    curveVertex(416, 804);
+    curveVertex(415, 814);
+    curveVertex(414, 816);
+    curveVertex(420, 806);
+    curveVertex(425, 802);
+    curveVertex(436, 805);
+    curveVertex(443, 819);
+    curveVertex(447, 835);
+    curveVertex(459, 839);
+    curveVertex(463, 853);
+    curveVertex(473, 861);
+    curveVertex(477, 870);
+    curveVertex(481, 870);
+    curveVertex(484, 871);
+    curveVertex(486, 853);
+    curveVertex(484, 830);
+    curveVertex(484, 820);
+    curveVertex(484, 820);
+    endShape();
+    
+    noStroke();
+    quad(423, 770, 483.5, 820, 492, 792, 433, 757);
+    
+      // Right Pinky
+    stroke(55.0, 52.0, 43.0);
+    beginShape();
+    curveVertex(484, 871);
+    curveVertex(484, 871);
+    curveVertex(481, 888);
+    curveVertex(479, 895);
+    curveVertex(476, 899);
+    curveVertex(469, 908);
+    curveVertex(459, 916);
+    curveVertex(450, 918);
+    curveVertex(441, 920);
+    curveVertex(435, 919);
+    curveVertex(426, 918);
+    curveVertex(426, 911);
+    curveVertex(449, 898);
+    curveVertex(469, 875);
+    curveVertex(477, 871);
+    curveVertex(477, 871);
+    endShape();
+
+    curve(429, 912, 429, 912, 433, 914, 436, 918);
+    curve(429, 912, 433, 914, 436, 918, 436, 918);
+    //curve(423, 912, 438, 916, 426, 919, 426, 919);
+    
+      // Right Ring Finger
+    beginShape();
+    curveVertex(477, 870);
+    curveVertex(477, 870);
+    curveVertex(470, 886);
+    curveVertex(466, 892);
+    curveVertex(462, 897);
+    curveVertex(447, 907);
+    curveVertex(436, 912);
+    curveVertex(430, 914);
+    curveVertex(417, 914);
+    curveVertex(411, 915);
+    curveVertex(404, 914);
+    curveVertex(399, 908);
+    curveVertex(401, 900);
+    curveVertex(410, 895);
+    curveVertex(420, 893);
+    curveVertex(427, 890);
+    curveVertex(438, 882);
+    curveVertex(448, 873);
+    curveVertex(458, 863);
+    curveVertex(463, 853);
+    curveVertex(472, 859);
+    curveVertex(472, 860);
+    endShape();
+    
+    curve(400, 909, 400, 909, 407, 907, 405, 914);
+    curve(400, 909, 407, 907, 412, 914, 405, 914);
+    curve(400, 909, 412, 914, 405, 914, 405, 914);
 
       // Face
     //stroke(255, 10, 10);
