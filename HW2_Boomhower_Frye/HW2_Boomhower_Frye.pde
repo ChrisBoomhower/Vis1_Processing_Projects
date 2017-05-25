@@ -2903,7 +2903,221 @@ void draw() {
     vertex(166, 385);
     //vertex(164, 387);
     endShape(CLOSE);
+    
+    fill(33, 43, 48);
+    stroke(33, 43, 48);
+    quad(162, 396, 160, 404, 178, 408, 179, 400);
+    
+    noStroke();
+    fill(41.0, 108.0, 117.0);
+    ellipse(165, 401, 4, 4);
+    ellipse(170.5, 402.5, 4, 4);
+    ellipse(176, 404, 4, 4);  
 
+    fill(33, 43, 48);
+    quad(131, 534, 128, 542, 145, 546, 146.5, 538);
+    
+    fill(41.0, 108.0, 117.0);
+    ellipse(133, 538.5, 4, 4);
+    ellipse(138.5, 540, 4, 4);
+    ellipse(143.5, 541, 4, 4);  
+
+    fill(25, 22, 27);
+    noStroke();
+    beginShape();
+    curveVertex(125, 550);
+    curveVertex(125, 550);
+    curveVertex(125, 554);
+    curveVertex(126, 556);
+    curveVertex(124, 558);
+    curveVertex(128, 560);
+    curveVertex(135, 562);
+    curveVertex(139, 562);
+    curveVertex(143, 560);
+    curveVertex(143, 559);
+    curveVertex(145, 555);
+    curveVertex(138, 553);
+    curveVertex(134, 552);
+    curveVertex(130, 552);
+    curveVertex(130, 552);
+
+    endShape(CLOSE);
+
+    noFill();
+    stroke(0);
+    strokeWeight(2);
+    beginShape();
+    curveVertex(173, 432);
+    curveVertex(173, 432);
+    curveVertex(168, 430);
+    curveVertex(164, 433);
+    curveVertex(163, 435);
+    curveVertex(163, 439);
+    curveVertex(162, 442);
+    curveVertex(160, 444);
+    curveVertex(160, 446);
+    curveVertex(162, 448);
+    curveVertex(164, 449);
+    curveVertex(160, 449);
+    curveVertex(158, 450);
+    curveVertex(158, 453);
+    curveVertex(158, 456);
+    curveVertex(157, 457);
+    curveVertex(157, 460);
+    curveVertex(158, 462);
+    curveVertex(156, 461);
+    curveVertex(154, 459);
+    curveVertex(151, 458);
+    curveVertex(151, 458);
+    curveVertex(151, 462);
+    curveVertex(151, 467);
+    curveVertex(151, 471);
+    curveVertex(151, 475);
+    curveVertex(151, 479);
+    curveVertex(152, 481);
+    curveVertex(151, 482);
+    curveVertex(151, 484);
+    curveVertex(153, 485);
+    curveVertex(153, 487);
+    curveVertex(151, 487);
+    curveVertex(147, 489);
+    curveVertex(148, 493);
+    curveVertex(147, 496);
+    curveVertex(147, 498);
+    curveVertex(147, 500);
+    curveVertex(149, 501);
+    curveVertex(152, 502);
+    curveVertex(149, 503);
+    curveVertex(147, 502);
+    curveVertex(145, 505);
+    curveVertex(144, 508);
+    curveVertex(145, 510);
+    curveVertex(147, 511);
+    curveVertex(150, 511);
+    curveVertex(151, 513);
+    curveVertex(151, 513);
+    endShape();
+    
+    stroke(255);
+    strokeWeight(3);
+    beginShape();
+    curveVertex(171, 434);
+    curveVertex(171, 434);
+    curveVertex(168, 434);
+    curveVertex(166, 435);
+  
+    curveVertex(165, 441);
+    curveVertex(165, 441);
+    endShape();
+
+    stroke(255);
+    strokeWeight(3);
+    beginShape();
+    curveVertex(163, 445);
+    curveVertex(163, 445);
+    curveVertex(165, 445);
+    curveVertex(166, 445);
+    curveVertex(167, 447);
+    curveVertex(167, 447);
+    endShape();
+    
+    strokeWeight(2);
+    beginShape();
+    curveVertex(167, 446);
+    curveVertex(167, 446);
+    curveVertex(167, 452);
+    curveVertex(167, 452);
+    endShape();
+
+    strokeWeight(3);
+    line(159, 458, 166, 460);
+
+    strokeWeight(2);
+    ellipse(163, 456, 5, 8);
+
+    fill(0);
+    noStroke();
+    ellipse(163, 456, 2, 3);
+
+    
+    fill(34, 102, 109);
+    beginShape();
+    curveVertex(154, 478);
+    curveVertex(154, 478);
+    curveVertex(153, 462);
+    curveVertex(162, 467);
+    curveVertex(162, 463);
+    curveVertex(165, 464);
+    curveVertex(162, 476);
+    curveVertex(158, 473);
+    curveVertex(158, 480);
+    curveVertex(154, 478);
+    curveVertex(154, 478);
+    endShape();
+
+    noFill();
+    stroke(255);
+    strokeWeight(1.5);
+    beginShape();
+    curveVertex(154, 478);
+    curveVertex(154, 478);
+    curveVertex(153, 462);
+    curveVertex(162, 467);
+    curveVertex(162, 463);
+    curveVertex(165, 464);
+    curveVertex(162, 476);
+    curveVertex(158, 473);
+    curveVertex(158, 480);
+    curveVertex(154, 478);
+    curveVertex(154, 478);
+    endShape();
+
+    stroke(255);
+    strokeWeight(2);
+    beginShape();
+    curveVertex(154, 482);
+    curveVertex(154, 482);
+    curveVertex(156, 484);
+    curveVertex(159, 487);
+    curveVertex(158, 493);
+    curveVertex(156, 492);
+    curveVertex(152, 491);
+    curveVertex(151, 497);
+    curveVertex(155, 499);
+    curveVertex(155, 499);
+
+    endShape();
+    
+    strokeWeight(1.5);
+    line(156, 485, 154, 492);
+    line(155, 499, 155, 504);
+
+    stroke(255);
+    strokeWeight(3);
+    beginShape();
+    curveVertex(146, 506);
+    curveVertex(146, 506);
+    curveVertex(154, 508);
+    curveVertex(154, 508);
+    endShape();
+
+    strokeWeight(1.5);
+    line(154, 508, 153, 513);
+
+    noStroke();
+    fill(0);
+    ellipse(157, 489, 1,2);
+    
+    strokeWeight(2);
+    noFill();
+    stroke(0);
+    beginShape();
+    vertex(143, 554);
+    vertex(143, 554);
+    vertex(182, 392);
+    vertex(182, 392);
+    endShape();
+    
     saveFrame("Boogers.jpg");  
     
     if (debug == 0){
