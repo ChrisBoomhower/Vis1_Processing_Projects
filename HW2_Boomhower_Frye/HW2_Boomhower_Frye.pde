@@ -1,12 +1,17 @@
-//https://processing.org/examples/star.html
-//https://processing.org/reference/bezierPoint_.html
-//https://processing.org/tutorials/pixels/
+/* MSDS 6390 - Homework 2 - 5/25/17                                            *
+ * Alex Frye, Chris Boomhower                                                  *
+ * Description: This is a cartoon rendition of a silly picture of Chris' son,  *
+ *              the family clown, and is titled, "Boogers"                     *
+ *                                                                             *
+ * Resources from which tutorial and example code was gathered and modified:   *
+ * //https://processing.org/examples/star.html                                 *
+ * //https://processing.org/reference/bezierPoint_.html                        *
+ * //https://processing.org/tutorials/pixels/                                  */
 
 
 PImage pic;
 int drawFlag = 0; // don't change this assignment
-int debug = 1;  // 0 runs pointillized background; 1 runs debug/dev background toggles
-//int pointillize = 32;
+int debug = 0;  // 0 runs pointillized background; 1 runs debug/dev background toggles
 
 void setup() {
   size(576, 1024);
@@ -1699,7 +1704,6 @@ void draw() {
     
       // Left Arm Shadowing
     noStroke();
-    //fill(162-30, 131-50, 85-50, 100);
     fill(50, 40);
     beginShape();
     curveVertex(20, 688);
@@ -2246,7 +2250,8 @@ void draw() {
     curveVertex(86, 403);
     curveVertex(90, 396);
     curveVertex(86, 383);
-    curveVertex(85, 371);
+    curveVertex(84, 376);
+    curveVertex(82, 370);
     curveVertex(80, 354);
     curveVertex(79, 317);
     curveVertex(75, 300);
@@ -2299,6 +2304,10 @@ void draw() {
     curveVertex(83, 306);
     endShape(CLOSE);
     
+    stroke(55.0, 52.0, 43.0);
+    curve(96, 410, 96, 410, 93, 401, 90, 395);
+    curve(96, 410, 93, 401, 90, 395, 90, 395);
+    
       // Left eye
     fill(220);
     stroke(55.0, 52.0, 43.0);
@@ -2327,7 +2336,6 @@ void draw() {
     stroke(55.0, 52.0, 43.0);
     curve(160, 339, 160, 339, 148, 348, 119, 354);
     curve(160, 339, 148, 348, 119, 354, 119, 354);
-    //noStroke();
     
       // Left eyebrow
     strokeWeight(1);
@@ -2345,28 +2353,6 @@ void draw() {
     
       // Right eye
     fill(220);
-    //beginShape();
-    //curveVertex(227, 328);
-    //curveVertex(234, 320);
-    //curveVertex(239, 318);
-    //curveVertex(244, 315);
-    //curveVertex(252, 316);
-    //curveVertex(264, 319);
-    //curveVertex(274, 321);
-    //curveVertex(280, 326);
-    //curveVertex(271, 325);
-    //curveVertex(267, 324);
-    //curveVertex(259, 325);
-    //curveVertex(251, 326);
-    //curveVertex(241, 325);
-    //curveVertex(236, 326);
-    //curveVertex(226, 328);
-    //curveVertex(227, 328);
-    //endShape(CLOSE);
-    
-    //noStroke();
-    //triangle(239, 317, 229, 328, 241, 327);
-    //stroke(55.0, 52.0, 43.0);
     
     beginShape();
     curveVertex(227, 328);
@@ -2401,7 +2387,6 @@ void draw() {
     endShape();
     
     fill(63.0, 68.0, 80.0);
-    //fill(0, 0, 255);
     ellipse(249, 322, 26, 13);
     fill(0);
     ellipse(249, 322, 5, 5);
@@ -2413,7 +2398,6 @@ void draw() {
     stroke(55.0, 52.0, 43.0);
     curve(226, 337, 226, 337, 235, 344, 257, 348);
     curve(226, 337, 235, 344, 257, 348, 257, 348);
-    //noStroke();
     strokeWeight(2);
     
       // Right eyebrow
@@ -2477,13 +2461,8 @@ void draw() {
     curveVertex(180, 354);
     endShape(CLOSE);
     
-
-    noFill();
-    
       // Mouth
     fill(114.0, 79.0, 66.0);
-    //stroke(120.0, 84.0, 50.0);
-    //stroke(0);
     noStroke();
     beginShape();
     vertex(175, 422);
@@ -2594,7 +2573,6 @@ void draw() {
     vertex(181, 447);
     vertex(179, 454);
     vertex(170, 448);
-    //vertex(173, 428);
     endShape(CLOSE);
     noFill();
     
@@ -2901,7 +2879,6 @@ void draw() {
     vertex(177, 386);
     vertex(171, 384);
     vertex(166, 385);
-    //vertex(164, 387);
     endShape(CLOSE);
     
     fill(33, 43, 48);
