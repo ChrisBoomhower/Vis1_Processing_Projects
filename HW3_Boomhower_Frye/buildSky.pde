@@ -1,7 +1,6 @@
 /******************************************************************************************
 Function utilized in order to create the sky background inside the windows. 
 Facilitates the transition between "Day" and "Night"
-
 ******************************************************************************************/
 
 void buildSky(String dayType, color[] skyRedTemplate, color[] skyGreenTemplate, color[] skyBlueTemplate, 
@@ -26,6 +25,8 @@ void buildSky(String dayType, color[] skyRedTemplate, color[] skyGreenTemplate, 
     } else if (dayType == "Night" & frameCount % 10 == 0) {
       fill(skyRed[dayChangeCounter], skyGreen[dayChangeCounter], skyBlue[dayChangeCounter]);
       quad(50, 100, 1150, 100, 1150, 350, 50, 350);
+      
+
 
       dayChangeCounter ++;
 
@@ -34,4 +35,34 @@ void buildSky(String dayType, color[] skyRedTemplate, color[] skyGreenTemplate, 
       }
     }
   }
+}
+
+void buildStars(float[] starX, float[] starY, float[] starRadius1, float[] starRadius2, int[] starNPoints){
+  pushMatrix();
+  fill(255);
+  noStroke();
+  
+  
+  if (frameCount % 5 == 0 & starCount > 0){
+    for (int i = 0; i < starCount; i++){
+      //println(i, starCount, starX[starCount-1], starY[starCount-1], starRadius1[starCount-1], starRadius2[starCount-1], starNPoints[starCount-1]);
+      star(starX[starCount-1], starY[starCount-1], starRadius1[starCount-1], starRadius2[starCount-1], starNPoints[starCount-1]); 
+    }  
+    starCount --; 
+  }
+  
+  for (int i = starX.length-1; i >= starCount; i--){
+    pushMatrix();
+    
+    translate(starX[i], starY[i]);
+    if (frameCount % 3 == 0){
+      rotate(PI/90 * int(random(-3,3)));
+    }
+    star(0,0, starRadius1[i], starRadius2[i], starNPoints[i]); 
+    
+    popMatrix();
+  }
+  
+  popMatrix();
+  
 }
