@@ -12,7 +12,7 @@ void buildSky(String dayType, color[] skyRedTemplate, color[] skyGreenTemplate, 
     fill(skyRedTemplate[skyRedTemplate.length-1], skyGreenTemplate[skyGreenTemplate.length-1], skyBlueTemplate[skyBlueTemplate.length-1]);
     quad(50, 100, 1150, 100, 1150, 350, 50, 350);
   } else {
-    if (dayType == "Day" & frameCount % 10 == 0) {
+    if (dayType == "Day" & frameCount % 7 == 0) {
       //println(skyRed[dayChangeCounter], skyGreen[dayChangeCounter], skyBlue[dayChangeCounter]);
       fill(skyRed[dayChangeCounter], skyGreen[dayChangeCounter], skyBlue[dayChangeCounter]);
       quad(50, 100, 1150, 100, 1150, 350, 50, 350);
@@ -22,7 +22,7 @@ void buildSky(String dayType, color[] skyRedTemplate, color[] skyGreenTemplate, 
       if (dayChangeCounter == 0) {
         dayChangeFlag = 0;
       }
-    } else if (dayType == "Night" & frameCount % 10 == 0) {
+    } else if (dayType == "Night" & frameCount % 7 == 0) {
       fill(skyRed[dayChangeCounter], skyGreen[dayChangeCounter], skyBlue[dayChangeCounter]);
       quad(50, 100, 1150, 100, 1150, 350, 50, 350);
       
@@ -56,7 +56,7 @@ void buildStars(float[] starX, float[] starY, float[] starRadius1, float[] starR
     
     translate(starX[i], starY[i]);
     if (frameCount % 3 == 0){
-      rotate(PI/90 * int(random(-3,3)));
+      rotate(PI/90 * int(random(-5,5)));
     }
     star(0,0, starRadius1[i], starRadius2[i], starNPoints[i]); 
     

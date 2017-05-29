@@ -17,7 +17,7 @@ int dayChangeFlag = 1;
 int[] skyRedTemplate = {102, 226, 231, 126, 41};
 color[] skyGreenTemplate = {150, 227, 165, 75, 41};
 color[] skyBlueTemplate  = {186, 139, 83, 104, 101};
-int framesPerTrans = 5;
+int framesPerTrans = 10;
 
 color[] skyRed = new color[(skyRedTemplate.length - 1)* framesPerTrans];
 color[] skyGreen = new color[(skyGreenTemplate.length - 1)* framesPerTrans];
@@ -127,4 +127,13 @@ void reset() {
   dayChangeFlag = 1;
   dayChangeCounter = skyRed.length-1;
   starCount = 30;
+    //draw default stars
+  pushMatrix();
+  fill(255);
+  noStroke();
+  for (int i = 0; i < starX.length; i++){
+    //println(i, starCount, starX[starCount-1], starY[starCount-1], starRadius1[starCount-1], starRadius2[starCount-1], starNPoints[starCount-1]);
+    star(starX[i], starY[i], starRadius1[i], starRadius2[i], starNPoints[i]); 
+  }
+  popMatrix();
 }
