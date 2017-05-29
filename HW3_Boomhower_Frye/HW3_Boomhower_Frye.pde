@@ -144,7 +144,7 @@ void draw() {
   if (frameCount % 4 == 0 & sunStop == 0) {
     SunRotate += PI/48;
   }
-    if (frameCount % 4 == 0) {
+  if (frameCount % 4 == 0) {
     SunPivot += PI/48;
   }
 

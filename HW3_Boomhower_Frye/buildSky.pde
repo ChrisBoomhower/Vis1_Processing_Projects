@@ -116,6 +116,9 @@ void rotateSun() {
 
   pushMatrix();
   moonStop = 0;
+  if (firstRun == 1 & frameCount - fc <= 175){
+  rotate(1.09628551);
+  }
   if (frameCount - fc <= 175) {
     rotate(MoonRotate/4);
     currentMoonRotate = MoonRotate/4;
