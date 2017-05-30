@@ -59,6 +59,7 @@ int firstRun = 1;
 //setup function
 void setup() {
   size(1200, 650);
+  background(0);
 
   if (gif == 1) {
     gifExport = new GifMaker(this, "Defying Gravity.gif");
@@ -125,6 +126,13 @@ void setup() {
     ptsCircle[i][0] = radius * (cos(TWO_PI*(i/float(nbSamples))));
     ptsCircle[i][1] = radius * (sin(TWO_PI*(i/float(nbSamples))));
   }
+  gnd = height-10;
+  Stanley = new Stickman(35);
+  
+  doorYcoord = height - height/3;
+  doorXcoord = 11;
+  doorHeight = height/3 - 11;
+  knobYcoord = (doorYcoord - doorHeight)/2;  
 }
 
 //draw function
@@ -164,6 +172,8 @@ void draw() {
    }
    
    */
+   
+  skit();
 
   //Add a frame to the .GIF image. this MUST be the last thing inside the draw() function
   if (frameCount % 5 == 0 & gif == 1) {
