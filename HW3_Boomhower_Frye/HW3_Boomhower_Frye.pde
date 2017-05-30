@@ -174,6 +174,7 @@ void draw() {
    */
    
   skit();
+  fcMove++;
 
   //Add a frame to the .GIF image. this MUST be the last thing inside the draw() function
   if (frameCount % 5 == 0 & gif == 1) {
@@ -243,6 +244,10 @@ void reset() {
   }
   fc = frameCount;
   scaleFactor = 0;
+  stage = 0;
+  fcSkit = 0;
+  fcMove = 0;
+  doorAction = 0;
 }
 
 void addGifFrame() {

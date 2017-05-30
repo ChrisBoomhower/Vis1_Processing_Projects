@@ -9,9 +9,9 @@ int doorAction = 0;
 void openDoor(){
   strokeWeight(1);
   fill(139, 69, 19);
-  rect(doorXcoord, doorYcoord, frameCount, doorHeight);
+  rect(doorXcoord, doorYcoord, fcSkit, doorHeight);
   fill(255, 255, 0);
-  ellipse(doorXcoord + frameCount - 20 * doorAction/120, doorYcoord + doorHeight/2 + 30, 10, 10);
+  ellipse(doorXcoord + fcSkit - 20 * doorAction/120, doorYcoord + doorHeight/2 + 30, 10, 10);
   doorAction++;
 }
 

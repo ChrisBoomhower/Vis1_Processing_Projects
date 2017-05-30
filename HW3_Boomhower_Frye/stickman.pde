@@ -5,6 +5,8 @@ int gnd;
 int manSpeed;
 int stage = 0;
 int ballRadius = 20;
+int fcSkit = 0;
+int fcMove = 0;
 
 //void setup() {
 //  size(200, 200);
@@ -187,13 +189,14 @@ void skit(){
     case 0:
       println(stage);
       openDoor();
-      if(frameCount > 120) stage = 1;
+      if(fcSkit > 120) stage = 1;
       stillBall();
+      fcSkit++;
       break;
     case 1:
       println(manSpeed, width/2);
       pushMatrix();
-      manSpeed = (frameCount-120)*3;
+      manSpeed = (fcMove-120)*3;
       translate (manSpeed, gnd);   
       Stanley.stickman();
       popMatrix();
