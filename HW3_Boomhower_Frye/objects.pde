@@ -4,6 +4,11 @@ int doorXcoord;
 int doorHeight;
 int knobYcoord;
 int doorAction = 0;
+float ballX = 0;
+float ballY = 0;
+float pickupSpeedX = 0.2;
+float pickupSpeedY = 4;
+float gravity = .05;
 
 
 void openDoor(){
@@ -25,5 +30,23 @@ void stillDoor(){
 void stillBall(){
   noStroke();
   fill(255, 0, 0);
-  ellipse(width/2 + 80, gnd - ballRadius/2, ballRadius, ballRadius);
+  ballX = width/2 + 80;
+  ballY = gnd - ballRadius/2;
+  ellipse(ballX, ballY, ballRadius, ballRadius);
+}
+
+void pickupBall(){
+  noStroke();
+  fill(255, 0, 0);
+  ellipse(ballX, ballY, ballRadius, ballRadius);
+  ballX -= pickupSpeedX;
+  pickupSpeedY -= gravity;
+  ballY = ballY - pickupSpeedY;
+  if(pickupSpeedY < 0){
+    catcher = true;
+    if(ballY > 522){
+      ballY = 522;
+      ballX += pickupSpeedX;
+    }
+  }
 }

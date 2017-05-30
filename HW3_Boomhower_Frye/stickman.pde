@@ -7,6 +7,8 @@ int stage = 0;
 int ballRadius = 20;
 int fcSkit = 0;
 int fcMove = 0;
+double time = 0;
+boolean catcher = false;
 
 //void setup() {
 //  size(200, 200);
@@ -46,11 +48,15 @@ class Stickman {
 
   void stickman() {
     strokeWeight(2);
-    t = (frameCount + start)%360;
-    tk = sin (radians(t * 8));
-    tf0 = sin (radians((t+12) * 8));
-    tf1 = sin (radians((t-12) * 8));
-    tw = sin (radians((t+82) * 16));
+    
+    if(stage == 2 | stage == 3) t = tk = tf0 = tf1 = tw = 0;
+    else{
+      t = (frameCount + start)%360;
+      tk = sin (radians(t * 8));
+      tf0 = sin (radians((t+12) * 8));
+      tf1 = sin (radians((t-12) * 8));
+      tw = sin (radians((t+82) * 16));
+    }
     pushMatrix();
     translate(0, tw*2);
     pushMatrix();
@@ -58,8 +64,16 @@ class Stickman {
     ellipse (0, 0, unit, unit);
     translate (0, unit * 0.5);
     for (Elbow e:elbows) e.move();
-    line (0, 0, 0, unit * 1.7);
-    translate (0, unit * 1.7);
+    //if(stage == 3){
+    //  translate (0, unit * 1.7);
+    //  rotate(-PI/2);
+    //  line (0, 0, 0, unit * 1.7);
+    //  rotate(PI/2);
+    //}
+    //else{
+      line (0, 0, 0, unit * 1.7);
+      translate (0, unit * 1.7);
+    //}
     for (Knee k:knees) k.move();
     popMatrix ();
     popMatrix ();
@@ -75,7 +89,7 @@ class Stickman {
       else dir = -1;
     }
     void move() {
-      if(stage == 2){
+      if(stage == 2 | stage == 3){
         pushMatrix();
         rotate(dir * radians(10));
         line(0, 0, 0, unit*1.15);
@@ -104,7 +118,7 @@ class Stickman {
       else dir = -1;
     }
     void move() {
-      if(stage == 2){
+      if(stage == 2 | stage == 3){
         pushMatrix();
         rotate(dir * radians(-5));
         line(0, 0, 0, unit*1.15);
@@ -131,7 +145,7 @@ class Stickman {
       else dir = -1;
     }
     void move() {
-      if(stage == 2){
+      if(stage == 2 | stage == 3){
         pushMatrix();
         rotate(dir * radians(10));
         line(0, 0, 0, unit*1.1);
@@ -160,12 +174,20 @@ class Stickman {
       else dir = -1;
     }
     void move() {
-      if(stage == 2){
-        pushMatrix();
-        rotate(radians(-10));
-        line(0, 0, 0, unit*1.1);
-        translate (0, unit*1.1);
-        popMatrix();
+      if(stage == 2 | stage == 3){
+        if(catcher == true & dir == -1){
+          pushMatrix();
+          rotate(-PI/2);
+          line(0, 0, 0, unit*1.1);
+          popMatrix();
+        }
+        else{
+          pushMatrix();
+          rotate(radians(-10));
+          line(0, 0, 0, unit*1.1);
+          translate (0, unit*1.1);
+          popMatrix();
+        }
       }
       else{
         if (dir==-1) angle = -radians(30*tf0 + 25);
@@ -202,7 +224,10 @@ void skit(){
       popMatrix();
       stillDoor();
       stillBall();
-      if(manSpeed > width/2 + 20) stage = 2;
+      if(manSpeed > width/2 + 20){
+        stage = 2;
+        time = frameCount;
+      }
       break;
     case 2:
       println(stage);
@@ -212,6 +237,17 @@ void skit(){
       popMatrix();
       stillDoor();
       stillBall();
+      if(frameCount - time > 120) stage = 3;
+      break;
+    case 3:
+      println(stage);
+      pushMatrix();
+      translate(width/2 + 20, gnd);
+      Stanley.stickman();
+      popMatrix();
+      stillDoor();
+      pickupBall();
+      //if(frameCount - time > 120) stage = 3;
       break;
     default:
       println("No action");
