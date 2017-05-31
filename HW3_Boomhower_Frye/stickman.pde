@@ -300,9 +300,9 @@ void skit(){
       else if(delay > 30 & countFourPasses == 2){
         delay = 0;
         stage = 7;
-        gravity = -gravity;
-        throwSpeedY = 1;
-        throwSpeedX = 3.37;
+        //gravity = -gravity;
+        throwSpeedY = 7;
+        throwSpeedX = 4;
         countFourPasses = 3;
       }
       break;

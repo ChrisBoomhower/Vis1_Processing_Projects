@@ -17,6 +17,7 @@ float throwSpeedY = 6;
 float throwSpeedX = 3.37;
 //float throwSpeedY2 = 6;
 boolean actionC = false;
+int countCollisionX = 0;
 
 void openDoor(){
   strokeWeight(1);
@@ -111,6 +112,13 @@ void checkCollisions(){
   
   if(ballX > width - 10 - ballRadius/2){
     ballX = width - 10 - ballRadius/2;
+    throwSpeedX = -throwSpeedX;
+    if(countCollisionX == 0) countCollisionX = 1;
+    else if(countCollisionX == 1) gravity = -gravity;
+  }
+  
+  if(ballX < 10 + ballRadius/2){
+    ballX = 10 + ballRadius/2;
     throwSpeedX = -throwSpeedX;
   }
 }
