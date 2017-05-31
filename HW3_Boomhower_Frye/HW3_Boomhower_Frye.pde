@@ -186,7 +186,7 @@ void draw() {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP & dayType == "Night" & dayChangeFlag != 1) {
-      resetMatrix();
+      firstRun = 0;
       dayType = "Day";
       dayChangeCounter = skyRed.length-1;
       fc = frameCount;
@@ -198,7 +198,7 @@ void keyPressed() {
       currentSunRotate = 0;
       dayChangeFlag = 1;
     } else if (keyCode == DOWN & dayType == "Day" & dayChangeFlag != 1) {
-      resetMatrix();
+      firstRun = 0;
       dayType = "Night";
       dayChangeCounter = 0;
       starCount = 75;
@@ -227,7 +227,7 @@ void reset() {
   sunStop = 0;
   moonStop = 1;
   currentSunRotate = 0;
-  resetMatrix();
+
   //draw default stars
   for (int i = 0; i < starX.length; i++) {
     pushMatrix();

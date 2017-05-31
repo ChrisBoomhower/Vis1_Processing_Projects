@@ -111,7 +111,7 @@ void destroyStars(float[] starX, float[] starY, float[] starRadius1, float[] sta
 
 void rotateSun() {
   pushMatrix();
-  resetMatrix();
+  
   translate(600, 800);
 
   pushMatrix();
@@ -147,7 +147,7 @@ void rotateSun() {
 
 void rotateMoon() {
   pushMatrix();
-  resetMatrix();
+
   translate(600, 800);
 
   pushMatrix();
