@@ -178,9 +178,15 @@ class Stickman {
     }
     void move() {
       if(stage == 2 | stage == 3 | stage == 5 | stage == 6 | stage == 7){
-        if(catcher == true & dir == -1){
+        if(catcher == true & dir == -1 & gravity > 0){
           pushMatrix();
           rotate(-PI/2);
+          line(0, 0, 0, unit*1.1);
+          popMatrix();
+        }
+        else if(ballX < width/2){
+          pushMatrix();
+          rotate(PI/1.5);
           line(0, 0, 0, unit*1.1);
           popMatrix();
         }
@@ -300,7 +306,6 @@ void skit(){
       else if(delay > 30 & countFourPasses == 2){
         delay = 0;
         stage = 7;
-        //gravity = -gravity;
         throwSpeedY = 7;
         throwSpeedX = 4;
         countFourPasses = 3;
@@ -338,8 +343,8 @@ void skit(){
         stage = 3;
       }
       break;
-    case 7: // Throwing ball 2nd time
-      println(stage);
+    case 7: // Throwing ball 3rd time
+      println(ballX);
       pushMatrix();
       translate(width/2 + 20, gnd);
       Stanley.stickman();
