@@ -162,16 +162,6 @@ void draw() {
   }
 
   buildRoom(0, 0);
-
-
-  /* If you want to make him jump up and down, code such as the below, can make the room jiggle. 
-   you can use framecount conditional logic for when the room shakes vs still.
-   
-   if (frameCount >=50 & frameCount < 60){
-   buildRoom(int(random(-5,5)),int(random(-5,5)));
-   }
-   
-   */
    
   skit();
   fcMove++;
