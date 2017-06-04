@@ -26,6 +26,7 @@ void ball(int ballNum) {
 void ballSplit(int ballNum) {
   ballCount++;
 
+    // this is the ball size shrinking statement
   ballRadius[ballNum] *=.5;
 
   ballRadius       = append(ballRadius, ballRadius[ballNum]);
