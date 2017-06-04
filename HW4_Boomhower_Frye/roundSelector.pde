@@ -14,8 +14,9 @@ void roundSelector(float x, float y){
   roundTemp = 1;
   round = roundTemp;
   
-  speedX = 5;
-  
+  for(int i = 0; i<ballCount; i++){
+  speedX[i] = 5;
+  }  
   loop();
   
 }

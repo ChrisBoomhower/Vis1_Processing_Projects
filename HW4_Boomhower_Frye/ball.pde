@@ -2,18 +2,23 @@
  Generates Ball, applying speed & gravity
  ******************************************************************************************/
 
-void ball() {
-  ballX += speedX;
-  ballY += gravityY;
-  
+void ball(int ballNum) {
+
+  ballX[ballNum] += speedX[ballNum];
+  ballY[ballNum] += gravityY[ballNum];
+
   pushMatrix();
   fill(0);  // this needs to cycle through colors
   
-  translate(ballX, ballY);
+  translate(ballX[ballNum], ballY[ballNum]);
+  
+  //println(ballNum, ballLeftBound.length, ballLeftBound[ballNum], ballRightBound[ballNum], ballUpperBound[ballNum], ballLowerBound[ballNum]);
+  
+  ballLeftBound[ballNum]  = ballX[ballNum] - ballRadius[ballNum];
+  ballRightBound[ballNum] = ballX[ballNum] + ballRadius[ballNum];
+  ballUpperBound[ballNum] = ballY[ballNum] - ballRadius[ballNum];
+  ballLowerBound[ballNum] = ballY[ballNum] + ballRadius[ballNum];
 
-  ballLeftBound  = ballX - ballRadius;
-  ballRightBound = ballX + ballRadius;
-
-  ellipse(0, 0, ballRadius*2, ballRadius*2);
+  ellipse(0, 0, ballRadius[ballNum]*2, ballRadius[ballNum]*2);
   popMatrix();
 }

@@ -20,3 +20,18 @@ void paddle() {
   rect(width - paddleWidth*2, 0, paddleWidth, paddleHeight);
   popMatrix();
 }
+
+void displayPaddleCount() {
+  pushMatrix();
+  fill(200);
+  noStroke();
+  rect(335, 15, 60, 60);
+  popMatrix();
+  
+  pushMatrix();
+  fill(0);
+  
+  textSize(32);
+  text(paddleCount, 350, 50);
+  popMatrix();
+}
