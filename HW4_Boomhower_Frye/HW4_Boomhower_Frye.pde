@@ -31,7 +31,6 @@ float[] gravityY         = {0};
 int ballCount            = 1;
 float maxAbsSpeedX       = 45;
 
-int splitNum             = 2;
 int[] paddleCount        = {0};
 int paddleHitFlag        = 0;
 
