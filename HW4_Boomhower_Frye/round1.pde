@@ -13,7 +13,7 @@ void round1() {
       gravityInit = 0;
     }
 
-    // change ball gravityY direction on wall bounc
+    // change ball gravityY direction on wall bounce
     if (gravityY[i]       <  0
       & ballUpperBound[i]  <= 0) {
 
@@ -48,17 +48,7 @@ void round1() {
     }
 
     if (paddleCount != 0 & paddleCount % 2 == 0 & paddleHitFlag    == 1) {
-      ballCount++;
-      ballRadius       = append(ballRadius, ballRadius[i]);
-      ballLeftBound    = append(ballLeftBound, ballLeftBound[i]);
-      ballRightBound   = append(ballRightBound, ballRightBound[i]);
-      ballUpperBound   = append(ballUpperBound, ballUpperBound[i]);
-      ballLowerBound   = append(ballLowerBound, ballLowerBound[i]);
-      ballX            = append(ballX, ballX[i]);
-      ballY            = append(ballY, ballY[i]);
-      speedX           = append(speedX, 5);
-      gravityY         = append(gravityY, -gravityY[i]);
-      paddleHitFlag    = 0;
+        ballSplit(i);
     }
   }
 }

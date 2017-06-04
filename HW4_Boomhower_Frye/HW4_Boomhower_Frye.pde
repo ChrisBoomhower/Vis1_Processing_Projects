@@ -66,48 +66,28 @@ void draw() {
   background(200);
 
   displayPaddleCount();
-  
+
   paddle();
 
-  if(round == 1)  round1();
+  if (round == 1)  round1();
   else if (round == 2) round2();
   else if (round == 3) round3();
 
 
   for (int i = 0; i<ballCount; i++) {
     // remove ball on paddle miss
-    if (speedX[i]          < 0
+    if ((speedX[i]          < 0
       & ballLeftBound[i]  <= leftPaddleBound 
       & (ballY[i]          < paddleUpperY | 
       ballY[i]             > paddleLowerY)
-      ) {
-
-      ballCount--;
-      ballRadius       = pop(ballRadius, i);
-      ballLeftBound    = pop(ballLeftBound, i);
-      ballRightBound   = pop(ballRightBound, i);
-      ballUpperBound    = pop(ballUpperBound, i);
-      ballLowerBound   = pop(ballLowerBound, i);
-      ballX            = pop(ballX, i);
-      ballY            = pop(ballY, i);
-      speedX           = pop(speedX, i);
-      gravityY         = pop(gravityY, i);
-    } else if (speedX[i]  >  0 
+      ) |
+      (speedX[i]  >  0 
       & ballRightBound[i] >= rightPaddleBound 
       & (ballY[i]         <  paddleUpperY | 
       ballY[i]            >  paddleLowerY)
-      ) {
+      )) {
 
-      ballCount--;
-      ballRadius       = pop(ballRadius, i);
-      ballLeftBound    = pop(ballLeftBound, i);
-      ballRightBound   = pop(ballRightBound, i);
-      ballUpperBound   = pop(ballUpperBound, i);
-      ballLowerBound   = pop(ballLowerBound, i);
-      ballX            = pop(ballX, i);
-      ballY            = pop(ballY, i);
-      speedX           = pop(speedX, i);
-      gravityY         = pop(gravityY, i);
+      ballPop(i);
     }
   }
 
@@ -116,7 +96,7 @@ void draw() {
     println("Game Over!");
     displayPaddleCount();
     stop();
-  } else if (paddleCount >= maxPaddle[round]){
+  } else if (paddleCount >= maxPaddle[round]) {
     println("You Win!");
     displayPaddleCount();
     stop();
