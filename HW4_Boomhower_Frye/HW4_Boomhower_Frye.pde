@@ -15,6 +15,7 @@ float paddleLowerY;            // to be used for ball "hit" lower Y boundary
 float leftPaddleBound;         // to be used for ball "hit" X boundary for left paddle 
 float rightPaddleBound;        // to be used for ball "hit" X boundary for right paddle 
 
+int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
@@ -36,6 +37,15 @@ int paddleHitFlag        = 0;
 
 int retiredBallCount     = 0;
 
+PImage flagGermany;
+PImage flagJapan;
+PImage flagChina;
+float flagWidth;
+float flagHeight;
+
+PFont fontGaming;
+PFont fontStart;
+
 void setup() {
   size(700, 600);
 
@@ -51,6 +61,9 @@ void setup() {
   ballRightBound[0] = ballX[0] + ballRadius[0];
   ballUpperBound[0] = ballY[0] - ballRadius[0];
   ballLowerBound[0] = ballY[0] + ballRadius[0];
+  
+  fontGaming = loadFont("HarlowSolid-48.vlw");
+  fontStart = loadFont("GoudyOldStyleT-Bold-48.vlw");
 
   /*
     Code to go here for:
@@ -58,13 +71,58 @@ void setup() {
    with "Start at Round" with the number in it via text. 
    and then a larger rectangle which says START at the bottom
    */
-
+   
+  flagGermany = loadImage("data/flag-of-Germany.png");
+  flagJapan = loadImage("data/flag-of-Japan.png");
+  flagChina = loadImage("data/flag-of-China.png");
+  flagWidth = width/6;
+  flagHeight = height/8.5;
+  
+  //pushMatrix();
+  //noStroke();
+  //image(flagJapan, width/2 - flagWidth/2, height/2 - flagHeight/2, flagWidth, flagHeight);
+  //popMatrix();
 
   noLoop();
 }
 
 void draw() {
   background(200);
+  
+  if (round == 0){
+    pushMatrix();
+    
+    fill(0);
+    textFont(fontGaming);
+    //textSize(32);
+    textAlign(CENTER, CENTER);
+    text("Select Round:", width/2, height - height/2.8);
+    
+    noStroke();
+    image(flagGermany, width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
+    image(flagJapan, width/2 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
+    image(flagChina, width - width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
+    
+    textSize(30);
+    textAlign(CENTER, BOTTOM);
+    text("Round 1", width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
+    text("Round 2", width/2 - flagWidth/2, height - height/5, flagWidth, flagHeight);
+    text("Round 2", width - width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
+    
+    roundSelection();
+    
+    if (roundTemp != 0){
+      stroke(0);
+      fill(0, 255, 120);
+      rect(width/2 - flagWidth/2, height/3 - flagHeight/2, flagWidth, flagHeight);
+      fill(0);
+      textFont(fontStart, 30);
+      textAlign(CENTER, CENTER);
+      text("START", width/2 - flagWidth/2, height/3 - flagHeight/2, flagWidth, flagHeight);
+    }
+    
+    popMatrix();
+  }
 
   displayPaddleCount();
 
