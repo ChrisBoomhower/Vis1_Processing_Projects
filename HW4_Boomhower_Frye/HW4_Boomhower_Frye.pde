@@ -16,7 +16,7 @@ float leftPaddleBound;         // to be used for ball "hit" X boundary for left 
 float rightPaddleBound;        // to be used for ball "hit" X boundary for right paddle 
 
 int round                 = 0;
-int[] maxPaddle           = {10, 20, 30};
+int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
 
 float[] ballRadius       = {15};
@@ -34,6 +34,8 @@ float maxAbsSpeedX       = 45;
 int splitNum             = 2;
 int[] paddleCount        = {0};
 int paddleHitFlag        = 0;
+
+int retiredBallCount     = 0;
 
 void setup() {
   size(700, 600);
@@ -91,17 +93,17 @@ void draw() {
     }
   }
 
-
-  if (ballCount == 0) {
-    println("Game Over!");
-    displayPaddleCount();
-    stop();
-  } else if (arraySum(paddleCount) >= maxPaddle[round]) {
-    println("You Win!");
-    displayPaddleCount();
-    stop();
+  if (round != 0) {
+    if (ballCount == 0) {
+      println("Game Over!");
+      displayPaddleCount();
+      stop();
+    } else if (arraySum(paddleCount) >= maxPaddle[round-1]) {
+      println("You Win!");
+      displayPaddleCount();
+      stop();
+    }
   }
-
   //println(ballCount);
 }
 
@@ -126,10 +128,10 @@ int[] pop(int array[], int item) {
   return outgoing;
 } 
 
- int arraySum(int[] array){
- int sum = 0;
- for (int i =0; i<array.length; i++) {
-      sum +=array[i];
-   }
- return sum;
- }
+int arraySum(int[] array) {
+  int sum = 0;
+  for (int i =0; i<array.length; i++) {
+    sum +=array[i];
+  }
+  return sum + retiredBallCount;
+}

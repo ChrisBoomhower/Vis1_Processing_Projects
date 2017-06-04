@@ -38,12 +38,15 @@ void ballSplit(int ballNum) {
   ballY            = append(ballY, ballY[ballNum]);
   speedX           = append(speedX, 5);
   gravityY         = append(gravityY, -gravityY[ballNum]);
-  paddleCount      = append(paddleCount, paddleCount[ballNum]);
+  paddleCount      = append(paddleCount, 0);
   paddleHitFlag    = 0;
 }
 
 void ballPop(int ballNum) {
   ballCount--;
+  
+  retiredBallCount += paddleCount[ballNum] - 1;
+  
   ballRadius       = pop(ballRadius, ballNum);
   ballLeftBound    = pop(ballLeftBound, ballNum);
   ballRightBound   = pop(ballRightBound, ballNum);
