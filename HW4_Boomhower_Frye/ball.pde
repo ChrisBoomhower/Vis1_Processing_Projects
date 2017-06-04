@@ -8,7 +8,7 @@ void ball(int ballNum) {
   ballY[ballNum] += gravityY[ballNum];
 
   pushMatrix();
-  fill(0);  // this needs to cycle through colors
+  fill(ballColor[ballNum]);  // this needs to cycle through colors
 
   translate(ballX[ballNum], ballY[ballNum]);
 
@@ -39,6 +39,13 @@ void ballSplit(int ballNum) {
   speedX           = append(speedX, 5);
   gravityY         = append(gravityY, -gravityY[ballNum]);
   paddleCount      = append(paddleCount, 0);
+  
+  if (ballNum % 3 == 1) ballColor = append(ballColor, #ffda00);
+  else if (ballNum % 3 == 2) ballColor = append(ballColor, #e70000);
+  else if (ballNum % 3 == 0 & ballCount != 0) ballColor = append(ballColor, #000000);
+  
+  print(ballNum % 3);
+  
   paddleHitFlag    = 0;
 }
 

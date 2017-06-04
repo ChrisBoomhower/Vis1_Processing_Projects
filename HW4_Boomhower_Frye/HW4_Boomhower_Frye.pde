@@ -20,6 +20,7 @@ int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
 
+float[] ballColor        = new float[1];
 float[] ballRadius       = {15};
 float[] ballLeftBound    = new float[1];
 float[] ballRightBound   = new float[1];
@@ -61,6 +62,7 @@ void setup() {
   ballRightBound[0] = ballX[0] + ballRadius[0];
   ballUpperBound[0] = ballY[0] - ballRadius[0];
   ballLowerBound[0] = ballY[0] + ballRadius[0];
+  ballColor[0]      = #000000;
   
   fontGaming = loadFont("HarlowSolid-48.vlw");
   fontStart = loadFont("GoudyOldStyleT-Bold-48.vlw");
