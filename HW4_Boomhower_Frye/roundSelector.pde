@@ -11,8 +11,8 @@ void roundSelector(float x, float y){
   
   int roundTemp;
   
-  roundTemp = 1;
-  round = roundTemp;
+  roundTemp = 1; // roundTemp will be assigned as staging selection until the start button is clicked
+  round = roundTemp; // once start button is clicked, this may occur
   
   for(int i = 0; i<ballCount; i++){
   speedX[i] = 5;
