@@ -32,6 +32,6 @@ void displayPaddleCount() {
   fill(0);
   
   textSize(32);
-  text(paddleCount, 350, 50);
+  text(arraySum(paddleCount), 350, 50);
   popMatrix();
 }

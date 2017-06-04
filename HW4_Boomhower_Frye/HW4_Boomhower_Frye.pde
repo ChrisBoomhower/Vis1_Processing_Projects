@@ -32,7 +32,7 @@ int ballCount            = 1;
 float maxAbsSpeedX       = 45;
 
 int splitNum             = 2;
-int paddleCount          = 0;
+int[] paddleCount        = {0};
 int paddleHitFlag        = 0;
 
 void setup() {
@@ -96,7 +96,7 @@ void draw() {
     println("Game Over!");
     displayPaddleCount();
     stop();
-  } else if (paddleCount >= maxPaddle[round]) {
+  } else if (arraySum(paddleCount) >= maxPaddle[round]) {
     println("You Win!");
     displayPaddleCount();
     stop();
@@ -118,3 +118,18 @@ float[] pop(float array[], int item) {
   System.arraycopy(array, item+1, outgoing, item, array.length - (item + 1));
   return outgoing;
 } 
+
+int[] pop(int array[], int item) {
+  int outgoing[] = new int[array.length - 1];
+  System.arraycopy(array, 0, outgoing, 0, item);
+  System.arraycopy(array, item+1, outgoing, item, array.length - (item + 1));
+  return outgoing;
+} 
+
+ int arraySum(int[] array){
+ int sum = 0;
+ for (int i =0; i<array.length; i++) {
+      sum +=array[i];
+   }
+ return sum;
+ }

@@ -25,6 +25,9 @@ void ball(int ballNum) {
 
 void ballSplit(int ballNum) {
   ballCount++;
+
+  ballRadius[ballNum] *=.5;
+
   ballRadius       = append(ballRadius, ballRadius[ballNum]);
   ballLeftBound    = append(ballLeftBound, ballLeftBound[ballNum]);
   ballRightBound   = append(ballRightBound, ballRightBound[ballNum]);
@@ -34,6 +37,7 @@ void ballSplit(int ballNum) {
   ballY            = append(ballY, ballY[ballNum]);
   speedX           = append(speedX, 5);
   gravityY         = append(gravityY, -gravityY[ballNum]);
+  paddleCount      = append(paddleCount, paddleCount[ballNum]);
   paddleHitFlag    = 0;
 }
 
@@ -48,4 +52,10 @@ void ballPop(int ballNum) {
   ballY            = pop(ballY, ballNum);
   speedX           = pop(speedX, ballNum);
   gravityY         = pop(gravityY, ballNum);
+  paddleCount      = pop(paddleCount, ballNum);
+}
+
+void ballGrow(int ballNum) {
+  ballRadius[ballNum]*=2;
+  paddleHitFlag = 0;
 }
