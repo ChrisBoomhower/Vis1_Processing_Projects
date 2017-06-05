@@ -9,8 +9,14 @@ void ball(int ballNum) {
 
   pushMatrix();
 
-  if (splitCount[ballNum] % 2 == 1) fill(0);
-  else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
+  if (round == 1) {
+    if (splitCount[ballNum] % 3 == 1) fill(#ffda00 );
+    else if (splitCount[ballNum] % 3 == 2) fill(#e70000 );
+    else if (splitCount[ballNum] % 3 == 0 & ballCount != 0) fill(#000000 );
+  } else if (round == 2) {
+    if (splitCount[ballNum] % 2 == 1) fill(0);
+    else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
+  }
 
   translate(ballX[ballNum], ballY[ballNum]);
 
@@ -56,7 +62,7 @@ void ballSplit(int ballNum) {
     ballX            = append(append(ballX, ballX[ballNum]), ballX[ballNum]);
     ballY            = append(append(ballY, ballY[ballNum]), ballY[ballNum]);
     speedX           = append(append(speedX, 5), 5);
-    gravityY         = append(append(gravityY, int(random(-12,12))), int(random(-12,12)));
+    gravityY         = append(append(gravityY, int(random(-12, 12))), int(random(-12, 12)));
     paddleCount      = append(append(paddleCount, 0), 0);
     splitCount       = append(append(splitCount, 0), 0);
     println(ballCount);
