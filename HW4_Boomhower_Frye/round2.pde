@@ -8,8 +8,8 @@ void round2() {
 
     // Initialize ball gravityY
     if (paddleCount[i] == 1 & gravityInit == 1) {
-      if (i%2 == 0) gravityY[i] = random(2, 10);
-      else gravityY[i] = random(-2, -10);
+      if (i%2 == 0) gravityY[i] = random(2, 15);
+      else gravityY[i] = random(-2, -15);
       gravityInit = 0;
     }
 
@@ -32,6 +32,9 @@ void round2() {
 
       if (speedX[i]         >  -maxAbsSpeedX)  speedX[i]*=-1.1;
       else speedX[i]*=-1;
+      
+      if(gravityY[i]<0) gravityY[i] = random(2, 12);
+      else gravityY[i] = random(-2, -12);
 
       paddleCount[i]++;
       paddleHitFlag    = 1;
@@ -40,14 +43,14 @@ void round2() {
       & ballY[i]          >= paddleUpperY
       & ballY[i]          <= paddleLowerY) {
 
-      if (speedX[i]         <  maxAbsSpeedX)  speedX[i]*=-1.1;
+      if (speedX[i]         <  maxAbsSpeedX)  speedX[i]*=random(-1.1,-2);
       else speedX[i]*=-1;
 
       paddleCount[i]++;
       paddleHitFlag    = 1;
     }
 
-    if (paddleCount[i] != 0 & paddleCount[i] % 2 == 0 & paddleHitFlag    == 1)      ballSplit(i);
-    else if (paddleCount[i] != 0 & paddleCount[i] % 2 == 1 & paddleHitFlag    == 1) ballGrow(i);
+    if (paddleCount[i] != 0 & paddleCount[i] % 3 == 0 & paddleHitFlag    == 1)      ballSplit(i);
+    else if (paddleCount[i] != 0 & (paddleCount[i] % 3 ==1 |paddleCount[i] % 3 ==2) & paddleHitFlag    == 1) ballGrow(i);
   }
 }
