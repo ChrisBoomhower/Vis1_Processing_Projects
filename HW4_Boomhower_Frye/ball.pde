@@ -10,15 +10,15 @@ void ball(int ballNum) {
   pushMatrix();
 
   if (round == 1) {
-    if (splitCount[ballNum] % 3 == 1) fill(#ffda00 );
-    else if (splitCount[ballNum] % 3 == 2) fill(#e70000 );
-    else if (splitCount[ballNum] % 3 == 0 & ballCount != 0) fill(#000000 );
+    if (paddleCount[ballNum] % 3 == 1) fill(#ffda00 );
+    else if (paddleCount[ballNum] % 3 == 2) fill(#e70000 );
+    else if (paddleCount[ballNum] % 3 == 0 & ballCount != 0) fill(#000000 );
   } else if (round == 2) {
-    if (splitCount[ballNum] % 2 == 1) fill(0);
-    else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
+    if (paddleCount[ballNum] % 2 == 1) fill(0);
+    else if (paddleCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
   } else if (round == 3) {
-    if (splitCount[ballNum] % 2 == 1) fill(255,215,0);
-    else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
+    if (paddleCount[ballNum] % 2 == 1) fill(255,215,0);
+    else if (paddleCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
   }
 
   translate(ballX[ballNum], ballY[ballNum]);
@@ -57,10 +57,7 @@ void ballSplit(int ballNum) {
     else gravityY = append(gravityY, int(random(-12, 12)));
     
     paddleCount      = append(paddleCount, 0);
-    splitCount       = append(splitCount, 0);
   }
-
-  splitCount[ballNum]+=1;
 
   paddleHitFlag    = 0;
 }

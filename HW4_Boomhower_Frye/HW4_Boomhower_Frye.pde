@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>//
+/****************************************************************************************** //<>// //<>//
  Title         : Pong Champions 
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/3/2017
@@ -48,7 +48,6 @@ int[] paddleCount        = {0};
 int paddleHitFlag        = 0;
 
 int retiredBallCount     = 0;
-int[] splitCount         = {0};
 
 PImage flagGermany;
 PImage flagJapan;
