@@ -6,7 +6,7 @@
 void paddle() {
   pushMatrix();
   //Default to Center Y, else use mouseY position
-  fill(125);
+  fill(100);
   if (frameCount == 1) translate(0, height/2 - paddleHeight/2);
   else {
     translate(0, mouseY - paddleHeight/2);

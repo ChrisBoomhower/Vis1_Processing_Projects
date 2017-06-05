@@ -1,13 +1,14 @@
-/****************************************************************************************** //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>//
  Title         : Pong Champions 
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/3/2017
  Assignment    : MSDS6390 - HW 4
- Resources     :  https://www.processing.org/discourse/beta/num_1118112730.html
- https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
- https://www.youtube.com/watch?v=2kP1bZfUNJE
- https://www.countries-ofthe-world.com/flags-of-the-world.html
- https://ping-pong.en.softonic.com/
+ Resources     :   https://www.processing.org/discourse/beta/num_1118112730.html
+                   https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
+                   https://www.youtube.com/watch?v=2kP1bZfUNJE
+                   https://www.countries-ofthe-world.com/flags-of-the-world.html
+                   https://ping-pong.en.softonic.com/
+                   http://www.absolud.com/foot/?page_id=73
  ******************************************************************************************/
 //sound import
 import processing.sound.*;
@@ -90,12 +91,7 @@ void setup() {
 
   fontGaming = loadFont("HarlowSolid-48.vlw");
   fontStart = loadFont("GoudyOldStyleT-Bold-48.vlw");
-  /*
-    Code to go here for:
-   Start Selector Rectangles (make the country flag the rectangle) 
-   with "Start at Round" with the number in it via text. 
-   and then a larger rectangle which says START at the bottom
-   */
+
 
   flagGermany = loadImage("data/flag-of-Germany.png");
   flagJapan = loadImage("data/flag-of-Japan.png");
@@ -103,10 +99,6 @@ void setup() {
   flagWidth = width/6;
   flagHeight = height/8.5;
 
-  //pushMatrix();
-  //noStroke();
-  //image(flagJapan, width/2 - flagWidth/2, height/2 - flagHeight/2, flagWidth, flagHeight);
-  //popMatrix();
 
   noLoop();
 }
@@ -120,7 +112,7 @@ void draw() {
 
     fill(0);
     textFont(fontGaming);
-    //textSize(32);
+    
     textAlign(CENTER, CENTER);
     text("Select Round:", width/2, height - height/2.8);
 
@@ -216,7 +208,7 @@ void draw() {
       complete = true;
     }
   }
-  //println(ballCount);
+  
 }
 
 
