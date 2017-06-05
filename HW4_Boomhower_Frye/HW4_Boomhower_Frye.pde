@@ -124,7 +124,7 @@ void draw() {
     textAlign(CENTER, BOTTOM);
     text("Round 1", width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
     text("Round 2", width/2 - flagWidth/2, height - height/5, flagWidth, flagHeight);
-    text("Round 2", width - width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
+    text("Round 3", width - width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
 
     roundSelection();
 

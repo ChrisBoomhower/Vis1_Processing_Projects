@@ -16,6 +16,9 @@ void ball(int ballNum) {
   } else if (round == 2) {
     if (splitCount[ballNum] % 2 == 1) fill(0);
     else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
+  } else if (round == 3) {
+    if (splitCount[ballNum] % 2 == 1) fill(255,215,0);
+    else if (splitCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
   }
 
   translate(ballX[ballNum], ballY[ballNum]);
@@ -32,12 +35,15 @@ void ball(int ballNum) {
 }
 
 void ballSplit(int ballNum) {
-
-  if (round == 1) {
-    ballCount++;
+  int[] ballAddition = {1,2,4};
+  
     // this is the ball size shrinking statement
-    ballRadius[ballNum] *=.5;
+  if (round == 1) ballRadius[ballNum] *=.5;
+  else if (round == 2) ballRadius[ballNum] /=2.25;
+  else if (round == 3) ballRadius[ballNum] /=3.0517578125;
 
+  for (int i = 0; i<ballAddition[round-1];i++){
+    ballCount++;
     ballRadius       = append(ballRadius, ballRadius[ballNum]);
     ballLeftBound    = append(ballLeftBound, ballLeftBound[ballNum]);
     ballRightBound   = append(ballRightBound, ballRightBound[ballNum]);
@@ -46,26 +52,12 @@ void ballSplit(int ballNum) {
     ballX            = append(ballX, ballX[ballNum]);
     ballY            = append(ballY, ballY[ballNum]);
     speedX           = append(speedX, 5);
-    gravityY         = append(gravityY, -gravityY[ballNum]);
+    
+    if (round == 1)    gravityY = append(gravityY, -gravityY[ballNum]);
+    else gravityY = append(gravityY, int(random(-12, 12)));
+    
     paddleCount      = append(paddleCount, 0);
     splitCount       = append(splitCount, 0);
-  } else if (round == 2) {
-    ballCount+=2;
-    // this is the ball size shrinking statement
-    ballRadius[ballNum] /=2.25;
-
-    ballRadius       = append(append(ballRadius, ballRadius[ballNum]), ballRadius[ballNum]);
-    ballLeftBound    = append(append(ballLeftBound, ballLeftBound[ballNum]), ballLeftBound[ballNum]);
-    ballRightBound   = append(append(ballRightBound, ballRightBound[ballNum]), ballRightBound[ballNum]);
-    ballUpperBound   = append(append(ballUpperBound, ballUpperBound[ballNum]), ballUpperBound[ballNum]);
-    ballLowerBound   = append(append(ballLowerBound, ballLowerBound[ballNum]), ballLowerBound[ballNum]);
-    ballX            = append(append(ballX, ballX[ballNum]), ballX[ballNum]);
-    ballY            = append(append(ballY, ballY[ballNum]), ballY[ballNum]);
-    speedX           = append(append(speedX, 5), 5);
-    gravityY         = append(append(gravityY, int(random(-12, 12))), int(random(-12, 12)));
-    paddleCount      = append(append(paddleCount, 0), 0);
-    splitCount       = append(append(splitCount, 0), 0);
-    println(ballCount);
   }
 
   splitCount[ballNum]+=1;
@@ -93,5 +85,6 @@ void ballPop(int ballNum) {
 void ballGrow(int ballNum) {
   if (round == 1) ballRadius[ballNum]*=2;
   else if (round == 2) ballRadius[ballNum]*=1.5;
+  else if (round == 3) ballRadius[ballNum]*=1.25;
   paddleHitFlag = 0;
 }
