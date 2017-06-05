@@ -6,6 +6,8 @@
  Resources     :  https://www.processing.org/discourse/beta/num_1118112730.html
  https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
  https://www.youtube.com/watch?v=2kP1bZfUNJE
+ https://www.countries-ofthe-world.com/flags-of-the-world.html
+ https://ping-pong.en.softonic.com/
  ******************************************************************************************/
 //sound import
 import processing.sound.*;
@@ -49,6 +51,7 @@ int paddleHitFlag        = 0;
 
 int retiredBallCount     = 0;
 
+PImage background;
 PImage flagGermany;
 PImage flagJapan;
 PImage flagChina;
@@ -65,6 +68,7 @@ boolean complete = false;
 
 void setup() {
   size(700, 600);
+  background = loadImage("data/background.png");
   
   // for more info about sketchPath, go to https://processing.org/discourse/beta/num_1229443269.html
   path = sketchPath(audioName);
@@ -111,6 +115,7 @@ void draw() {
 
   if (round == 0) {
     background(200);
+    
     pushMatrix();
 
     fill(0);
@@ -171,6 +176,7 @@ void draw() {
 
   else if(complete == false){
     background(200);
+    image(background, 0, height/3, width, height/3);
     displayPaddleCount();
   
     paddle();
