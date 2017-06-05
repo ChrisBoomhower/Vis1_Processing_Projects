@@ -28,7 +28,7 @@ float rightPaddleBound;        // to be used for ball "hit" X boundary for right
 
 int roundTemp             = 0;
 int round                 = 0;
-int[] maxPaddle           = {30, 40, 50};
+int[] maxPaddle           = {5, 40, 50};
 int gravityInit           = 1;
 
 float[] ballColor        = new float[1];
@@ -58,6 +58,11 @@ float flagHeight;
 
 PFont fontGaming;
 PFont fontStart;
+
+int fc;
+boolean showText = true;
+
+boolean complete = false;
 
 void setup() {
   size(700, 600);
@@ -104,9 +109,9 @@ void setup() {
 }
 
 void draw() {
-  background(200);
 
   if (round == 0) {
+    background(200);
     pushMatrix();
 
     fill(0);
@@ -160,48 +165,50 @@ void draw() {
       textAlign(BASELINE);
       textFont(fontGaming);
       popMatrix();  
-  }
+    }
 
     popMatrix();
   }
 
-  displayPaddleCount();
-
-  paddle();
-
-  if (round == 1)  round1();
-  else if (round == 2) round2();
-  else if (round == 3) round3();
-
-
-  for (int i = 0; i<ballCount; i++) {
-    // remove ball on paddle miss
-    if ((speedX[i]          < 0
-      & ballLeftBound[i]  <= leftPaddleBound 
-      & (ballY[i]          < paddleUpperY | 
-      ballY[i]             > paddleLowerY)
-      ) |
-      (speedX[i]  >  0 
-      & ballRightBound[i] >= rightPaddleBound 
-      & (ballY[i]         <  paddleUpperY | 
-      ballY[i]            >  paddleLowerY)
-      )) {
-
-      ballPop(i);
+  else if(complete == false){
+    background(200);
+    displayPaddleCount();
+  
+    paddle();
+  
+    if (round == 1)  round1();
+    else if (round == 2) round2();
+    else if (round == 3) round3();
+  
+  
+    for (int i = 0; i<ballCount; i++) {
+      // remove ball on paddle miss
+      if ((speedX[i]          < 0
+        & ballLeftBound[i]  <= leftPaddleBound 
+        & (ballY[i]          < paddleUpperY | 
+        ballY[i]             > paddleLowerY)
+        ) |
+        (speedX[i]  >  0 
+        & ballRightBound[i] >= rightPaddleBound 
+        & (ballY[i]         <  paddleUpperY | 
+        ballY[i]            >  paddleLowerY)
+        )) {
+  
+        ballPop(i);
+      }
     }
   }
 
+  // Detect end of game
   if (round != 0) {
     if (ballCount == 0) {
-      println("Game Over!");
-      displayPaddleCount();
-      file.stop();
-      stop();
+      if (complete == false) fc = frameCount;
+      gameOver();
+      complete = true;
     } else if (arraySum(paddleCount) >= maxPaddle[round-1]) {
-      println("You Win!");
-      displayPaddleCount();
-      file.stop();
-      stop();
+      if (complete == false) fc = frameCount;
+      fireworks();
+      complete = true;
     }
   }
   //println(ballCount);
