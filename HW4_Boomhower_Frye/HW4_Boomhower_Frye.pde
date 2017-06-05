@@ -28,7 +28,7 @@ float rightPaddleBound;        // to be used for ball "hit" X boundary for right
 
 int roundTemp             = 0;
 int round                 = 0;
-int[] maxPaddle           = {5, 40, 50};
+int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
 
 float[] ballColor        = new float[1];
