@@ -14,7 +14,7 @@ void ball(int ballNum) {
     else if (paddleCount[ballNum] % 3 == 2) fill(#e70000 );
     else if (paddleCount[ballNum] % 3 == 0 & ballCount != 0) fill(#000000 );
   } else if (round == 2) {
-    if (paddleCount[ballNum] % 2 == 1) fill(0);
+    if (paddleCount[ballNum] % 2 == 1) fill(255);
     else if (paddleCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
   } else if (round == 3) {
     if (paddleCount[ballNum] % 2 == 1) fill(255,215,0);
