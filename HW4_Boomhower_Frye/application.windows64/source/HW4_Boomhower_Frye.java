@@ -257,7 +257,7 @@ public int arraySum(int[] array) {
   }
   return sum + retiredBallCount;
 }
-/******************************************************************************************
+/****************************************************************************************** //<>// //<>//
  Generates Ball, applying speed & gravity
  ******************************************************************************************/
 
@@ -273,7 +273,7 @@ public void ball(int ballNum) {
     else if (paddleCount[ballNum] % 3 == 2) fill(0xffe70000 );
     else if (paddleCount[ballNum] % 3 == 0 & ballCount != 0) fill(0xff000000 );
   } else if (round == 2) {
-    if (paddleCount[ballNum] % 2 == 1) fill(0);
+    if (paddleCount[ballNum] % 2 == 1) fill(255);
     else if (paddleCount[ballNum] % 2 == 0 & ballCount != 0) fill(255, 0, 0);
   } else if (round == 3) {
     if (paddleCount[ballNum] % 2 == 1) fill(255,215,0);
@@ -344,7 +344,6 @@ public void ballGrow(int ballNum) {
   else if (round == 3) ballRadius[ballNum]*=1.25f;
   paddleHitFlag = 0;
 }
-
 int particleCount = 100;
 
 float[] x = new float[particleCount];
@@ -705,7 +704,6 @@ public void roundSelection() {
   else if (roundTemp == 3) rect(width - width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
   popMatrix();
 }
-
   public void settings() {  size(700, 600); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "HW4_Boomhower_Frye" };
