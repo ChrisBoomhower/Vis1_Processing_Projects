@@ -51,7 +51,7 @@ void ballSplit(int ballNum) {
     ballLowerBound   = append(ballLowerBound, ballLowerBound[ballNum]);
     ballX            = append(ballX, ballX[ballNum]);
     ballY            = append(ballY, ballY[ballNum]);
-    speedX           = append(speedX, 5);
+    speedX           = append(speedX, int(random(2,7)));
     
     if (round == 1)    gravityY = append(gravityY, -gravityY[ballNum]);
     else gravityY = append(gravityY, int(random(-12, 12)));
