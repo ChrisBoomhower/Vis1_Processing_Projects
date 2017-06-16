@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>//
+/****************************************************************************************** //<>// //<>//
  Title         : PartyTime
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/16/2017
@@ -124,17 +124,6 @@ void draw()
   stroke(100,255,255);
   lineDraw(offset, mylen, -2);
 
-  for (int i = 0; i < fft.avgSize(); i++)
-  {
-    if (abs(25 - fft.getAvg(i)) < 25) rect(i*w+300, 400, 1, 25 - fft.getAvg(i));
-    else if (25 - fft.getAvg(i) < 0)  rect(i*w+300, 400, 1, -25);
-    else rect(i*w+300, 400, 1, 25);
-  amplitude *= 100;
-  explode() ;
-
-  amplitude = 0;
-
-  }
   television();
   
   dance();
