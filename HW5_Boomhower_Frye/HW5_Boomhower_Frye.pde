@@ -6,7 +6,7 @@
  Resources     : https://vimeo.com/7586074
  https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
  https://www.ee.columbia.edu/~dpwe/resources/Processing/
-                 https://www.openprocessing.org/sketch/214311
+ https://www.openprocessing.org/sketch/214311
  ******************************************************************************************/
 
 import ddf.minim.analysis.*;
@@ -43,25 +43,25 @@ float amplitude = 0;
 void setup()
 {
   size(500, 500);
-  
+
   astr = new Gif(this, "astr.gif");
   astr.loop();
-  
+
   cactus = new Gif(this, "cactus.gif");
   cactus.loop();
-  
+
   dancer = new Gif(this, "dancer.gif");
   dancer.loop();
-  
+
   fox = new Gif(this, "fox.gif");
   fox.loop();
-  
+
   frederick = new Gif(this, "frederick.gif");
   frederick.loop();
-  
+
   jumper = new Gif(this, "jumper.gif");
   jumper.loop();
-  
+
   fill(0);
   stroke(0);
 
@@ -78,10 +78,10 @@ void setup()
   myBuffer = new float[soundFile.bufferSize()];
 
   for ( int i = 0; i < 1000; i++ ) {
-    points1.add( new PVector(-1,-1) );
-    points2.add( new PVector(-1,-1) );
-    points3.add( new PVector(-1,-1) );
-    points4.add( new PVector(-1,-1) );
+    points1.add( new PVector(-1, -1) );
+    points2.add( new PVector(-1, -1) );
+    points3.add( new PVector(-1, -1) );
+    points4.add( new PVector(-1, -1) );
   }
 }
 
@@ -90,12 +90,12 @@ void draw()
   background(255);
 
   fft.forward(soundFile.mix);
-  
+
   speaker(width/6, height/2.2, width/3, height/3, width - width/2.5, height/4, width - width/4, height/2, 400, 1000, 600, 300);
   //speaker(width/3, height/3, 2000);
   //speaker(width - width/2.5, height/4, 600);
   //speaker(width - width/4, height/2, 350);
-  
+
   amplitude = 0;
 
   // draw the output waveforms, so there's something to look at
@@ -119,22 +119,36 @@ void draw()
   noFill();
   stroke(0);
   lineDraw(offset, mylen, 0);
-  stroke(150,255,0);
+  stroke(150, 255, 0);
   lineDraw(offset, mylen, 2);
-  stroke(100,255,255);
+  stroke(100, 255, 255);
   lineDraw(offset, mylen, -2);
 
   television();
-  
+
   dance();
 }
 
 void mousePressed() {
   if (mousePressed == true & pause == 0) {
     soundFile.pause();
+    astr.pause();
+    cactus.pause();
+    dancer.pause();
+    fox.pause();
+    frederick.pause();
+    jumper.pause();
     pause = 1;
   } else if (mousePressed == true & pause == 1) {
     soundFile.play();
+    cactus.play();
+    if (amptest == 1) {
+      astr.play();
+      dancer.play();
+      fox.play();
+      frederick.play();
+      jumper.play();
+    }
     pause = 0;
   }
 }
