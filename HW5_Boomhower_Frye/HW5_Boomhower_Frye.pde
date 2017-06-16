@@ -4,19 +4,28 @@
  Create Date   : 6/16/2017
  Assignment    : MSDS6390 - HW 5
  Resources     : https://vimeo.com/7586074
-                 https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
-                 https://www.ee.columbia.edu/~dpwe/resources/Processing/
+ https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
+ https://www.ee.columbia.edu/~dpwe/resources/Processing/
  ******************************************************************************************/
 
 import ddf.minim.analysis.*;
 import ddf.minim.*;
+import gifAnimation.*;
 
 Minim minim;  
 AudioPlayer soundFile;
 FFT fft;
 
+Gif astr;
+Gif cactus;
+Gif dancer;
+Gif fox;
+Gif frederick;
+Gif jumper;
+
 int w;
 int pause = 0;
+int amptest = 0;
 
 
 ArrayList <PVector> points = new ArrayList <PVector> ();
@@ -30,7 +39,25 @@ float amplitude = 0;
 void setup()
 {
   size(500, 500);
-
+  
+  astr = new Gif(this, "astr.gif");
+  astr.loop();
+  
+  cactus = new Gif(this, "cactus.gif");
+  cactus.loop();
+  
+  dancer = new Gif(this, "dancer.gif");
+  dancer.loop();
+  
+  fox = new Gif(this, "fox.gif");
+  fox.loop();
+  
+  frederick = new Gif(this, "frederick.gif");
+  frederick.loop();
+  
+  jumper = new Gif(this, "jumper.gif");
+  jumper.loop();
+  
   fill(0);
   stroke(0);
 
@@ -41,8 +68,8 @@ void setup()
   soundFile.loop();
 
   fft = new FFT( soundFile.bufferSize(), soundFile.sampleRate());
-  fft.logAverages(60, 7);
-  w = 100/fft.avgSize();
+  fft.logAverages(60, 5);
+  println(w);
 
   myBuffer = new float[soundFile.bufferSize()];
 
@@ -65,50 +92,46 @@ void draw()
   // find trigger point as largest +ve slope in first 1/4 of buffer
   int offset = 0;
   //float maxdx = 0;
-  for(int i = 0; i < myBuffer.length/4; ++i)
+  for (int i = 0; i < myBuffer.length/4; ++i)
   {
-      float dx = myBuffer[i+1] - myBuffer[i]; 
-      if (dx > maxdx) {
-        offset = i;
-        maxdx = dx;
-      }
+    float dx = myBuffer[i+1] - myBuffer[i]; 
+    if (dx > maxdx) {
+      offset = i;
+      maxdx = dx;
+    }
   }
   // plot out that waveform
   int mylen = min(tbase, myBuffer.length-offset);
   beginShape();
-  for(int i = 0; i < mylen - 1; i++)
+  for (int i = 0; i < mylen - 1; i++)
   {
     float x1 = map(i, 0, tbase, 0, width);
     //float x2 = map(i+1, 0, tbase, 0, width);
     stroke(0);
     //line(x1, 100 - myBuffer[i+offset]*gain, x2, 100 - myBuffer[i+1+offset]*gain);
-    curveVertex(x1,height/4 - myBuffer[i+offset]*gain);
-    if(myBuffer[i+offset] > amplitude) amplitude = myBuffer[i+offset];
+    curveVertex(x1, height/4 - myBuffer[i+offset]*gain);
+    if (myBuffer[i+offset] > amplitude) amplitude = myBuffer[i+offset];
     //stroke(255,0,0);
     //point(x1,100 - myBuffer[i+offset]*gain);
   }
   endShape();
-  
+
   pushMatrix();
   translate(width/2, height/2);
   for ( PVector p : points ) {
-        //ellipse(p.x, p.y, 4,4);
-        point(p.x, p.y);
-    }
+    //ellipse(p.x, p.y, 4,4);
+    point(p.x, p.y);
+  }
   popMatrix();
 
   amplitude *= 100;
   explode() ;
-  
+
   amplitude = 0;
 
-
-  for (int i = 0; i < fft.avgSize(); i++)
-  {
-    if (abs(25 - fft.getAvg(i)) < 25) rect(i*w+300, 400, 1, 25 - fft.getAvg(i));
-    else if (25 - fft.getAvg(i) < 0)  rect(i*w+300, 400, 1, -25);
-    else rect(i*w+300, 400, 1, 25);
-  }
+  television();
+  
+  dance();
 }
 
 void mousePressed() {
@@ -124,19 +147,31 @@ void mousePressed() {
 void keyPressed()
 {
   switch(key) {
-    case '+': gain = gain * 1.5; break;
-    case '-': gain = gain / 1.5; break;
-    case '<': tbase = tbase / 2; break;
-    case '>': tbase = 2*tbase; break;
-    case '1': soundFile.mute(); break;
-    case '2': soundFile.unmute(); break;
+  case '+': 
+    gain = gain * 1.5; 
+    break;
+  case '-': 
+    gain = gain / 1.5; 
+    break;
+  case '<': 
+    tbase = tbase / 2; 
+    break;
+  case '>': 
+    tbase = 2*tbase; 
+    break;
+  case '1': 
+    soundFile.mute(); 
+    break;
+  case '2': 
+    soundFile.unmute(); 
+    break;
   }
 }
- 
+
 void stop()
 {
   soundFile.close();
   minim.stop();
- 
+
   super.stop();
 }
