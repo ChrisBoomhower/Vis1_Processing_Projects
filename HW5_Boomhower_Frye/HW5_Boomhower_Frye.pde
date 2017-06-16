@@ -6,6 +6,7 @@
  Resources     : https://vimeo.com/7586074
                  https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
                  https://www.ee.columbia.edu/~dpwe/resources/Processing/
+                 https://www.openprocessing.org/sketch/214311
  ******************************************************************************************/
 
 import ddf.minim.analysis.*;
@@ -19,7 +20,10 @@ int w;
 int pause = 0;
 
 
-ArrayList <PVector> points = new ArrayList <PVector> ();
+ArrayList <PVector> points1 = new ArrayList <PVector> ();
+ArrayList <PVector> points2 = new ArrayList <PVector> ();
+ArrayList <PVector> points3 = new ArrayList <PVector> ();
+ArrayList <PVector> points4 = new ArrayList <PVector> ();
 float gain = 200;
 int tbase = 1024;
 float[] myBuffer;
@@ -46,8 +50,11 @@ void setup()
 
   myBuffer = new float[soundFile.bufferSize()];
 
-  for ( int i = 0; i < 9999; i++ ) {
-    points.add( new PVector(width/2, height/2) );
+  for ( int i = 0; i < 1000; i++ ) {
+    points1.add( new PVector(-1,-1) );
+    points2.add( new PVector(-1,-1) );
+    points3.add( new PVector(-1,-1) );
+    points4.add( new PVector(-1,-1) );
   }
 }
 
@@ -56,6 +63,13 @@ void draw()
   background(255);
 
   fft.forward(soundFile.mix);
+  
+  speaker(width/6, height/2.2, width/3, height/3, width - width/2.5, height/4, width - width/4, height/2, 400, 1000, 600, 300);
+  //speaker(width/3, height/3, 2000);
+  //speaker(width - width/2.5, height/4, 600);
+  //speaker(width - width/4, height/2, 350);
+  
+  amplitude = 0;
 
   // draw the output waveforms, so there's something to look at
   // first grab a stationary copy
@@ -75,33 +89,13 @@ void draw()
   }
   // plot out that waveform
   int mylen = min(tbase, myBuffer.length-offset);
-  beginShape();
-  for(int i = 0; i < mylen - 1; i++)
-  {
-    float x1 = map(i, 0, tbase, 0, width);
-    //float x2 = map(i+1, 0, tbase, 0, width);
-    stroke(0);
-    //line(x1, 100 - myBuffer[i+offset]*gain, x2, 100 - myBuffer[i+1+offset]*gain);
-    curveVertex(x1,height/4 - myBuffer[i+offset]*gain);
-    if(myBuffer[i+offset] > amplitude) amplitude = myBuffer[i+offset];
-    //stroke(255,0,0);
-    //point(x1,100 - myBuffer[i+offset]*gain);
-  }
-  endShape();
-  
-  pushMatrix();
-  translate(width/2, height/2);
-  for ( PVector p : points ) {
-        //ellipse(p.x, p.y, 4,4);
-        point(p.x, p.y);
-    }
-  popMatrix();
-
-  amplitude *= 100;
-  explode() ;
-  
-  amplitude = 0;
-
+  noFill();
+  stroke(0);
+  lineDraw(offset, mylen, 0);
+  stroke(150,255,0);
+  lineDraw(offset, mylen, 2);
+  stroke(100,255,255);
+  lineDraw(offset, mylen, -2);
 
   for (int i = 0; i < fft.avgSize(); i++)
   {
