@@ -4,6 +4,22 @@ void television() {
   translate(35,35);
   
   pushMatrix();
+  fill(0);
+  strokeWeight(2);
+  stroke(0);
+  translate(285, 367.5);
+  line(15,0,2.5,-20);
+  line(60,0,72.5,-20);
+  popMatrix();
+  
+  pushMatrix();
+  fill(103, 57, 34);
+  stroke(103, 57, 34);
+  translate(320,395);
+  quad(-5,0,7.5,0,30,55,-30,55);
+  popMatrix();
+  
+  pushMatrix();
   fill(150);
   stroke(150);
   translate(285, 367.5);
@@ -29,6 +45,6 @@ void equalizer() {
     else if (20 - fft.getAvg(i) < 0)  rect(i, 0, 1, -20);
     else                              rect(i, 0, 1, 20);
     
-    if (fft.getAvg(i) > 55) amptest = 1;
+    if (fft.getAvg(i) > 75) amptest = 1;
   }
 }

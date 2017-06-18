@@ -7,6 +7,17 @@
  https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
  https://www.ee.columbia.edu/~dpwe/resources/Processing/
  https://www.openprocessing.org/sketch/214311
+ 
+ GIF Images:
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fpa1.narvii.com%2F6204%2F1ba8c1443bcdaf1a0e809b22936163a12f5737c2_hq.gif
+ https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2Fl41lS0IgRIFkAuA5G%2Fgiphy.gif
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fmedia0.giphy.com%2Fmedia%2Fl0HlHgiDgsW2c32p2%2Fgiphy.gif
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fmedia2.giphy.com%2Fmedia%2FYPNSva1pEGFFu%2Fgiphy.gif
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fmedia4.giphy.com%2Fmedia%2FKkF4Ts9p08J1K%2Fgiphy.gif
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fmedia2.giphy.com%2Fmedia%2F3oKIPyn8SKfUVOzEsM%2Fgiphy.gif
+ https://slack-imgs.com/?c=1&url=http%3A%2F%2Fmedia4.giphy.com%2Fmedia%2Fl2JJMi4asqpvhXLQk%2Fgiphy.gif
+ http://www.gifbin.com/bin/20052777.gif
+ http://www.animatedimages.org/data/media/218/animated-penguin-image-0164.gif
  ******************************************************************************************/
 
 import ddf.minim.analysis.*;
@@ -17,11 +28,11 @@ Minim minim;
 AudioPlayer soundFile;
 FFT fft;
 
-Gif astr;
+Gif panda;
 Gif cactus;
 Gif dancer;
 Gif fox;
-Gif frederick;
+Gif Peng;
 Gif jumper;
 
 int w;
@@ -44,8 +55,8 @@ void setup()
 {
   size(500, 500);
 
-  astr = new Gif(this, "astr.gif");
-  astr.loop();
+  panda = new Gif(this, "panda.gif");
+  panda.loop();
 
   cactus = new Gif(this, "cactus.gif");
   cactus.loop();
@@ -56,8 +67,8 @@ void setup()
   fox = new Gif(this, "fox.gif");
   fox.loop();
 
-  frederick = new Gif(this, "frederick.gif");
-  frederick.loop();
+  Peng = new Gif(this, "Peng.gif");
+  Peng.loop();
 
   jumper = new Gif(this, "jumper.gif");
   jumper.loop();
@@ -132,21 +143,23 @@ void draw()
 void mousePressed() {
   if (mousePressed == true & pause == 0) {
     soundFile.pause();
-    astr.pause();
     cactus.pause();
-    dancer.pause();
-    fox.pause();
-    frederick.pause();
-    jumper.pause();
+    if (amptest == 1) {
+      panda.pause();
+      dancer.pause();
+      fox.pause();
+      Peng.pause();
+      jumper.pause();
+    }
     pause = 1;
   } else if (mousePressed == true & pause == 1) {
     soundFile.play();
     cactus.play();
     if (amptest == 1) {
-      astr.play();
+      panda.play();
       dancer.play();
       fox.play();
-      frederick.play();
+      Peng.play();
       jumper.play();
     }
     pause = 0;
