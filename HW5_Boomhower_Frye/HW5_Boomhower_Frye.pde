@@ -49,6 +49,7 @@ int tbase = 1024;
 float[] myBuffer;
 float maxdx = 0;
 float amplitude = 0;
+int[] colRect = new int[45];
 
 
 void setup()
@@ -88,11 +89,22 @@ void setup()
 
   myBuffer = new float[soundFile.bufferSize()];
 
-  for ( int i = 0; i < 1000; i++ ) {
-    points1.add( new PVector(-1, -1) );
-    points2.add( new PVector(-1, -1) );
-    points3.add( new PVector(-1, -1) );
-    points4.add( new PVector(-1, -1) );
+  for(int i = 0; i < 1000; i++){
+    points1.add( new PVector(-1, -1));
+    points2.add( new PVector(-1, -1));
+    points3.add( new PVector(-1, -1));
+    points4.add( new PVector(-1, -1));
+  }
+  
+  for(int i = 0; i < fft.avgSize(); i++){
+    if(i < fft.avgSize()/7) colRect[i] = 255;
+    else if( i < 2*fft.avgSize()/7) colRect[i] = #FFFF00;
+    else if( i < 3*fft.avgSize()/7) colRect[i] = #00FFFF;
+    else if( i < 4*fft.avgSize()/7) colRect[i] = #00FF00;
+    else if( i < 5*fft.avgSize()/7) colRect[i] = #FF00FF;
+    else if( i < 6*fft.avgSize()/7) colRect[i] = #FF0000;
+    else if( i < fft.avgSize()) colRect[i] = #0000FF;
+    else colRect[i] = 0;
   }
 }
 

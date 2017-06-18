@@ -8,5 +8,5 @@ void dance() {
     image(Peng, 230, 350, 75, 125);
     image(jumper, 000, 350, 85, 150);
   }
-  println(frameCount);
+  //println(frameCount);
 }

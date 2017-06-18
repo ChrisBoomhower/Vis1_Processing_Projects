@@ -41,9 +41,13 @@ void television() {
 void equalizer() {
   for (int i = 0; i < fft.avgSize(); i++)
   {
+    stroke(colRect[i]);
+    
     if (abs(20 - fft.getAvg(i)) < 20) rect(i, 0, 1, 20 - fft.getAvg(i));
-    else if (20 - fft.getAvg(i) < 0)  rect(i, 0, 1, -20);
-    else                              rect(i, 0, 1, 20);
+    
+    else if (20 - fft.getAvg(i) < 0) rect(i, 0, 1, -20);
+    
+    else rect(i, 0, 1, 20);
     
     if (fft.getAvg(i) > 100) amptest = 1;
   }
