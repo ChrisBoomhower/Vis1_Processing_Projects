@@ -45,6 +45,6 @@ void equalizer() {
     else if (20 - fft.getAvg(i) < 0)  rect(i, 0, 1, -20);
     else                              rect(i, 0, 1, 20);
     
-    if (fft.getAvg(i) > 75) amptest = 1;
+    if (fft.getAvg(i) > 100) amptest = 1;
   }
 }
