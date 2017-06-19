@@ -35,7 +35,6 @@ Gif fox;
 Gif Peng;
 Gif jumper;
 
-int w;
 int pause = 0;
 int amptest = 0;
 
@@ -49,12 +48,16 @@ int tbase = 1024;
 float[] myBuffer;
 float maxdx = 0;
 float amplitude = 0;
+int[] transparency = new int[6];
+int fc = 0;
 int[] colRect = new int[45];
 
 
 void setup()
 {
   size(500, 500);
+  
+  for(int i = 0; i < transparency.length; i++) transparency[i] = 0;
 
   panda = new Gif(this, "panda.gif");
   panda.loop();
@@ -85,7 +88,6 @@ void setup()
 
   fft = new FFT( soundFile.bufferSize(), soundFile.sampleRate());
   fft.logAverages(60, 5);
-  println(w);
 
   myBuffer = new float[soundFile.bufferSize()];
 

@@ -49,6 +49,9 @@ void equalizer() {
     
     else rect(i, 0, 1, 20);
     
-    if (fft.getAvg(i) > 100) amptest = 1;
+    if (fft.getAvg(i) > 100 & frameCount - fc > 3*60){
+      fc = frameCount;
+      amptest++;
+    }
   }
 }
