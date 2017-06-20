@@ -117,9 +117,6 @@ void draw()
   fft.forward(soundFile.mix);
 
   speaker(width/6, height/2.2, width/3, height/3, width - width/2.5, height/4, width - width/4, height/2, 400, 1000, 600, 300);
-  //speaker(width/3, height/3, 2000);
-  //speaker(width - width/2.5, height/4, 600);
-  //speaker(width - width/4, height/2, 350);
 
   amplitude = 0;
 
@@ -157,25 +154,22 @@ void draw()
 void mousePressed() {
   if (mousePressed == true & pause == 0) {
     soundFile.pause();
-    cactus.pause();
-    if (amptest == 1) {
-      panda.pause();
-      dancer.pause();
-      fox.pause();
-      Peng.pause();
-      jumper.pause();
-    }
+    if (amptest >= 1) dancer.pause();    
+    if (amptest >= 2) cactus.pause();    
+    if (amptest >= 3) panda.pause();    
+    if (amptest >= 4) fox.pause();    
+    if (amptest >= 5) Peng.pause();    
+    if (amptest >= 6) jumper.pause();
+    
     pause = 1;
   } else if (mousePressed == true & pause == 1) {
-    soundFile.play();
-    cactus.play();
-    if (amptest == 1) {
-      panda.play();
-      dancer.play();
-      fox.play();
-      Peng.play();
-      jumper.play();
-    }
+    soundFile.loop();
+    if (amptest >= 1) dancer.play();    
+    if (amptest >= 2) cactus.play();    
+    if (amptest >= 3) panda.play();    
+    if (amptest >= 4) fox.play();    
+    if (amptest >= 5) Peng.play();    
+    if (amptest >= 6) jumper.play();
     pause = 0;
   }
 }
@@ -188,12 +182,6 @@ void keyPressed()
     break;
   case '-': 
     gain = gain / 1.5; 
-    break;
-  case '<': 
-    tbase = tbase / 2; 
-    break;
-  case '>': 
-    tbase = 2*tbase; 
     break;
   case '1': 
     soundFile.mute(); 

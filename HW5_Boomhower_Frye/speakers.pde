@@ -4,28 +4,24 @@ void speaker(float xloc1, float yloc1, float xloc2, float yloc2, float xloc3, fl
   pushMatrix();
   translate(xloc1, yloc1);
   for ( PVector p : points1 ) {
-        //ellipse(p.x, p.y, 4,4);
         point(p.x, p.y);
     }
   popMatrix();
   pushMatrix();
   translate(xloc2, yloc2);
   for ( PVector p : points2 ) {
-        //ellipse(p.x, p.y, 4,4);
         point(p.x, p.y);
     }
   popMatrix();
   pushMatrix();
   translate(xloc3, yloc3);
   for ( PVector p : points3 ) {
-        //ellipse(p.x, p.y, 4,4);
         point(p.x, p.y);
     }
   popMatrix();
   pushMatrix();
   translate(xloc4, yloc4);
   for ( PVector p : points4 ) {
-        //ellipse(p.x, p.y, 4,4);
         point(p.x, p.y);
     }
   popMatrix();

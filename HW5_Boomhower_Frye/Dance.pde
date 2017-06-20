@@ -1,6 +1,4 @@
 void dance() {
-  //tint(255, 255);
-  //image(cactus, 420, 435, 35, 65);
 
   if (amptest >= 1) {
     transparent(0);
