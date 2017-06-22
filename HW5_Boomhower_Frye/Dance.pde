@@ -1,3 +1,5 @@
+/**** Dancer related code ****/
+
 void dance() {
 
   if (amptest >= 1) {

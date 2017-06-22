@@ -1,3 +1,5 @@
+/**** Speaker related code ****/
+
 void speaker(float xloc1, float yloc1, float xloc2, float yloc2, float xloc3, float yloc3, float xloc4, float yloc4, float scale1, float scale2, float scale3, float scale4){
   float volume;
   stroke(0);

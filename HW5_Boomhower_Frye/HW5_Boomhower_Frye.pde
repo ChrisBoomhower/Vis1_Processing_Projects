@@ -3,6 +3,13 @@
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/16/2017
  Assignment    : MSDS6390 - HW 5
+ Instructions  : '+' key increases oscilloscope gain
+                 '-' key decreases oscilloscope gain
+                 '1' key mutes audio
+                 '2' key unmutes audio
+                 LeftMouseClick toggles pause/unpause
+                 RightMouseClick toggles song Title, Author, and Album details
+                 
  Resources     : https://vimeo.com/7586074
  https://github.com/ddf/Minim/tree/master/examples/Analysis/SoundSpectrum
  https://www.ee.columbia.edu/~dpwe/resources/Processing/
@@ -26,6 +33,7 @@ import gifAnimation.*;
 
 Minim minim;  
 AudioPlayer soundFile;
+AudioMetaData meta;
 FFT fft;
 
 Gif panda;
@@ -51,11 +59,15 @@ float amplitude = 0;
 int[] transparency = new int[6];
 int fc = 0;
 int[] colRect = new int[45];
+boolean metaDetails = false;
 
 
 void setup()
 {
   size(500, 500);
+  
+  textFont( loadFont("AgencyFB-Reg-24.vlw") );
+  textAlign( CENTER );
   
   for(int i = 0; i < transparency.length; i++) transparency[i] = 0;
 
@@ -82,6 +94,7 @@ void setup()
 
   minim = new Minim(this);
   soundFile = minim.loadFile("Ratatat - Bilar.mp3", 1024);
+  meta = soundFile.getMetaData();
 
   // loop the file
   soundFile.loop();
@@ -120,14 +133,13 @@ void draw()
 
   amplitude = 0;
 
-  // draw the output waveforms, so there's something to look at
-  // first grab a stationary copy
+  // Obtain stationary copy of waveform
   for (int i = 0; i < soundFile.bufferSize(); ++i) {
     myBuffer[i] = soundFile.left.get(i);
   }
+  
   // find trigger point as largest +ve slope in first 1/4 of buffer
   int offset = 0;
-  //float maxdx = 0;
   for (int i = 0; i < myBuffer.length/4; ++i)
   {
     float dx = myBuffer[i+1] - myBuffer[i]; 
@@ -136,7 +148,8 @@ void draw()
       maxdx = dx;
     }
   }
-  // plot out that waveform
+  
+  // plot oscillating waveform
   int mylen = min(tbase, myBuffer.length-offset);
   noFill();
   stroke(0);
@@ -149,10 +162,16 @@ void draw()
   television();
 
   dance();
+  
+  if (metaDetails) {
+    text("Title: " + meta.title(), width/2, 1.5*height/3);
+    text("Author: " + meta.author(), width/2, 1.5*height/3 + 25); 
+    text("Album: " + meta.album(), width/2, 1.5*height/3 + 50);
+  }
 }
 
 void mousePressed() {
-  if (mousePressed == true & pause == 0) {
+  if (mousePressed == true & pause == 0 & mouseButton == LEFT) {
     soundFile.pause();
     if (amptest >= 1) dancer.pause();    
     if (amptest >= 2) cactus.pause();    
@@ -162,7 +181,7 @@ void mousePressed() {
     if (amptest >= 6) jumper.pause();
     
     pause = 1;
-  } else if (mousePressed == true & pause == 1) {
+  } else if (mousePressed == true & pause == 1 & mouseButton == LEFT) {
     soundFile.loop();
     if (amptest >= 1) dancer.play();    
     if (amptest >= 2) cactus.play();    
@@ -172,6 +191,9 @@ void mousePressed() {
     if (amptest >= 6) jumper.play();
     pause = 0;
   }
+  else if (mousePressed == true & mouseButton == RIGHT & metaDetails == false) metaDetails = true;
+  else if (mousePressed == true & mouseButton == RIGHT & metaDetails == true) metaDetails = false;
+  
 }
 
 void keyPressed()
