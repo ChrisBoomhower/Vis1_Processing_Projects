@@ -20,7 +20,7 @@ float[] mag = {};
 float[] depth = {};
 float[] latitude = {};
 float[] longitude = {};
-float[] time = {};
+float[] delta = {};
 String[] place = {};
 int[] sig = {};
 int readRows = 0;
@@ -51,13 +51,7 @@ void draw() {
   //float latitude    = random(brCornerRaw.y, tlCornerRaw.y);    //19.8968;   //41.145556; // (φ) // y
   //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x
 
-  for (int i = 0; i < mag.length; i++) { //<>//
-    float delta = 0;
-    if (i > 0) {
-      delta = time[i] - time[i-1];
-    }
-    println(delta);
-    
+  for (int i = 0; i < mag.length; i++) { 
     //WOULD LIKE TO USE DELTA IN COUNTER ARRAY TO CONTROL RATE OF INCOMING CIRCLES
     pingQuake(longitude[i], latitude[i], mag[i], sig[i]);
   }

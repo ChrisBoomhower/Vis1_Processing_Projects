@@ -6,6 +6,7 @@ import sys
 import threading
 import csv
 import pandas as pd
+import time
 
 from satori.rtm.client import make_client, SubscriptionMode
 
@@ -87,12 +88,14 @@ def main():
 					except PermissionError:
 						print('File in use... trying again')
 			
-			# Remove duplicate entries
+			# Cleanup table for import to Processing
 			while clean == False:
 				try:
 					df = pd.read_csv('earthquake.csv')
 					df = df.sort_values(by = 'time')
 					df = df.drop_duplicates(['time'], keep = 'last')
+					df['delta'] = df['time']/1000 - (df['time'].shift(1))/1000
+					df = df.fillna(value = 0)
 					df.to_csv('earthquakeClean.csv', index = False)
 					# with open('earthquake.csv','r') as in_file, open('earthquakeClean.csv','w', newline = '') as out_file:
 						# seen = set() # set for fast O(1) amortized lookup
