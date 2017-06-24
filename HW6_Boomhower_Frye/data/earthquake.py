@@ -5,6 +5,7 @@ from __future__ import print_function
 import sys
 import threading
 import csv
+import pandas as pd
 
 from satori.rtm.client import make_client, SubscriptionMode
 
@@ -72,7 +73,6 @@ def main():
 							w = csv.DictWriter(csv_file, z.keys())
 							w.writeheader()
 						init = True
-						break
 					except PermissionError:
 						print('File in use')
 				
@@ -90,13 +90,17 @@ def main():
 			# Remove duplicate entries
 			while clean == False:
 				try:
-					with open('earthquake.csv','r') as in_file, open('earthquakeClean.csv','w', newline = '') as out_file:
-						seen = set() # set for fast O(1) amortized lookup
-						for line in in_file:
-							if line in seen: continue # skip duplicate
+					df = pd.read_csv('earthquake.csv')
+					df = df.sort_values(by = 'time')
+					df = df.drop_duplicates(['time'], keep = 'last')
+					df.to_csv('earthquakeClean.csv', index = False)
+					# with open('earthquake.csv','r') as in_file, open('earthquakeClean.csv','w', newline = '') as out_file:
+						# seen = set() # set for fast O(1) amortized lookup
+						# for line in in_file:
+							# if line in seen: continue # skip duplicate
 
-							seen.add(line)
-							out_file.write(line)
+							# seen.add(line)
+							# out_file.write(line)
 							
 					clean = True
 					break

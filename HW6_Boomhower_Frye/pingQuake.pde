@@ -16,11 +16,14 @@ PVector getxy(float longitude, float latitude) {
   return xy;
 }
 
-void pingQuake(float longitude, float latitude) {
+void pingQuake(float longitude, float latitude, float mag, int sig) {
   PVector xy = getxy(longitude, latitude);
 
+  float s = map(sig, 0, 1000, 0, 255);
+  noStroke();
+  fill(255, 0, 0, s);
   ellipse(map(xy.x, tlCorner.x, brCorner.x, 0, width), //map adjusts for zoomX
     map(xy.y, tlCorner.y, brCorner.y, 0, height), //map adjusts for zoomY
-    5, 
-    5);
+    mag*6, 
+    mag*6);
 }
