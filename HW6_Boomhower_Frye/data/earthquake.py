@@ -95,6 +95,7 @@ def main():
 					df = df.sort_values(by = 'time')
 					df = df.drop_duplicates(['time'], keep = 'last')
 					df['delta'] = df['time']/1000 - (df['time'].shift(1))/1000
+					df['t_lapsed'] = df.delta.cumsum()
 					df = df.fillna(value = 0)
 					df.to_csv('earthquakeClean.csv', index = False)
 					# with open('earthquake.csv','r') as in_file, open('earthquakeClean.csv','w', newline = '') as out_file:

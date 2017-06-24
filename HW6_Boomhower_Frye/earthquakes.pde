@@ -16,9 +16,8 @@ void earthquakes() {
     delta = append(delta, row.getFloat("delta"));
     place = append(place, row.getString("place"));
     sig = append(sig, row.getInt("sig"));
-  }
-
-  for (int i = 0; i < mag.length; i++) { //<>//
+    fc = append(fc, row.getFloat("t_lapsed"));
+    
     println("row = " + i + 
     ", Mag = " + mag[i] + 
     ", latitude = " + latitude[i] + 
@@ -26,7 +25,20 @@ void earthquakes() {
     ", depth = " + depth[i] + 
     ", time delta = " + delta[i] + 
     ", place = " + place[i] + 
-    ", sig = " + sig[i]);
+    ", sig = " + sig[i] +
+    ", t_lapsed = " + fc[i]);
   }
+
+  //for (int i = 0; i < mag.length; i++) {
+  //  println("row = " + i + 
+  //  ", Mag = " + mag[i] + 
+  //  ", latitude = " + latitude[i] + 
+  //  ", longitude = " + longitude[i] + 
+  //  ", depth = " + depth[i] + 
+  //  ", time delta = " + delta[i] + 
+  //  ", place = " + place[i] + 
+  //  ", sig = " + sig[i] +
+  //  ", t_lapsed = " + fc[i]);
+  //}
   readRows = table.getRowCount();
 }

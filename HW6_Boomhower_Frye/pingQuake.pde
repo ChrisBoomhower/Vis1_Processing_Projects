@@ -21,9 +21,13 @@ void pingQuake(float longitude, float latitude, float mag, int sig) {
 
   float s = map(sig, 0, 1000, 0, 255);
   noStroke();
-  fill(255, 0, 0, s);
+  fill(255, 0, 0, 255);//s);
   ellipse(map(xy.x, tlCorner.x, brCorner.x, 0, width), //map adjusts for zoomX
     map(xy.y, tlCorner.y, brCorner.y, 0, height), //map adjusts for zoomY
     mag*6, 
     mag*6);
+  
+  if (first == 0) first = frameCount;
+    
+  //return (frameCount);
 }

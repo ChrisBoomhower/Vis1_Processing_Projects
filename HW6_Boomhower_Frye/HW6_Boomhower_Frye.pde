@@ -14,6 +14,7 @@ float mapWidth    = 1162; // don't mess with me!
 float mapHeight   = 976; // don't mess with me!
 PVector tlCornerRaw, brCornerRaw;   // Map corners raw in WebMercator coordinates.
 PVector tlCorner, brCorner;         // Map corners converted in WebMercator coordinates.
+PImage backgroundMap;
 
 Table table;
 float[] mag = {};
@@ -23,16 +24,18 @@ float[] longitude = {};
 float[] delta = {};
 String[] place = {};
 int[] sig = {};
+float[] fc = {};
 int readRows = 0;
+int first = 0;
 
 void setup() {
-  PImage backgroundMap = loadImage("data/USA.jpg");
+  //PImage backgroundMap = loadImage("data/USA.jpg");
+  backgroundMap = loadImage("data/USA.jpg");
 
   size(1162, 976);
   backgroundMap.resize(1162, 976);
-  background(backgroundMap);
-
-  frameRate(10);
+  //background(backgroundMap);
+  image(backgroundMap, 0, 0, width, height);
 
   //define zoom lat/long
 
@@ -44,15 +47,21 @@ void setup() {
 }
 
 void draw() {
+  image(backgroundMap, 0, 0, width, height);
   int rows = checkTable();
 
   if (rows - readRows > 0) earthquakes();
 
   //float latitude    = random(brCornerRaw.y, tlCornerRaw.y);    //19.8968;   //41.145556; // (φ) // y
-  //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x
+  //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x //<>//
 
   for (int i = 0; i < mag.length; i++) { 
-    //WOULD LIKE TO USE DELTA IN COUNTER ARRAY TO CONTROL RATE OF INCOMING CIRCLES
-    pingQuake(longitude[i], latitude[i], mag[i], sig[i]);
+    
+    if ((frameCount - first)/30 >= fc[i]) { //Generate dots at 2x speed
+      pingQuake(longitude[i], latitude[i], mag[i], sig[i]);
+    }
   }
+  
+  fill(0);
+  text("Time Elapsed = " + millis()/1000, 5, height-5);
 }
