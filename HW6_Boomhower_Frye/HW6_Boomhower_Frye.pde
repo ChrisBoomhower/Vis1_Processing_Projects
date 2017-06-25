@@ -27,6 +27,10 @@ int[] sig = {};
 float[] fc = {};
 int readRows = 0;
 int first = 0;
+int waveCount = 0;
+int count = 0;
+boolean quiet = true;
+//float newFrame = 0;
 
 void setup() {
   //PImage backgroundMap = loadImage("data/USA.jpg");
@@ -53,12 +57,13 @@ void draw() {
   if (rows - readRows > 0) earthquakes();
 
   //float latitude    = random(brCornerRaw.y, tlCornerRaw.y);    //19.8968;   //41.145556; // (φ) // y
-  //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x //<>//
+  //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x
 
   for (int i = 0; i < mag.length; i++) { 
     
     if ((frameCount - first)/30 >= fc[i]) { //Generate dots at 2x speed
       pingQuake(longitude[i], latitude[i], mag[i], sig[i]);
+      wave(i, mag[i], depth[i]);
     }
   }
   

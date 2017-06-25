@@ -27,7 +27,11 @@ void pingQuake(float longitude, float latitude, float mag, int sig) {
     mag*6, 
     mag*6);
   
-  if (first == 0) first = frameCount;
+  if (first == 0) {
+    first = frameCount;
+    //newFrame = frameCount;
+  }
+  //else if (waveCount > 0) newFrame = frameCount;
     
   //return (frameCount);
 }
