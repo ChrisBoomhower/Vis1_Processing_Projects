@@ -23,12 +23,14 @@ float[] latitude = {};
 float[] longitude = {};
 float[] delta = {};
 String[] place = {};
+String[] dt = {};
 int[] sig = {};
 float[] fc = {};
 int readRows = 0;
 int first = 0;
 int waveCount = 0;
 int count = 0;
+float fade = 0;
 boolean quiet = true;
 //float newFrame = 0;
 
@@ -52,21 +54,31 @@ void setup() {
 
 void draw() {
   image(backgroundMap, 0, 0, width, height);
+  
+  // Grab new live data if available
   int rows = checkTable();
-
   if (rows - readRows > 0) earthquakes();
 
   //float latitude    = random(brCornerRaw.y, tlCornerRaw.y);    //19.8968;   //41.145556; // (φ) // y
   //float longitude   = random(tlCornerRaw.x, brCornerRaw.x);    //-155.5828; //-73.995;   // (λ) // x
 
+  // Activity based on whether earthquake timing
   for (int i = 0; i < mag.length; i++) { 
-    
-    if ((frameCount - first)/30 >= fc[i]) { //Generate dots at 2x speed
+    if ((frameCount - first)/60 >= fc[i]) { //Generate dots at 2x speed
       pingQuake(longitude[i], latitude[i], mag[i], sig[i]);
       wave(i, mag[i], depth[i]);
     }
   }
   
+  // Draw straight lines for curve if no data yet exists in live data source
+  if (first == 0) {
+    stroke(30, 132, 73);
+    line(20, height/1.5, width/3 + 13, height/1.5);
+  }
+  
+  // Write time elapsed since sketch start
+  textSize(12);
+  textAlign(RIGHT);
   fill(0);
-  text("Time Elapsed = " + millis()/1000, 5, height-5);
+  text("Time Elapsed = " + millis()/1000, width - 5, height-5);
 }
