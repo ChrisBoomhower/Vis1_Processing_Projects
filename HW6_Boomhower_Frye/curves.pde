@@ -1,9 +1,11 @@
+/*** Seismic activity curve related code ***/
 
-
+// Draw earthquake magnitude and depth curves
 void wave(int run, float mag, float depth) {
 
   // Only oscillate if new occurrence
   if (run >= waveCount) {
+    location(run);
 
     // Draw magnitude oscillation
     stroke(142, 68, 173);

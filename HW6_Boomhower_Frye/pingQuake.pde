@@ -1,5 +1,6 @@
 /**** xy translations and ellipse ping related code ****/
 
+// XY coordinate translation
 PVector getxy(float longitude, float latitude) {
 
   // get x value  
@@ -16,6 +17,7 @@ PVector getxy(float longitude, float latitude) {
   return xy;
 }
 
+// Draw ellipse for earthquake location
 void pingQuake(float longitude, float latitude, float mag, int sig) {
   PVector xy = getxy(longitude, latitude);
 
@@ -27,11 +29,5 @@ void pingQuake(float longitude, float latitude, float mag, int sig) {
     mag*6, 
     mag*6);
   
-  if (first == 0) {
-    first = frameCount;
-    //newFrame = frameCount;
-  }
-  //else if (waveCount > 0) newFrame = frameCount;
-    
-  //return (frameCount);
+  if (first == 0) first = frameCount;
 }
