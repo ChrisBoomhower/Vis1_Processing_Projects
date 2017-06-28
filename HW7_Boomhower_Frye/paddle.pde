@@ -5,15 +5,19 @@ class Paddle {
 
   float paddleHeight;
   float paddleWidth;
+  float paddleUpperY;            // to be used for ball "hit" upper Y boundary
+  float paddleLowerY;            // to be used for ball "hit" lower Y boundary
+  float leftPaddleBound;         // to be used for ball "hit" X boundary for left paddle 
+  float rightPaddleBound;        // to be used for ball "hit" X boundary for right paddle 
 
   Paddle(float paddleHeight, float paddleWidth) {
     this.paddleHeight = paddleHeight;
     this.paddleWidth  = paddleWidth;
-    
-    paddleUpperY     = height/2 - paddleHeight/2;
-    paddleLowerY     = height/2 + paddleHeight/2;
-    leftPaddleBound  = paddleWidth*2;
-    rightPaddleBound = width - (paddleWidth*2);
+
+    this.paddleUpperY     = height/2 - paddleHeight/2;
+    this.paddleLowerY     = height/2 + paddleHeight/2;
+    this.leftPaddleBound  = paddleWidth*2;
+    this.rightPaddleBound = width - (paddleWidth*2);
   }
 
   void drawPaddle() {
@@ -47,5 +51,29 @@ class Paddle {
     textAlign(BASELINE);
     text(arraySum(paddleCount), 350, 50);
     popMatrix();
+  }
+
+  void paddleReSize(float paddleHeight, float paddleWidth) {
+    this.paddleHeight = paddleHeight;
+    this.paddleWidth  = paddleWidth;
+
+    this.paddleUpperY     = height/2 - paddleHeight/2;
+    this.paddleLowerY     = height/2 + paddleHeight/2;
+    this.leftPaddleBound  = paddleWidth*2;
+    this.rightPaddleBound = width - (paddleWidth*2);
+  }
+
+
+  float getPaddleUpperY() {
+    return this.paddleUpperY;
+  }
+  float getPaddleLowerY() {
+    return this.paddleLowerY;
+  }
+  float getLeftPaddleBound() {
+    return this.leftPaddleBound;
+  }
+  float getRightPaddleBound() {
+    return this.rightPaddleBound;
   }
 }

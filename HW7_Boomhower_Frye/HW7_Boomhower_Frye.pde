@@ -22,12 +22,6 @@ int soundOn = 0;
 
 // declare global variables
 Paddle paddle;
-float paddleHeight      = 100;
-float paddleWidth       = 20;
-float paddleUpperY;            // to be used for ball "hit" upper Y boundary
-float paddleLowerY;            // to be used for ball "hit" lower Y boundary
-float leftPaddleBound;         // to be used for ball "hit" X boundary for left paddle 
-float rightPaddleBound;        // to be used for ball "hit" X boundary for right paddle 
 
 int roundTemp             = 0;
 int round                 = 0;
@@ -75,9 +69,9 @@ void setup() {
   path = sketchPath(audioName);
   file = new SoundFile(this, path);
 
-  paddle = new Paddle(paddleHeight, paddleWidth);
+  paddle = new Paddle(100, 20);
   
-  ballX[0]          = leftPaddleBound + 20;
+  ballX[0]          = paddle.getLeftPaddleBound() + 20;
   ballY[0]          = height/2;
   ballLeftBound[0]  = ballX[0] - ballRadius[0];
   ballRightBound[0] = ballX[0] + ballRadius[0];
@@ -177,21 +171,22 @@ void draw() {
     for (int i = 0; i<ballCount; i++) {
       // remove ball on paddle miss
       if ((speedX[i]          < 0
-        & ballLeftBound[i]  <= leftPaddleBound 
-        & (ballY[i]          < paddleUpperY | 
-        ballY[i]             > paddleLowerY)
+        & ballLeftBound[i]  <= paddle.getLeftPaddleBound()
+        & (ballY[i]          < paddle.getPaddleUpperY() | 
+        ballY[i]             > paddle.getPaddleLowerY())
         ) |
         (speedX[i]  >  0 
-        & ballRightBound[i] >= rightPaddleBound 
-        & (ballY[i]         <  paddleUpperY | 
-        ballY[i]            >  paddleLowerY)
+        & ballRightBound[i] >= paddle.getRightPaddleBound() 
+        & (ballY[i]         <  paddle.getPaddleUpperY() | 
+        ballY[i]            >  paddle.getPaddleLowerY())
         )) {
   
         ballPop(i);
       }
     }
   }
-
+  
+  
   // Detect end of game
   if (round != 0) {
     if (ballCount == 0) {

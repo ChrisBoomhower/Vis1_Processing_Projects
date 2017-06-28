@@ -26,9 +26,9 @@ void round3() {
 
     // change ball speedX on successful paddle hit
     if (speedX[i]         <  0
-      & ballLeftBound[i]  <= leftPaddleBound 
-      & ballY[i]          >= paddleUpperY
-      & ballY[i]          <= paddleLowerY) {
+      & ballLeftBound[i]  <= paddle.getLeftPaddleBound()
+      & ballY[i]          >= paddle.getPaddleUpperY()
+      & ballY[i]          <= paddle.getPaddleLowerY()) {
 
       if (speedX[i]         >  -maxAbsSpeedX)  speedX[i]*=-1.1;
       else speedX[i]*=-1;
@@ -39,9 +39,9 @@ void round3() {
       paddleCount[i]++;
       paddleHitFlag    = 1;
     } else if (speedX[i]  >  0 
-      & ballRightBound[i] >= rightPaddleBound 
-      & ballY[i]          >= paddleUpperY
-      & ballY[i]          <= paddleLowerY) {
+      & ballRightBound[i] >= paddle.getRightPaddleBound() 
+      & ballY[i]          >= paddle.getPaddleUpperY()
+      & ballY[i]          <= paddle.getPaddleLowerY()) {
 
       if (speedX[i]         <  maxAbsSpeedX)  speedX[i]*=random(-1.1,-2);
       else speedX[i]*=-1;
