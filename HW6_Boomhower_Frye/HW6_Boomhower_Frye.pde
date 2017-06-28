@@ -3,9 +3,31 @@
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/24/2017
  Assignment    : MSDS6390 - HW 6
- Instructions  : N/A
+ Instructions  : This sketch imports and visualizes a live stream of earthquake reports from the earthquakeClean.csv file in the data folder.
+                 Earthquake magnitude and depth are plotted in real-time along with location, significance, and time details. The CSV data file is
+                 populated with live earthquake data from the U.S. Geological Survey (USGS) via our earthquake.py Python script. Running our
+                 Python script opens a live connection with the USGS earthquake report feed via the "satori.rtm.client" Python library which
+                 must be installed before running (pip install satori.rtm.client). The script should be run at the same time as the Processing
+                 sketch to visualize live data as earthquakes occur throughout the U.S. However, the Python script may also be run ahead of
+                 time since it simply updates earthquakeClean.csv as new events are reported (This Processing sketch may read from the CSV
+                 both while running the Python script and while not).
+                 
+                 Therefore, for demonstration purposes, we've submitted our assignment with the CSV populated with data output from our most recent Python
+                 script run. To visualize the data, simply run the sketch, but note that the timing of earthquake updates is based on the t_lapsed column
+                 which is the time, in seconds, between each earthquake event. Therefore, if the second earthquake is 16 seconds after the first
+                 one, for example, then you will have to wait 16 seconds from the first earthquake before the visualization is updated and the
+                 earthquake magnitude and depth are animated via the line plots in the left side of the window. If the t_lapsed value for the third
+                 earthquake is 30, this means it occurred 30 seconds after the first earthquake (the column is a cumulative sum with respect to the
+                 first event). For grading, you may always alter the t_lapsed values in the earthquakeClean.csv manually to speed up their occurrences
+                 (assuming you do not have the Python script running which will immediately overwrite your changes). To visualize live data, just
+                 clear the contents of the earthquakeClean.csv (while leaving the header row) and then start the Python script before running this
+                 Processing sketch. It's just a matter of time before you capture and visualize the first earthquake event (they occur more often
+                 than you'd think)!
+                 
  Resources     : https://stackoverflow.com/questions/14329691/covert-latitude-longitude-point-to-a-pixels-x-y-on-mercator-projection
- https://www.openstreetmap.org/export#map=3/55.18/-108.02
+                 https://www.openstreetmap.org/export#map=3/55.18/-108.02
+                 https://www.openprocessing.org/sketch/403977
+                 https://www.satori.com/channels/USGS-Earthquakes
  
  ******************************************************************************************/
 

@@ -1,5 +1,17 @@
 #!/usr/bin/env python
 
+################################################################
+# earthquake.py
+# Chris Boomhower, Alex Frye
+# 6-24-2017
+# 
+# This script pulls live earthquake reports from the U.S.
+# Geological Survey event report feed. It then processes
+# and outputs new events to the earthquakeClean.csv file.
+# Further explanation is provided in the HW6_Boomhower_Frye.pde
+# comments header.
+################################################################
+
 from __future__ import print_function
 
 import sys
