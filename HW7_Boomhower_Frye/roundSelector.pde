@@ -48,7 +48,7 @@ void roundSelector(float x, float y) {
     & y < height/3 + flagHeight/2) round = roundTemp;
 
   for (int i = 0; i<ballCount; i++) {
-    speedX[i] = 5;
+    ball[i].setSpeedX(5);
   }  
   loop();
 }

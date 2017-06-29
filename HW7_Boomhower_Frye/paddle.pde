@@ -49,11 +49,11 @@ class Paddle {
     fill(0);
     textSize(32);
     textAlign(BASELINE);
-    text(arraySum(paddleCount), 350, 50);
+    text(arraySum(ball), 350, 50);
     popMatrix();
   }
 
-  void paddleReSize(float paddleHeight, float paddleWidth) {
+  void setPaddleSize(float paddleHeight, float paddleWidth) {
     this.paddleHeight = paddleHeight;
     this.paddleWidth  = paddleWidth;
 

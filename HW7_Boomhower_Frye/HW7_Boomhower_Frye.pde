@@ -4,11 +4,11 @@
  Create Date   : 6/3/2017
  Assignment    : MSDS6390 - HW 4
  Resources     :   https://www.processing.org/discourse/beta/num_1118112730.html
-                   https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
-                   https://www.youtube.com/watch?v=2kP1bZfUNJE
-                   https://www.countries-ofthe-world.com/flags-of-the-world.html
-                   https://ping-pong.en.softonic.com/
-                   http://www.absolud.com/foot/?page_id=73
+ https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
+ https://www.youtube.com/watch?v=2kP1bZfUNJE
+ https://www.countries-ofthe-world.com/flags-of-the-world.html
+ https://ping-pong.en.softonic.com/
+ http://www.absolud.com/foot/?page_id=73
  ******************************************************************************************/
 //sound import
 import processing.sound.*;
@@ -22,26 +22,20 @@ int soundOn = 0;
 
 // declare global variables
 Paddle paddle;
+Ball[] ball;
+Ball newBall;
+BallEmitter ballEmitter;
+playGame playGame;
 
 int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
 
-float[] ballColor        = new float[1];
-float[] ballRadius       = {15};
-float[] ballLeftBound    = new float[1];
-float[] ballRightBound   = new float[1];
-float[] ballUpperBound   = new float[1];
-float[] ballLowerBound   = new float[1];
-float[] ballX            = new float[1];
-float[] ballY            = new float[1];
-float[] speedX           = {0};
-float[] gravityY         = {0};
+
 int ballCount            = 1;
 float maxAbsSpeedX       = 45;
 
-int[] paddleCount        = {0};
 int paddleHitFlag        = 0;
 
 int retiredBallCount     = 0;
@@ -64,20 +58,15 @@ boolean complete = false;
 void setup() {
   size(700, 600);
   background = loadImage("data/background.png");
-  
+
   // for more info about sketchPath, go to https://processing.org/discourse/beta/num_1229443269.html
   path = sketchPath(audioName);
   file = new SoundFile(this, path);
 
+  playGame = new playGame();
   paddle = new Paddle(100, 20);
-  
-  ballX[0]          = paddle.getLeftPaddleBound() + 20;
-  ballY[0]          = height/2;
-  ballLeftBound[0]  = ballX[0] - ballRadius[0];
-  ballRightBound[0] = ballX[0] + ballRadius[0];
-  ballUpperBound[0] = ballY[0] - ballRadius[0];
-  ballLowerBound[0] = ballY[0] + ballRadius[0];
-  ballColor[0]      = #000000;
+  ballEmitter = new BallEmitter();
+
 
   fontGaming = loadFont("HarlowSolid-48.vlw");
   fontStart = loadFont("GoudyOldStyleT-Bold-48.vlw");
@@ -97,12 +86,12 @@ void draw() {
 
   if (round == 0) {
     background(200);
-    
+
     pushMatrix();
 
     fill(0);
     textFont(fontGaming);
-    
+
     textAlign(CENTER, CENTER);
     text("Select Round:", width/2, height - height/2.8);
 
@@ -150,56 +139,50 @@ void draw() {
       text("START", width/2 - flagWidth/2, height/3 - flagHeight/2, flagWidth, flagHeight);
       textAlign(BASELINE);
       textFont(fontGaming);
-      popMatrix();  
+      popMatrix();
     }
 
     popMatrix();
-  }
-
-  else if(complete == false){
+  } else if (complete == false) {
     background(200);
     image(background, 0, height/3, width, height/3);
     paddle.displayPaddleCount();
-  
+
     paddle.drawPaddle();
-  
-    if (round == 1)  round1();
-    else if (round == 2) round2();
-    else if (round == 3) round3();
-  
-  
+
+    playGame.playRound(round);
+
     for (int i = 0; i<ballCount; i++) {
       // remove ball on paddle miss
-      if ((speedX[i]          < 0
-        & ballLeftBound[i]  <= paddle.getLeftPaddleBound()
-        & (ballY[i]          < paddle.getPaddleUpperY() | 
-        ballY[i]             > paddle.getPaddleLowerY())
+      if ((ball[i].getSpeedX()          < 0
+        & ball[i].getBallLeftBound()  <= paddle.getLeftPaddleBound()
+        & (ball[i].getBallY()          < paddle.getPaddleUpperY() | 
+        ball[i].getBallY()             > paddle.getPaddleLowerY())
         ) |
-        (speedX[i]  >  0 
-        & ballRightBound[i] >= paddle.getRightPaddleBound() 
-        & (ballY[i]         <  paddle.getPaddleUpperY() | 
-        ballY[i]            >  paddle.getPaddleLowerY())
+        (ball[i].getSpeedX()  >  0 
+        & ball[i].getBallRightBound() >= paddle.getRightPaddleBound() 
+        & (ball[i].getBallY()         <  paddle.getPaddleUpperY() | 
+        ball[i].getBallY()            >  paddle.getPaddleLowerY())
         )) {
-  
-        ballPop(i);
+
+        ballEmitter.ballPop(i);
       }
     }
   }
-  
-  
+
+
   // Detect end of game
   if (round != 0) {
     if (ballCount == 0) {
       if (complete == false) fc = frameCount;
       gameOver();
       complete = true;
-    } else if (arraySum(paddleCount) >= maxPaddle[round-1]) {
+    } else if (arraySum(ball) >= maxPaddle[round-1]) {
       if (complete == false) fc = frameCount;
       fireworks();
       complete = true;
     }
   }
-  
 }
 
 
@@ -209,24 +192,12 @@ void mousePressed() {
   }
 }
 
-float[] pop(float array[], int item) {
-  float outgoing[] = new float[array.length - 1];
-  System.arraycopy(array, 0, outgoing, 0, item);
-  System.arraycopy(array, item+1, outgoing, item, array.length - (item + 1));
-  return outgoing;
-} 
 
-int[] pop(int array[], int item) {
-  int outgoing[] = new int[array.length - 1];
-  System.arraycopy(array, 0, outgoing, 0, item);
-  System.arraycopy(array, item+1, outgoing, item, array.length - (item + 1));
-  return outgoing;
-} 
 
-int arraySum(int[] array) {
+int arraySum(Ball[] array) {
   int sum = 0;
   for (int i =0; i<array.length; i++) {
-    sum +=array[i];
+    sum +=array[i].getPaddleCount();
   }
   return sum + retiredBallCount;
 }
