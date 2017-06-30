@@ -15,6 +15,7 @@ class Ball {
   int   paddleCount  = 0;
 
   Ball(float ballRadius, float speedX, float gravityY) {
+    this.ballRadius     = ballRadius;
     this.ballX          = paddle.getLeftPaddleBound() + 20;
     this.ballY          = height/2;
     this.ballLeftBound  = ballX - ballRadius;
@@ -22,7 +23,24 @@ class Ball {
     this.ballUpperBound = ballY - ballRadius;
     this.ballLowerBound = ballY + ballRadius;
 
-    this.ballRadius = ballRadius;
+
+    this.speedX = speedX;
+    this.gravityY = gravityY;
+  }
+
+
+  Ball(float ballRadius, float speedX, float gravityY, 
+       float ballLeftBound, float ballRightBound, float ballUpperBound, float ballLowerBound, 
+       float ballX, float ballY) {
+    this.ballRadius     = ballRadius;
+    this.ballX          = ballX;
+    this.ballY          = ballY;
+    this.ballLeftBound  = ballLeftBound;
+    this.ballRightBound = ballRightBound;
+    this.ballUpperBound = ballUpperBound;
+    this.ballLowerBound = ballLowerBound;
+
+
     this.speedX = speedX;
     this.gravityY = gravityY;
   }

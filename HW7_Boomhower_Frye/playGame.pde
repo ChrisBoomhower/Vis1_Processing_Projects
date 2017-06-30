@@ -65,6 +65,7 @@ class playGame {
         paddleHitFlag    = 1;
       }
 
+
       if(roundNum == 1){
         if (ball[i].getPaddleCount() != 0 & ball[i].getPaddleCount() % 2 == 0 & paddleHitFlag    == 1)      ballEmitter.ballSplit(i);
         else if (ball[i].getPaddleCount() != 0 & ball[i].getPaddleCount() % 2 == 1 & paddleHitFlag    == 1) ballEmitter.ballGrow(i);

@@ -152,6 +152,7 @@ void draw() {
 
     playGame.playRound(round);
 
+    int popCount = 0;
     for (int i = 0; i<ballCount; i++) {
       // remove ball on paddle miss
       if ((ball[i].getSpeedX()          < 0
@@ -164,13 +165,13 @@ void draw() {
         & (ball[i].getBallY()         <  paddle.getPaddleUpperY() | 
         ball[i].getBallY()            >  paddle.getPaddleLowerY())
         )) {
-
-        ballEmitter.ballPop(i);
+        
+        ball = ballEmitter.ballPop(i);
+        popCount++; 
       }
     }
   }
-
-
+ 
   // Detect end of game
   if (round != 0) {
     if (ballCount == 0) {
@@ -183,6 +184,7 @@ void draw() {
       complete = true;
     }
   }
+
 }
 
 
