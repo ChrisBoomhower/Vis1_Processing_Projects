@@ -33,15 +33,6 @@ class BallEmitter {
                                            ball[ballNum].getBallUpperBound(),  ball[ballNum].getBallLowerBound(), 
                                            ball[ballNum].getBallX(),  ball[ballNum].getBallY()));
 
-  
-
-      //ball[ballNum+i+1].setPaddleCount(0);
-      ball[ballNum+i+1].setBallLeftBound(ball[ballNum].getBallLeftBound());
-      ball[ballNum+i+1].setBallRightBound(ball[ballNum].getBallRightBound());
-      ball[ballNum+i+1].setBallUpperBound(ball[ballNum].getBallUpperBound());
-      ball[ballNum+i+1].setBallLowerBound(ball[ballNum].getBallLowerBound());
-      ball[ballNum+i+1].setBallX(ball[ballNum].getBallX());
-      ball[ballNum+i+1].setBallY(ball[ballNum].getBallY());
     }  
     paddleHitFlag    = 0;
   }

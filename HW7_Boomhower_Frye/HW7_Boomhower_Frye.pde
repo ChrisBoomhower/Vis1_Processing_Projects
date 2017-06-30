@@ -64,7 +64,7 @@ void setup() {
   file = new SoundFile(this, path);
 
   playGame = new playGame();
-  paddle = new Paddle(100, 20);
+  paddle = new Paddle(700, 20);
   ballEmitter = new BallEmitter();
 
 
