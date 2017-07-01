@@ -27,6 +27,8 @@ Ball newBall;
 BallEmitter ballEmitter;
 playGame playGame;
 Menu menu;
+gameOver gameOver;
+Engine engine;
 
 //int roundTemp             = 0;
 int round                 = 0;
@@ -68,6 +70,7 @@ void setup() {
   paddle = new Paddle(700, 20);
   ballEmitter = new BallEmitter();
   menu = new Menu(0);
+  gameOver = new gameOver();
 
 
   fontGaming = loadFont("HarlowSolid-48.vlw");
@@ -80,7 +83,14 @@ void setup() {
   flagWidth = width/6;
   flagHeight = height/8.5;
 
-
+  //Emitter(PVector loc, int particleCount, float particleBirthRate, PVector sprayVector, float sprayRadius,
+    //boolean isInfinite, String particleSpriteURL, float particleScale)
+  Emitter emitter = new Emitter(new PVector(0, height), 300, 1, new PVector(5, -15.2), 1.25,
+    true, "", 5);
+    
+  //Engine(Emitter emitter, float gravity, PVector turbulance, , PVector wind)
+  engine = new Engine(emitter, 1.15, new PVector(0.5, 0.5), new PVector(0.002, -0.7));
+  
   //noLoop();
 }
 
@@ -123,11 +133,12 @@ void draw() {
   if (round != 0) {
     if (ballCount == 0) {
       if (complete == false) fc = frameCount;
-      gameOver();
+      gameOver.splashScreen();
       complete = true;
     } else if (arraySum(ball) >= maxPaddle[round-1]) {
       if (complete == false) fc = frameCount;
-      fireworks();
+      //fireworks();
+      engine.start();
       complete = true;
     }
   }
