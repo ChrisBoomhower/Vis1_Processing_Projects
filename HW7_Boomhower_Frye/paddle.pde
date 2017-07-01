@@ -76,4 +76,10 @@ class Paddle {
   float getRightPaddleBound() {
     return this.rightPaddleBound;
   }
+  float getPaddleHeight() {
+    return this.paddleHeight;
+  }
+  float getPaddleWidth() {
+    return this.paddleWidth;
+  }
 }

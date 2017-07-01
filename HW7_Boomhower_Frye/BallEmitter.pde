@@ -1,8 +1,10 @@
 class BallEmitter {
 
+  
   BallEmitter() {
     ball = new Ball[1];
     ball[0] = new Ball(15, 0, 0);
+    powerup = new Powerup();
   }
 
 
@@ -16,6 +18,7 @@ class BallEmitter {
         
     for (int i = 0; i<ballAddition[round-1]; i++) {
       ballCount++;
+      powerup.AddCount();
       float gravityY;
       float speedX;
       
@@ -28,10 +31,12 @@ class BallEmitter {
       //print("speed: " + ball[ballNum].getSpeedX()+", newSpeed: "+speedX+", "); 
       //print("ballRadius: " + ball[ballNum].getBallRadius()+", "); 
       
+      
+      
       ball = (Ball[])append(ball, new Ball(ball[ballNum].getBallRadius(),  speedX,  gravityY, 
                                            ball[ballNum].getBallLeftBound(),  ball[ballNum].getBallRightBound(),  
                                            ball[ballNum].getBallUpperBound(),  ball[ballNum].getBallLowerBound(), 
-                                           ball[ballNum].getBallX(),  ball[ballNum].getBallY()));
+                                           ball[ballNum].getBallX(),  ball[ballNum].getBallY(), powerup.powerupFlag()));
 
     }  
     paddleHitFlag    = 0;

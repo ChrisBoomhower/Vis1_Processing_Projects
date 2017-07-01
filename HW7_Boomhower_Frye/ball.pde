@@ -13,7 +13,8 @@ class Ball {
   float speedX;//           = {0};
   float gravityY;//         = {0}; 
   int   paddleCount  = 0;
-
+  boolean powerupFlag = false;
+  
   Ball(float ballRadius, float speedX, float gravityY) {
     this.ballRadius     = ballRadius;
     this.ballX          = paddle.getLeftPaddleBound() + 20;
@@ -31,7 +32,7 @@ class Ball {
 
   Ball(float ballRadius, float speedX, float gravityY, 
        float ballLeftBound, float ballRightBound, float ballUpperBound, float ballLowerBound, 
-       float ballX, float ballY) {
+       float ballX, float ballY, boolean powerupFlag) {
     this.ballRadius     = ballRadius;
     this.ballX          = ballX;
     this.ballY          = ballY;
@@ -40,9 +41,10 @@ class Ball {
     this.ballUpperBound = ballUpperBound;
     this.ballLowerBound = ballLowerBound;
 
-
     this.speedX = speedX;
     this.gravityY = gravityY;
+    
+    this.powerupFlag = powerupFlag;
   }
 
   void drawBall() {
@@ -72,6 +74,9 @@ class Ball {
     ballRightBound = ballX + this.ballRadius;
     ballUpperBound = ballY - this.ballRadius;
     ballLowerBound = ballY + this.ballRadius;
+
+    if (powerupFlag ==true) stroke(0,0,255);
+    else noStroke();
 
     ellipse(0, 0, ballRadius*2, ballRadius*2);
     popMatrix();
@@ -117,6 +122,9 @@ class Ball {
     this.paddleCount = paddleCount;
   }
 
+  void setPowerupFlag(boolean powerupFlag){
+    this.powerupFlag = powerupFlag;
+  }
 
   float getBallRadius(){
     return this.ballRadius;
@@ -156,5 +164,9 @@ class Ball {
 
   int getPaddleCount(){
      return this.paddleCount;
+  }
+  
+  boolean getPowerupFlag(){
+     return this.powerupFlag;
   }
 }
