@@ -18,7 +18,7 @@ SoundFile file;
 String audioName = "data/pong - atari style music for Atari 8-bit.mp3";
 String path;
 
-int soundOn = 0;
+//int soundOn = 0;
 
 // declare global variables
 Paddle paddle;
@@ -26,8 +26,9 @@ Ball[] ball;
 Ball newBall;
 BallEmitter ballEmitter;
 playGame playGame;
+Menu menu;
 
-int roundTemp             = 0;
+//int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
@@ -66,6 +67,7 @@ void setup() {
   playGame = new playGame();
   paddle = new Paddle(700, 20);
   ballEmitter = new BallEmitter();
+  menu = new Menu(0);
 
 
   fontGaming = loadFont("HarlowSolid-48.vlw");
@@ -79,70 +81,15 @@ void setup() {
   flagHeight = height/8.5;
 
 
-  noLoop();
+  //noLoop();
 }
 
 void draw() {
 
   if (round == 0) {
-    background(200);
-
-    pushMatrix();
-
-    fill(0);
-    textFont(fontGaming);
-
-    textAlign(CENTER, CENTER);
-    text("Select Round:", width/2, height - height/2.8);
-
-    noStroke();
-    image(flagGermany, width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
-    image(flagJapan, width/2 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
-    image(flagChina, width - width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
-
-    textSize(30);
-    textAlign(CENTER, BOTTOM);
-    text("Round 1", width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
-    text("Round 2", width/2 - flagWidth/2, height - height/5, flagWidth, flagHeight);
-    text("Round 3", width - width/5 - flagWidth/2, height - height/5, flagWidth, flagHeight);
-
-    roundSelection();
-
-    // Sound Switch
-    pushMatrix();
-    noFill();
-    stroke(0);
-    textFont(fontGaming);
-    textSize(25);
-    text("Sound", width-100, 100);
-    rect(width-100, 100, 50, 25);
-    popMatrix();
-
-    pushMatrix();
-    if (soundOn == 1) {
-      fill(0, 255, 0);
-      rect(width-75, 100, 25, 25);
-    } else {
-      fill(255, 0, 0);
-      rect(width-100, 100, 25, 25);
-    }
-    popMatrix();
-
-    if (roundTemp != 0) {
-      pushMatrix();
-      stroke(0);
-      fill(0, 255, 120);
-      rect(width/2 - flagWidth/2, height/3 - flagHeight/2, flagWidth, flagHeight);
-      fill(0);
-      textFont(fontStart, 30);
-      textAlign(CENTER, CENTER);
-      text("START", width/2 - flagWidth/2, height/3 - flagHeight/2, flagWidth, flagHeight);
-      textAlign(BASELINE);
-      textFont(fontGaming);
-      popMatrix();
-    }
-
-    popMatrix();
+    menu.framework();
+    menu.roundSelection();
+    
   } else if (complete == false) {
     background(200);
     image(background, 0, height/3, width, height/3);
@@ -190,7 +137,7 @@ void draw() {
 
 void mousePressed() {
   if (mousePressed == true & round == 0) {
-    roundSelector(mouseX, mouseY);
+    menu.interaction(mouseX, mouseY, menu.getRoundTemp());
   }
 }
 
