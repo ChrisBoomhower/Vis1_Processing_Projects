@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>//
  Title         : Pong Champions 
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 6/3/2017
@@ -27,12 +27,14 @@ Ball newBall;
 BallEmitter ballEmitter;
 playGame playGame;
 Menu menu;
+Powerup powerup;
 
 //int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
-
+float origPaddleHeight    = 100;
+float origPaddleWidth     = 20;
 
 int ballCount            = 1;
 float maxAbsSpeedX       = 45;
@@ -65,7 +67,7 @@ void setup() {
   file = new SoundFile(this, path);
 
   playGame = new playGame();
-  paddle = new Paddle(700, 20);
+  paddle = new Paddle(origPaddleHeight, origPaddleWidth);
   ballEmitter = new BallEmitter();
   menu = new Menu(0);
 
@@ -99,7 +101,6 @@ void draw() {
 
     playGame.playRound(round);
 
-    int popCount = 0;
     for (int i = 0; i<ballCount; i++) {
       // remove ball on paddle miss
       if ((ball[i].getSpeedX()          < 0
@@ -114,7 +115,6 @@ void draw() {
         )) {
         
         ball = ballEmitter.ballPop(i);
-        popCount++; 
       }
     }
   }
