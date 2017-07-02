@@ -29,13 +29,16 @@ playGame playGame;
 Menu menu;
 Powerup powerup;
 gameOver gameOver;
-Engine engine;
+youWin youWin;
+//Engine engine;
+//Engine engine2;
+Engine[] engines = new Engine[11];
 
 //int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
-float origPaddleHeight    = 100;
+float origPaddleHeight    = 700;
 float origPaddleWidth     = 20;
 
 int ballCount            = 1;
@@ -73,6 +76,7 @@ void setup() {
   ballEmitter = new BallEmitter();
   menu = new Menu(0);
   gameOver = new gameOver();
+  youWin = new youWin();
 
 
   fontGaming = loadFont("HarlowSolid-48.vlw");
@@ -86,13 +90,24 @@ void setup() {
   flagHeight = height/8.5;
 
   //Emitter(PVector loc, int particleCount, float particleBirthRate, PVector sprayVector, float sprayRadius,
-    //boolean isInfinite, String particleSpriteURL, float particleScale)
-  Emitter emitter = new Emitter(new PVector(0, height), 300, 1, new PVector(5, -15.2), 1.25,
-    true, "", 5);
-    
+  //boolean isInfinite, float particleScale, boolean colRand)
+  Emitter[] emitters = new Emitter[11];
+  emitters[0] = new Emitter(new PVector(0, height), 300, 1, new PVector(5, -15.2), 1.25, true, 5, true);
+  emitters[1] = new Emitter(new PVector(width, height), 300, 1, new PVector(-5, -15.2), 1.25, true, 5, true);
+  emitters[2] = new Emitter(new PVector(width/2, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[3] = new Emitter(new PVector(width/2 - width/8, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[4] = new Emitter(new PVector(width/4, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[5] = new Emitter(new PVector(width/8, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[6] = new Emitter(new PVector(0, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[7] = new Emitter(new PVector(width/2 + width/4, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[8] = new Emitter(new PVector(width/2 + width/8, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[9] = new Emitter(new PVector(width - width/8, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+  emitters[10] = new Emitter(new PVector(width, 0), 5, 0.1, new PVector(0, 0), 0, true, 2, false);
+
   //Engine(Emitter emitter, float gravity, PVector turbulance, , PVector wind)
-  engine = new Engine(emitter, 1.15, new PVector(0.5, 0.5), new PVector(0.002, -0.7));
-  
+  for (int i=0; i<2; i++) engines[i] = new Engine(emitters[i], 1.15, new PVector(0.5, 0.5), new PVector(0.002, -0.7));
+  for (int i=2; i<11; i++) engines[i] = new Engine(emitters[i], 1.15, new PVector(0.1, 0.1), new PVector(0.002, -0.7));
+
   //noLoop();
 }
 
@@ -101,7 +116,6 @@ void draw() {
   if (round == 0) {
     menu.framework();
     menu.roundSelection();
-    
   } else if (complete == false) {
     background(200);
     image(background, 0, height/3, width, height/3);
@@ -123,12 +137,12 @@ void draw() {
         & (ball[i].getBallY()         <  paddle.getPaddleUpperY() | 
         ball[i].getBallY()            >  paddle.getPaddleLowerY())
         )) {
-        
+
         ball = ballEmitter.ballPop(i);
       }
     }
   }
- 
+
   // Detect end of game
   if (round != 0) {
     if (ballCount == 0) {
@@ -138,11 +152,15 @@ void draw() {
     } else if (arraySum(ball) >= maxPaddle[round-1]) {
       if (complete == false) fc = frameCount;
       //fireworks();
-      engine.start();
+      fill(0, 100);
+      noStroke();
+      rect(-1, -1, width+1, height+1);
+      stroke(0, 255, 0);
+      for (int i=0; i<11; i++) engines[i].start();
+      youWin.flashText();
       complete = true;
     }
   }
-
 }
 
 
