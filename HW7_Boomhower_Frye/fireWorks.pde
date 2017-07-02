@@ -16,7 +16,6 @@ class Particle {
     this.loc = loc;
     this.scl = scl;
     this.velocity = velocity;
-    //p = loadImage(particleSpriteURL);
     if (colRand == true) {
       this.red = random(0, 255);
       this.green = random(0, 255);
@@ -148,10 +147,6 @@ class Engine {
   }
 
   void start() {
-    //fill(0, 100);
-    //noStroke();
-    //rect(-1, -1, width+1, height+1);
-    //stroke(0, 255, 0);
     emitter.run(gravity, turbulance, wind);
   }
 

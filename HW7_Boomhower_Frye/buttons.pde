@@ -1,4 +1,6 @@
-
+/**********************************************************
+ Button classes that function as sub-classes to Menu class
+***********************************************************/
 
 class soundSwitch {
   float a = width-100;

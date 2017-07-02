@@ -1,8 +1,8 @@
 /****************************************************************************************** //<>// //<>// //<>// //<>//
  Title         : Pong Champions 
  Created By    : Chris Boomhower, Alex Frye
- Create Date   : 6/3/2017
- Assignment    : MSDS6390 - HW 4
+ Create Date   : 7/1/2017
+ Assignment    : MSDS6390 - HW 7
  Resources     :   https://www.processing.org/discourse/beta/num_1118112730.html
  https://poanchen.github.io/blog/2016/11/15/how-to-add-background-music-in-processing-3.0
  https://www.youtube.com/watch?v=2kP1bZfUNJE
@@ -10,15 +10,11 @@
  https://ping-pong.en.softonic.com/
  http://www.absolud.com/foot/?page_id=73
  ******************************************************************************************/
-//sound import
 import processing.sound.*;
 
 SoundFile file;
-//replace the sample.mp3 with your audio file name here
 String audioName = "data/pong - atari style music for Atari 8-bit.mp3";
 String path;
-
-//int soundOn = 0;
 
 // declare global variables
 Paddle paddle;
@@ -30,11 +26,8 @@ Menu menu;
 Powerup powerup;
 gameOver gameOver;
 youWin youWin;
-//Engine engine;
-//Engine engine2;
 Engine[] engines = new Engine[11];
 
-//int roundTemp             = 0;
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
@@ -108,7 +101,6 @@ void setup() {
   for (int i=0; i<2; i++) engines[i] = new Engine(emitters[i], 1.15, new PVector(0.5, 0.5), new PVector(0.002, -0.7));
   for (int i=2; i<11; i++) engines[i] = new Engine(emitters[i], 1.15, new PVector(0.1, 0.1), new PVector(0.002, -0.7));
 
-  //noLoop();
 }
 
 void draw() {

@@ -1,5 +1,5 @@
 /******************************************************************************************
- Generates Round Selector. 
+ Menu Class. 
  Use Coordinates from Round Selectors for mouseClicks
  Add accent on flags when selected
  only clicking start will assign the round variable
@@ -67,7 +67,6 @@ class Menu {
     else if (roundTemp == 2) rect(width/2 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
     else if (roundTemp == 3) rect(width - width/5 - flagWidth/2, height - height/5 - flagHeight/2, flagWidth, flagHeight);
     popMatrix();
-    //println(roundTemp);
   }
 
   void interaction(float x, float y, int roundTemp) {
