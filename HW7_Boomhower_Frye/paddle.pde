@@ -1,6 +1,7 @@
 /******************************************************************************************
- Generates both Left and Right Paddles
+ Paddle class which generates both Left and Right Paddles
  ******************************************************************************************/
+ 
 class Paddle {
 
   float paddleHeight;

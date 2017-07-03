@@ -1,9 +1,6 @@
-/******************************************************************************************
- Menu Class. 
- Use Coordinates from Round Selectors for mouseClicks
- Add accent on flags when selected
- only clicking start will assign the round variable
- ******************************************************************************************/
+/**********************************************************
+ Menu class
+***********************************************************/
 
 class Menu {
 

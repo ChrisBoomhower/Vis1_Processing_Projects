@@ -1,4 +1,6 @@
-
+/**********************************************************
+ gameOver and youWin classes for endgame splashscreens
+***********************************************************/
 
 class gameOver {
 

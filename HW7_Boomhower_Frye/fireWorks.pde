@@ -1,3 +1,12 @@
+/**********************************************************
+ Particle, Emitter, and Engine classes for confetti
+ generation on youWin endgame screen
+ 
+ Direct Reference:
+ Code adapted and modified from Ira Greenberg's MSDS 6390
+ OOP Particle Engine Demo, Parts 1-3
+***********************************************************/
+
 class Particle {
 
   // fields

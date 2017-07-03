@@ -1,5 +1,5 @@
 /****************************************************************************************** //<>// //<>// //<>// //<>//
- Title         : Pong Champions 
+ Title         : Pong Champions 2.0
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/1/2017
  Assignment    : MSDS6390 - HW 7
@@ -9,6 +9,7 @@
  https://www.countries-ofthe-world.com/flags-of-the-world.html
  https://ping-pong.en.softonic.com/
  http://www.absolud.com/foot/?page_id=73
+ Ira Greenberg's MSDS 6390 OOP Particle Engine Demo, Parts 1-3
  ******************************************************************************************/
 import processing.sound.*;
 
@@ -31,15 +32,15 @@ Engine[] engines = new Engine[11];
 int round                 = 0;
 int[] maxPaddle           = {30, 40, 50};
 int gravityInit           = 1;
-float origPaddleHeight    = 700;
+float origPaddleHeight    = 100;
 float origPaddleWidth     = 20;
-
 int ballCount            = 1;
 float maxAbsSpeedX       = 45;
-
 int paddleHitFlag        = 0;
-
 int retiredBallCount     = 0;
+int fc;
+boolean showText = true;
+boolean complete = false;
 
 PImage background;
 PImage flagGermany;
@@ -47,14 +48,8 @@ PImage flagJapan;
 PImage flagChina;
 float flagWidth;
 float flagHeight;
-
 PFont fontGaming;
 PFont fontStart;
-
-int fc;
-boolean showText = true;
-
-boolean complete = false;
 
 void setup() {
   size(700, 600);
@@ -104,11 +99,14 @@ void setup() {
 }
 
 void draw() {
-
+  
+  // Start with menu
   if (round == 0) {
     menu.framework();
     menu.roundSelection();
-  } else if (complete == false) {
+  }
+  // Play through round
+  else if (complete == false) {
     background(200);
     image(background, 0, height/3, width, height/3);
     paddle.displayPaddleCount();
@@ -137,11 +135,14 @@ void draw() {
 
   // Detect end of game
   if (round != 0) {
+    // Game Over
     if (ballCount == 0) {
       if (complete == false) fc = frameCount;
       gameOver.splashScreen();
       complete = true;
-    } else if (arraySum(ball) >= maxPaddle[round-1]) {
+    }
+    // Winner
+    else if (arraySum(ball) >= maxPaddle[round-1]) {
       if (complete == false) fc = frameCount;
       //fireworks();
       fill(0, 100);
@@ -163,7 +164,7 @@ void mousePressed() {
 }
 
 
-
+// Ball sum array
 int arraySum(Ball[] array) {
   int sum = 0;
   for (int i =0; i<array.length; i++) {
