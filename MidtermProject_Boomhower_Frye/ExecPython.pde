@@ -7,8 +7,8 @@
 /***startQTR and endQTR is ALWAYS assigned the qtr number selected in the slider as a string***/
 /***IF SEP Type is to be included.. value = SEP Code***/
 /***IF SEP Type is NOT to be included.. value = ""***/
-String startQTR = "1";
-String endQTR   = "3";
+int startQTR = 1;
+int endQTR   = 3;
 String SEP_NS   = "NS";
 String SEP_SA   = "SA";
 String SEP_SC   = "";
@@ -29,7 +29,7 @@ class ExecPython {
   private String dataPath = "cd /D \""+dataPath("")+ "\"";
   private String PythonFilesPath = sketchPath()+"\\PythonFiles\\";
 
-  ExecPython(String startQTR, String endQTR, String SEP_NS, String SEP_SA, String SEP_SC, 
+  ExecPython(int startQTR, int endQTR, String SEP_NS, String SEP_SA, String SEP_SC, 
              String SEP_SD, String SEP_SH, String SEP_SI, String SEP_SJ) {
     cmd = new Command("cmd.exe /c " + dataPath + " && " + APP + "\"" + PythonFilesPath + FILE + "\"" 
                       + " " + startQTR + " " + endQTR + " " + SEP_NS + " " + SEP_SA + " " + SEP_SC + " " 
