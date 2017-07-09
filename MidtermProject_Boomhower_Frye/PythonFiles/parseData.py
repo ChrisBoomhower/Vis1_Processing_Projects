@@ -30,7 +30,7 @@ print(OPMDataFiles)
 
 SampledOPMDataList = []
 
-for i,j in zip(OPMDataFiles,range(0,len(OPMDataFiles))):
+for i in OPMDataFiles:
     SampledOPMDataList.append(pd.read_csv(i, dtype = 'str'))
 
 SampledOPMData = pd.concat(SampledOPMDataList).reset_index()
@@ -83,8 +83,4 @@ AvgBLS.to_csv('../data/AvgBLS.csv', index = False)
 DistinctOCCFAMT_AGELVL_LOC_SALLVL = pd.DataFrame({'CNT' : OPMDataFiltered.groupby(["OCCFAMT", "AGELVLT", "LOCT", "SALLVLT"]).size()}).reset_index()
 DistinctOCCFAMT_AGELVL_LOC_SALLVL = DistinctOCCFAMT_AGELVL_LOC_SALLVL.sort_values("CNT", ascending=False).reset_index(drop=True)
 DistinctOCCFAMT_AGELVL_LOC_SALLVL.to_csv('../data/DistinctOCCFAMT_AGELVL_LOC_SALLVL.csv', index = False)
-
-
-
-
 
