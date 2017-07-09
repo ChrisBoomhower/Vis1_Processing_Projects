@@ -10,6 +10,7 @@
 ExecPython execPython;
  
 void setup() {
+  size(1400,900);
 
   //these variables will be replaced by inputs from class object variable getter method calls. 
   //no need to assign to variable... just exec the declaration method each time we need to run new files
