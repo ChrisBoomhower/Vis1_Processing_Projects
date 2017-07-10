@@ -36,7 +36,7 @@ void setup() {
 
 
 void draw() {
-background(75);
+  background(75);
 }
 
 void controlEvent(ControlEvent theEvent) {
