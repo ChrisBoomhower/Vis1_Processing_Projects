@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
@@ -31,9 +31,9 @@ void setup() {
   SEPCheckBox.toggle(0);
 
   execPython = new ExecPython();
-  LOADbutton.Action();
+  //LOADbutton.Action();
   
-  barChartAvgOverUnder = new BarChartAvgOverUnder(250,height/2+100);
+  barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76,height/1.8);
   barChartAvgOverUnder.Construct();
 }
 
@@ -42,6 +42,7 @@ void setup() {
 void draw() {
   background(75);
   barChartAvgOverUnder.Construct();
+  QTRslider.ticks();
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -50,4 +51,9 @@ void controlEvent(ControlEvent theEvent) {
   } else if (theEvent.isFrom(LOADData)) {
     LOADbutton.Action(theEvent);
   }///else if (theEvent.isFrom(QTRSlider)) {}
+}
+
+void mouseReleased() {
+  QTRSlider.setHighValue(round(QTRSlider.getHighValue()));
+  QTRSlider.setLowValue(round(QTRSlider.getLowValue()));
 }
