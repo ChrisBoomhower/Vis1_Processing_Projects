@@ -13,6 +13,7 @@ SEPCheckBox SEPcheckbox;
 LOADButton LOADbutton;
 QTRSlider QTRslider;
 ExecPython execPython;
+BarChartAvgOverUnder barChartAvgOverUnder;
 
 void setup() {
   size(1400, 900);
@@ -24,19 +25,23 @@ void setup() {
   LOADbutton = new LOADButton(width-125, 25, 100, 50);
   LOADbutton.Construct();
 
-  QTRslider = new QTRSlider();
+  QTRslider = new QTRSlider(0,0);
   QTRslider.Construct();
 
   SEPCheckBox.toggle(0);
 
   execPython = new ExecPython();
   LOADbutton.Action();
+  
+  barChartAvgOverUnder = new BarChartAvgOverUnder(250,height/2+100);
+  barChartAvgOverUnder.Construct();
 }
 
 
 
 void draw() {
   background(75);
+  barChartAvgOverUnder.Construct();
 }
 
 void controlEvent(ControlEvent theEvent) {
