@@ -22,7 +22,7 @@ class QTRSlider extends Buttons {
   void Construct() {
     QTRSlider = cp5.addRange("rangeController")
              .setBroadcast(false) // disable broadcasting since setRange and setRangeValues will trigger an event
-             .setPosition(width/3, height/1.07)
+             .setPosition(x, y)
              .setSize(width/3, height/22)
              .setHandleSize(20)
              .setRange(1, 4)
@@ -31,8 +31,6 @@ class QTRSlider extends Buttons {
              .setColorForeground(color(255,40))
              .setColorBackground(color(255,40))  
              ;
-    stroke(255);
-    line(5, height-10, 5, height-5);//height/1.07 + height/21.9, width/2.95, height/22);
   }
   //modify/assign slider attributes based on actions
   //Also Print to console "got an event from "slidername" : startQTR endQTR

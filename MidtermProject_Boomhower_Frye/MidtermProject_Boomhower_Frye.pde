@@ -14,6 +14,8 @@ LOADButton LOADbutton;
 QTRSlider QTRslider;
 ExecPython execPython;
 BarChartAvgOverUnder barChartAvgOverUnder;
+CircleChartRelationships circleChartRelationships;
+BLSRingChart blsRingChart;
 
 void setup() {
   size(1400, 900);
@@ -25,7 +27,7 @@ void setup() {
   LOADbutton = new LOADButton(width-125, 25, 100, 50);
   LOADbutton.Construct();
 
-  QTRslider = new QTRSlider(0,0);
+  QTRslider = new QTRSlider(width/3, height/1.07);
   QTRslider.Construct();
 
   SEPCheckBox.toggle(0);
@@ -35,6 +37,12 @@ void setup() {
   
   barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76,height/1.8);
   barChartAvgOverUnder.Construct();
+  
+  circleChartRelationships = new CircleChartRelationships(width/1.7,height/1.8);
+  circleChartRelationships.Construct();
+  
+  blsRingChart = new BLSRingChart(width/2.65,height/8);
+  blsRingChart.Construct();
 }
 
 
@@ -43,6 +51,8 @@ void draw() {
   background(75);
   barChartAvgOverUnder.Construct();
   QTRslider.ticks();
+  circleChartRelationships.Construct();
+  blsRingChart.Construct();
 }
 
 void controlEvent(ControlEvent theEvent) {
