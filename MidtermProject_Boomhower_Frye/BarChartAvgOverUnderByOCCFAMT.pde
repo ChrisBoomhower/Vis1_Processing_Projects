@@ -10,6 +10,6 @@ class BarChartAvgOverUnder extends Frame {
 
   void Construct() {
     drawFrame();
-    
+    drawTitle("Avg. Sal. Over/Under Ind. by OCCFAMT");
   }
 }

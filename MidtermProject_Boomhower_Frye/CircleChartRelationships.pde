@@ -10,5 +10,6 @@ class CircleChartRelationships extends Frame {
 
   void Construct() {
     drawFrame();
+    drawTitle("CIRCRELTITLEGOESHERE");
   }
 }

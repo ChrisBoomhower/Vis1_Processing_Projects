@@ -22,6 +22,7 @@ int QTRSliderEvent = 0;
 void setup() {
   size(1400, 900);
   background(75);
+  
   cp5 = new ControlP5(this);
   SEPcheckbox = new SEPCheckBox(width/56, height/6, width/14, height/18);
   SEPcheckbox.Construct();
