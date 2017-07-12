@@ -19,4 +19,13 @@ abstract class Frame {
   }
 
   abstract void Construct();
+  
+  void drawFrame(){
+    pushMatrix();
+    noFill();
+    stroke(0);
+    strokeWeight(5);
+    rect(this.x, this.y, width/3, height/3);
+    popMatrix();
+  }
 }

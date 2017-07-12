@@ -14,5 +14,5 @@ abstract class Buttons {
   }  
 
   abstract void Construct();
-  abstract void Action(ControlEvent theEvent);
+  abstract void Action();
 }

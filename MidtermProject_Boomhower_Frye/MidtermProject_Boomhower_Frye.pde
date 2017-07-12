@@ -51,17 +51,17 @@ void setup() {
 
 void draw() {
   background(75);
-  barChartAvgOverUnder.Construct();
   QTRslider.ticks();
+  barChartAvgOverUnder.Construct();
   circleChartRelationships.Construct();
   blsRingChart.Construct();
 }
 
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isFrom(SEPCheckBox)) {
-    SEPcheckbox.Action(theEvent);
+    SEPcheckbox.Action();
   } else if (theEvent.isFrom(LOADData)) {
-    LOADbutton.Action(theEvent);
+    LOADbutton.Action();
   } else if (theEvent.isFrom(QTRSlider)) {
     QTRSliderEvent = 1;
   }

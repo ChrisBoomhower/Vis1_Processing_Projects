@@ -48,7 +48,7 @@ class SEPCheckBox extends Buttons {
       ;
   }
 
-  void Action(ControlEvent theEvent) {    
+  void Action() {    
     if ((int)SEPCheckBox.getArrayValue()[0] == 1) {
       SEPCheckBox.deactivateAll();
       for (int i=1; i<SEPCheckBox.getArrayValue().length-1; i++) {

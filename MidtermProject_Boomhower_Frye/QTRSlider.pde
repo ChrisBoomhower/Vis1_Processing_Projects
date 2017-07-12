@@ -41,11 +41,10 @@ class QTRSlider extends Buttons {
     QTRSlider.setLowValue(round(QTRSlider.getLowValue()));
     this.startQTR = round(QTRSlider.getLowValue());
     this.endQTR = round(QTRSlider.getHighValue());
-    println("got an event from QTRSlider\t: " + startQTR + " " + endQTR);
+    println("got an event from "+QTRSlider.getName()+"\t: " + startQTR + " " + endQTR);
   }
   
-  void Action(ControlEvent theEvent) {
-  }
+
   
   void ticks() {
     pushMatrix();

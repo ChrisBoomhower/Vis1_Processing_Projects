@@ -9,9 +9,6 @@ class BLSRingChart extends Frame {
   }
 
   void Construct() {
-    pushMatrix();
-    fill(0);
-    rect(this.x, this.y, width/3, height/3);
-    popMatrix();
+    drawFrame();
   }
 }
