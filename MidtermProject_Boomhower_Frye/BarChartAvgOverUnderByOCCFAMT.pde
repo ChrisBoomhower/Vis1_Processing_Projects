@@ -20,9 +20,12 @@ class BarChartAvgOverUnder extends Frame {
     else xOffset = this.frameWidth/19.33;
 
     yOffset = (this.frameWidth/10);
-
+      
+      //vertical Line
     line(x+xOffset, y+yOffset, x+this.frameWidth/19.33, y + this.frameHeight - yOffset);
 
+      //Horizontal Line
+    line(x + xOffset, y + this.frameHeight/2, x + this.frameWidth - xOffset, y + frameHeight/2);
     popMatrix();
   }
 }
