@@ -35,7 +35,7 @@ class SEPCheckBox extends Buttons {
       .setPosition(this.x, this.y)
       .setSize(this.buttonWidth, this.buttonHeight)
       .setItemsPerRow(1)
-      .setSpacingRow(20)
+      .setSpacingRow(height/45)
       .addItem("ALL", 0) // Don't need the numerical assignment, so setting to zero
       .addItem("NS", 0)
       .addItem("SA", 0)

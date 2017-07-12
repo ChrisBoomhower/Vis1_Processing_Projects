@@ -23,10 +23,10 @@ void setup() {
   size(1400, 900);
   background(75);
   cp5 = new ControlP5(this);
-  SEPcheckbox = new SEPCheckBox(25, 150, 100, 50);
+  SEPcheckbox = new SEPCheckBox(width/56, height/6, width/14, height/18);
   SEPcheckbox.Construct();
 
-  LOADbutton = new LOADButton(width-125, 25, 100, 50);
+  LOADbutton = new LOADButton(width-(width/11.2), height/36, width/14, height/18);
   LOADbutton.Construct();
 
   QTRslider = new QTRSlider(width/3, height/1.07);
@@ -35,15 +35,15 @@ void setup() {
   SEPCheckBox.toggle(0);
 
   execPython = new ExecPython();
-  //LOADbutton.Action();
+  LOADbutton.Action();
   
-  barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76,height/1.8);
+  barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76,height/1.8, width/3, height/3);
   barChartAvgOverUnder.Construct();
   
-  circleChartRelationships = new CircleChartRelationships(width/1.7,height/1.8);
+  circleChartRelationships = new CircleChartRelationships(width/1.7,height/1.8, width/3, height/3);
   circleChartRelationships.Construct();
   
-  blsRingChart = new BLSRingChart(width/2.65,height/8);
+  blsRingChart = new BLSRingChart(width/2.65,height/8, width/3, height/3);
   blsRingChart.Construct();
 }
 

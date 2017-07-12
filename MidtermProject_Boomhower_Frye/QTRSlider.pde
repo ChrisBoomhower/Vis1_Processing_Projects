@@ -30,8 +30,8 @@ class QTRSlider extends Buttons {
              .setRange(1, 4)
              .setRangeValues(1, 4)
              .setBroadcast(true) // after the initialization we turn broadcast back on again
-             .setColorForeground(color(255,40))
-             .setColorBackground(color(255,40))  
+            // .setColorForeground(color(255,40))
+            // .setColorBackground(color(255,40))  
              ;
   }
   //modify/assign slider attributes based on actions
@@ -50,6 +50,7 @@ class QTRSlider extends Buttons {
     pushMatrix();
     translate(x,y + height/22);
     stroke(255);
+    strokeWeight(width/700);
     line(width/70, tickHigh, width/70, tickLow);
     line(width/8.6, tickHigh, width/8.6, tickLow);
     line(width/4.6, tickHigh, width/4.6, tickLow);
