@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>// //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
@@ -18,40 +18,32 @@ CircleChartRelationships circleChartRelationships;
 BLSRingChart blsRingChart;
 
 int QTRSliderEvent = 0;
+float curWidth;
+float curHeight;
 
 void setup() {
   size(1400, 900);
   background(75);
-  
+  surface.setResizable(true);
+  curWidth = width;
+  curHeight= height;
+
   cp5 = new ControlP5(this);
-  SEPcheckbox = new SEPCheckBox(width/56, height/6, width/14, height/18);
-  SEPcheckbox.Construct();
 
-  LOADbutton = new LOADButton(width-(width/11.2), height/36, width/14, height/18);
-  LOADbutton.Construct();
-
-  QTRslider = new QTRSlider(width/3, height/1.07);
-  QTRslider.Construct();
-
-  SEPCheckBox.toggle(0);
+  constructAll();
 
   execPython = new ExecPython();
   LOADbutton.Action();
-  
-  barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76,height/1.8, width/3, height/3);
-  barChartAvgOverUnder.Construct();
-  
-  circleChartRelationships = new CircleChartRelationships(width/1.7,height/1.8, width/3, height/3);
-  circleChartRelationships.Construct();
-  
-  blsRingChart = new BLSRingChart(width/2.65,height/8, width/3, height/3);
-  blsRingChart.Construct();
+
+  SEPCheckBox.toggle(0);
 }
 
 
 
 void draw() {
   background(75);
+  windowReSize();
+
   QTRslider.ticks();
   barChartAvgOverUnder.Construct();
   circleChartRelationships.Construct();
@@ -73,4 +65,51 @@ void mouseReleased() {
     QTRslider.Action();
     QTRSliderEvent = 0;
   }
+}
+
+void windowReSize() {
+  if (curWidth != width || curHeight != height) {
+    curWidth = width;
+    curHeight = height;
+ 
+    float[] SEPCheckBoxArrayValues = SEPcheckbox.getValues();
+    int startQTR  = round(QTRSlider.getLowValue());;
+    int endQTR = round(QTRSlider.getHighValue());;
+
+    constructAll();
+
+    for (int i=1; i<SEPCheckBoxArrayValues.length-1; i++) {
+      float n = SEPCheckBoxArrayValues[i];
+
+      if (n == 1) SEPCheckBox.toggle(i);
+    }
+
+    QTRSlider.setHighValue(round(endQTR));
+    QTRSlider.setLowValue(round(startQTR));
+    
+    SEPcheckbox.Action();
+    QTRslider.Action();
+  }
+}
+
+void constructAll() {
+
+
+  SEPcheckbox = new SEPCheckBox(width/56, height/6, width/14, height/18);
+  SEPcheckbox.Construct();
+
+  LOADbutton = new LOADButton(width-(width/11.2), height/36, width/14, height/18);
+  LOADbutton.Construct();
+
+  QTRslider = new QTRSlider(width/3, height/1.07);
+  QTRslider.Construct();
+
+  barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76, height/1.8, width/3, height/3);
+  barChartAvgOverUnder.Construct();
+
+  circleChartRelationships = new CircleChartRelationships(width/1.7, height/1.8, width/3, height/3);
+  circleChartRelationships.Construct();
+
+  blsRingChart = new BLSRingChart(width/2.65, height/8, width/3, height/3);
+  blsRingChart.Construct();
 }

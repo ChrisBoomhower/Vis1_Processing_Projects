@@ -89,4 +89,8 @@ class SEPCheckBox extends Buttons {
     }
     println();
   }
+  
+  public float[] getValues(){
+    return SEPCheckBox.getArrayValue();
+  }
 }
