@@ -26,8 +26,6 @@ abstract class Frame {
     this.frameHeight = frameHeight;
   }
 
-  abstract void Construct();
-
   void drawFrame() {
     pushMatrix();
     noFill();
@@ -51,4 +49,7 @@ abstract class Frame {
     text(title, this.x + this.frameWidth/2, this.y + yOffset);
     popMatrix();
   }
+  
+  abstract void Construct();
+  abstract void loadChartData();
 }

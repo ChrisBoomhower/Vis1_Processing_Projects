@@ -26,6 +26,10 @@ class BarChartAvgOverUnder extends Frame {
 
       //Horizontal Line
     line(x + xOffset, y + this.frameHeight/2, x + this.frameWidth - xOffset, y + frameHeight/2);
+    
+    
     popMatrix();
   }
+  
+  void loadChartData(){}
 }

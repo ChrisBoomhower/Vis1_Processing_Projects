@@ -12,4 +12,6 @@ class BLSRingChart extends Frame {
     drawFrame();
     drawTitle("BLSRINGTITLEGOESHERE");
   }
+  
+  void loadChartData(){}
 }
