@@ -17,6 +17,8 @@ BarChartAvgOverUnder barChartAvgOverUnder;
 CircleChartRelationships circleChartRelationships;
 BLSRingChart blsRingChart;
 
+int QTRSliderEvent = 0;
+
 void setup() {
   size(1400, 900);
   background(75);
@@ -60,10 +62,14 @@ void controlEvent(ControlEvent theEvent) {
     SEPcheckbox.Action(theEvent);
   } else if (theEvent.isFrom(LOADData)) {
     LOADbutton.Action(theEvent);
-  }///else if (theEvent.isFrom(QTRSlider)) {}
+  } else if (theEvent.isFrom(QTRSlider)) {
+    QTRSliderEvent = 1;
+  }
 }
 
 void mouseReleased() {
-  QTRSlider.setHighValue(round(QTRSlider.getHighValue()));
-  QTRSlider.setLowValue(round(QTRSlider.getLowValue()));
+  if (QTRSliderEvent == 1) {
+    QTRslider.Action();
+    QTRSliderEvent = 0;
+  }
 }

@@ -5,8 +5,10 @@ class QTRSlider extends Buttons {
   //create additional variables here
   int startQTR;
   int endQTR;
-  float tickHigh = height/1.07 + height/20;
-  float tickLow  = height - height/100;
+  //float tickHigh = height/1.07 + height/20;
+  float tickHigh = height/130;
+  //float tickLow  = height - height/100;
+  float tickLow  = height/90;
 
   //leave the default constructor, and add a new one accounting for data needed for slider
   QTRSlider() {
@@ -20,7 +22,7 @@ class QTRSlider extends Buttons {
 
   // Initialize slider here
   void Construct() {
-    QTRSlider = cp5.addRange("rangeController")
+    QTRSlider = cp5.addRange("Quarter Range")
              .setBroadcast(false) // disable broadcasting since setRange and setRangeValues will trigger an event
              .setPosition(x, y)
              .setSize(width/3, height/22)
@@ -34,15 +36,26 @@ class QTRSlider extends Buttons {
   }
   //modify/assign slider attributes based on actions
   //Also Print to console "got an event from "slidername" : startQTR endQTR
+  void Action() {
+    QTRSlider.setHighValue(round(QTRSlider.getHighValue()));
+    QTRSlider.setLowValue(round(QTRSlider.getLowValue()));
+    this.startQTR = round(QTRSlider.getLowValue());
+    this.endQTR = round(QTRSlider.getHighValue());
+    println("got an event from QTRSlider\t: " + startQTR + " " + endQTR);
+  }
+  
   void Action(ControlEvent theEvent) {
   }
   
   void ticks() {
+    pushMatrix();
+    translate(x,y + height/22);
     stroke(255);
-    line(width/2.88, tickHigh, width/2.88, tickLow);
-    line(width/2.227, tickHigh, width/2.227, tickLow);
-    line(width/1.815, tickHigh, width/1.815, tickLow);
-    line(width/1.534, tickHigh, width/1.534, tickLow);
+    line(width/70, tickHigh, width/70, tickLow);
+    line(width/8.6, tickHigh, width/8.6, tickLow);
+    line(width/4.6, tickHigh, width/4.6, tickLow);
+    line(width/3.134, tickHigh, width/3.134, tickLow);
     noStroke();
+    popMatrix();
   }
 }
