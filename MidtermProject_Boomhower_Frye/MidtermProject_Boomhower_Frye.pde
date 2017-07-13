@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
@@ -89,6 +89,10 @@ void windowReSize() {
     
     SEPcheckbox.Action();
     QTRslider.Action();
+    
+    barChartAvgOverUnder.loadChartData();
+    circleChartRelationships.loadChartData();
+    blsRingChart.loadChartData();
   }
 }
 
