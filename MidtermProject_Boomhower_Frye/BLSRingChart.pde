@@ -2,8 +2,8 @@
 class BLSRingChart extends Frame {
 
   Table BLS;
-  float scaleL = 500;
-  float scaleR = 18;
+  float scaleL = 300;
+  float scaleR = 11;
 
   BLSRingChart() {
   }
@@ -37,11 +37,11 @@ class BLSRingChart extends Frame {
     float radXLoR      =  radXTotSepR + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
     float radXQR       =  radXLoR + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
     float radXOSepR    =  radXQR + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
-    float radYJoR      =  baseY + (frameWidth * row.getFloat("BLS_FEDERAL_JobOpenings_Rate")/scaleR);
-    float radYTotSepR  =  radYJoR + (frameWidth * row.getFloat("BLS_FEDERAL_TotalSep_Rate")/scaleR);
-    float radYLoR      =  radYTotSepR + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
-    float radYQR       =  radYLoR + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
-    float radYOSepR    =  radYQR + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
+    float radYJoR      =  baseY + (frameHeight * row.getFloat("BLS_FEDERAL_JobOpenings_Rate")/scaleR);
+    float radYTotSepR  =  radYJoR + (frameHeight * row.getFloat("BLS_FEDERAL_TotalSep_Rate")/scaleR);
+    float radYLoR      =  radYTotSepR + (frameHeight * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
+    float radYQR       =  radYLoR + (frameHeight * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
+    float radYOSepR    =  radYQR + (frameHeight * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
     
     
     if (frameWidth < frameHeight) {
