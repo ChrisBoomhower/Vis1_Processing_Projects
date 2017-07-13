@@ -2,7 +2,8 @@
 class BLSRingChart extends Frame {
 
   Table BLS;
-  float scale = 500;
+  float scaleL = 500;
+  float scaleR = 18;
 
   BLSRingChart() {
   }
@@ -20,51 +21,37 @@ class BLSRingChart extends Frame {
     // Outside to Inside order:
     // radOSep, radQ, radLo, radTotSep, radJo, base
     float baseX        =  frameWidth/50;
-    float radXJoL      =  baseX + (frameWidth * row.getFloat("BLS_FEDERAL_JobOpenings_Level")/scale);
-    float radXTotSepL  =  radXJoL + (frameWidth * row.getFloat("BLS_FEDERAL_TotalSep_Level")/scale);
-    float radXLoL      =  radXTotSepL + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Level")/scale);
-    float radXQL       =  radXLoL + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Level")/scale);
-    float radXOSepL    =  radXQL + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Level")/scale);
     float baseY        =  frameHeight/50;
-    float radYJoL      =  baseY + (frameHeight * row.getFloat("BLS_FEDERAL_JobOpenings_Level")/scale);
-    float radYTotSepL  =  radYJoL + (frameHeight * row.getFloat("BLS_FEDERAL_TotalSep_Level")/scale);
-    float radYLoL      =  radYTotSepL + (frameHeight * row.getFloat("BLS_FEDERAL_Layoffs_Level")/scale);
-    float radYQL       =  radYLoL + (frameHeight * row.getFloat("BLS_FEDERAL_Quits_Level")/scale);
-    float radYOSepL    =  radYQL + (frameHeight * row.getFloat("BLS_FEDERAL_OtherSep_Level")/scale);
-    float radXTotSepR  =  row.getFloat("BLS_FEDERAL_TotalSep_Rate");
-    float radXJoR      =  row.getFloat("BLS_FEDERAL_JobOpenings_Rate");
-    float radXLoR      =  row.getFloat("BLS_FEDERAL_Layoffs_Rate");
-    float radXQR       =  row.getFloat("BLS_FEDERAL_Quits_Rate");
-    float radXOSepR    =  row.getFloat("BLS_FEDERAL_OtherSep_Rate");
-
-    pushMatrix();
-
-    translate(x + frameWidth/4, y + frameHeight*0.667);
-    fill(255, 0, 0);
-    stroke(255, 0, 0);
-    ellipse(0, 0, radXOSepL, radXOSepL);
-
-    fill(255, 255, 0);
-    stroke(255, 255, 0);
-    ellipse(0, 0, radXQL, radXQL);
-
-    fill(255, 0, 255);
-    stroke(255, 0, 255);
-    ellipse(0, 0, radXLoL, radXLoL);
-
-    fill(0, 255, 255);
-    stroke(0, 255, 255);
-    ellipse(0, 0, radXTotSepL, radXTotSepL);
-
-    fill(0, 255, 0);
-    stroke(0, 255, 0);
-    ellipse(0, 0, radXJoL, radXJoL);
-
-    fill(75);
-    stroke(75);
-    ellipse(0, 0, baseX, baseX);
-
-    popMatrix();
+    float radXJoL      =  baseX + (frameWidth * row.getFloat("BLS_FEDERAL_JobOpenings_Level")/scaleL);
+    float radXTotSepL  =  radXJoL + (frameWidth * row.getFloat("BLS_FEDERAL_TotalSep_Level")/scaleL);
+    float radXLoL      =  radXTotSepL + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Level")/scaleL);
+    float radXQL       =  radXLoL + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Level")/scaleL);
+    float radXOSepL    =  radXQL + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Level")/scaleL);
+    float radYJoL      =  baseY + (frameHeight * row.getFloat("BLS_FEDERAL_JobOpenings_Level")/scaleL);
+    float radYTotSepL  =  radYJoL + (frameHeight * row.getFloat("BLS_FEDERAL_TotalSep_Level")/scaleL);
+    float radYLoL      =  radYTotSepL + (frameHeight * row.getFloat("BLS_FEDERAL_Layoffs_Level")/scaleL);
+    float radYQL       =  radYLoL + (frameHeight * row.getFloat("BLS_FEDERAL_Quits_Level")/scaleL);
+    float radYOSepL    =  radYQL + (frameHeight * row.getFloat("BLS_FEDERAL_OtherSep_Level")/scaleL);
+    float radXJoR      =  baseX + (frameWidth * row.getFloat("BLS_FEDERAL_JobOpenings_Rate")/scaleR);
+    float radXTotSepR  =  radXJoR + (frameWidth * row.getFloat("BLS_FEDERAL_TotalSep_Rate")/scaleR);
+    float radXLoR      =  radXTotSepR + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
+    float radXQR       =  radXLoR + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
+    float radXOSepR    =  radXQR + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
+    float radYJoR      =  baseY + (frameWidth * row.getFloat("BLS_FEDERAL_JobOpenings_Rate")/scaleR);
+    float radYTotSepR  =  radYJoR + (frameWidth * row.getFloat("BLS_FEDERAL_TotalSep_Rate")/scaleR);
+    float radYLoR      =  radYTotSepR + (frameWidth * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
+    float radYQR       =  radYLoR + (frameWidth * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
+    float radYOSepR    =  radYQR + (frameWidth * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
+    
+    
+    if (frameWidth < frameHeight) {
+      drawRings(0.25, 0.667, radXOSepL, radXQL, radXLoL, radXTotSepL, radXJoL, baseX);
+      drawRings(0.75, 0.45, radXOSepR, radXQR, radXLoR, radXTotSepR, radXJoR, baseX);
+    }
+    else {
+      drawRings(0.25, 0.667, radYOSepL, radYQL, radYLoL, radYTotSepL, radYJoL, baseY);
+      drawRings(0.75, 0.45, radYOSepR, radYQR, radYLoR, radYTotSepR, radYJoR, baseY);
+    }
   }
 
   void loadChartData() {
@@ -88,5 +75,39 @@ class BLSRingChart extends Frame {
         ", " + totSepR + ", " + joR + ", " + loR + ", " + 
         qR + ", " + oSepR);
     }
+  }
+  
+  void drawRings(float fracX, float fracY,
+                 float radOSepL, float radQL,
+                 float radLoL, float radTotSepL,
+                 float radJoL, float base) {
+    pushMatrix();
+    
+    translate(x + frameWidth*fracX, y + frameHeight*fracY);
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    ellipse(0, 0, radOSepL, radOSepL);
+
+    fill(255, 255, 0);
+    stroke(255, 255, 0);
+    ellipse(0, 0, radQL, radQL);
+
+    fill(255, 0, 255);
+    stroke(255, 0, 255);
+    ellipse(0, 0, radLoL, radLoL);
+
+    fill(0, 255, 255);
+    stroke(0, 255, 255);
+    ellipse(0, 0, radTotSepL, radTotSepL);
+
+    fill(0, 255, 0);
+    stroke(0, 255, 0);
+    ellipse(0, 0, radJoL, radJoL);
+
+    fill(75);
+    stroke(75);
+    ellipse(0, 0, base, base);
+
+    popMatrix();
   }
 }
