@@ -45,9 +45,9 @@ class BarChartAvgOverUnder extends Frame {
     line(xOffset*2, this.frameHeight/2, this.frameWidth - xOffset, frameHeight/2);
 
     strokeWeight(width/700);
-    //Bars
+      
+      //Bars
     for (int i = 0; i<this.displayCount; i++) {
-
       if (AvgSalOverUnder[i]>=0) {
         rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
           barWidth, -map(AvgSalOverUnder[i], 0, maxDataVal, 0, maxBarHeight));
@@ -64,9 +64,10 @@ class BarChartAvgOverUnder extends Frame {
   void loadChartData() {
     OCCFAMT = new String[0];  
     AvgSalOverUnder = new float[0];
-
+    maxDataVal = 0;
     Data = loadTable("AvgSalOverUnderByOCCFAMT.csv", "header");
-
+    
+    print("BarChartAvgOverUnder Data = ");
     for (int i = 0; i < Data.getRowCount(); i++) {
       TableRow row = Data.getRow(i);
       if (row.getString("OCCFAMT")!= "NO OCCUPATION FAMILY REPORTED") {
@@ -74,8 +75,11 @@ class BarChartAvgOverUnder extends Frame {
         AvgSalOverUnder = append(AvgSalOverUnder, row.getFloat("AvgSalOverUnder"));
         if (abs(maxDataVal)<abs(AvgSalOverUnder[i])) maxDataVal=abs(AvgSalOverUnder[i]);
       }
+      
+      if(i < this.displayCount-1) print(AvgSalOverUnder[i] + ", ");
+      else if(i == this.displayCount-1) println(AvgSalOverUnder[i]);
+
     }
-    println(maxDataVal);
     totalCount = Data.getRowCount();
   }
 
