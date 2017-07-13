@@ -29,5 +29,8 @@ class LOADButton extends Buttons {
       SEPcheckbox.SEP_SA, SEPcheckbox.SEP_SC, SEPcheckbox.SEP_SD, 
       SEPcheckbox.SEP_SH, SEPcheckbox.SEP_SI, SEPcheckbox.SEP_SJ);
     println();
+    barChartAvgOverUnder.loadChartData();
+    circleChartRelationships.loadChartData();
+    blsRingChart.loadChartData();
   }
 }

@@ -105,11 +105,11 @@ void constructAll() {
   QTRslider.Construct();
 
   barChartAvgOverUnder = new BarChartAvgOverUnder(width/5.76, height/1.8, width/3, height/3);
-  barChartAvgOverUnder.Construct();
+  //barChartAvgOverUnder.Construct();
 
   circleChartRelationships = new CircleChartRelationships(width/1.7, height/1.8, width/3, height/3);
-  circleChartRelationships.Construct();
+  //circleChartRelationships.Construct();
 
   blsRingChart = new BLSRingChart(width/2.65, height/8, width/3, height/3);
-  blsRingChart.Construct();
+  //blsRingChart.Construct();
 }
