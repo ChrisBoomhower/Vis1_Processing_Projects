@@ -34,6 +34,7 @@ void setup() {
 
   execPython = new ExecPython();
   LOADbutton.Action();
+  blsRingChart.loadChartData();
 
   SEPCheckBox.toggle(0);
 }
@@ -55,6 +56,7 @@ void controlEvent(ControlEvent theEvent) {
     SEPcheckbox.Action();
   } else if (theEvent.isFrom(LOADData)) {
     LOADbutton.Action();
+    blsRingChart.loadChartData();
   } else if (theEvent.isFrom(QTRSlider)) {
     QTRSliderEvent = 1;
   }
@@ -89,6 +91,8 @@ void windowReSize() {
     
     SEPcheckbox.Action();
     QTRslider.Action();
+    
+    blsRingChart.loadChartData();
   }
 }
 

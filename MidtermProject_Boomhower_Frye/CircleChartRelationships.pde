@@ -1,6 +1,6 @@
 
 class CircleChartRelationships extends Frame {
-
+  
   CircleChartRelationships() {
   }
 
@@ -10,9 +10,11 @@ class CircleChartRelationships extends Frame {
 
   void Construct() {
     drawFrame();
-    drawTitle("CIRCRELTITLEGOESHERE");
+    drawTitle("CIRCLECHARTRELATIONSHIPS TITLE HERE");
   }
 
-  void loadChartData(){}
+  void loadChartData(){
+
+  }
   
 }
