@@ -8,6 +8,8 @@
  ******************************************************************************************/
 import controlP5.*;
 
+PFont candara;
+
 ControlP5 cp5;
 SEPCheckBox SEPcheckbox;
 LOADButton LOADbutton;
@@ -16,6 +18,8 @@ ExecPython execPython;
 BarChartAvgOverUnder barChartAvgOverUnder;
 CircleChartRelationships circleChartRelationships;
 BLSRingChart blsRingChart;
+Background loadBG;
+Background panelBG;
 
 int QTRSliderEvent = 0;
 float curWidth;
@@ -23,7 +27,14 @@ float curHeight;
 
 void setup() {
   size(1400, 900);
-  background(75);
+  loadBG = new Background(0, 0, width, height, #803D15, #D4926A);
+  loadBG.drawBackground();
+  
+  candara = loadFont("Candara-Italic-48.vlw");
+  textFont(candara, 48);
+  textAlign(CENTER, CENTER);
+  text("PLEASE WAIT WHILE THE DATA LOADS...", width/2, height/2);
+  
   surface.setResizable(true);
   curWidth = width;
   curHeight= height;
@@ -36,12 +47,16 @@ void setup() {
   LOADbutton.Action();
 
   SEPCheckBox.toggle(0);
+  
+  panelBG = new Background(0, 0, width, height, #1B1F1E, #161A19);
 }
 
 
 
 void draw() {
-  background(75);
+  //fill(#343932);
+  //rect(0, 0, width, height);
+  panelBG.drawBackground();
   windowReSize();
 
   QTRslider.ticks();
@@ -97,7 +112,6 @@ void windowReSize() {
 }
 
 void constructAll() {
-
 
   SEPcheckbox = new SEPCheckBox(width/56, height/6, width/14, height/18);
   SEPcheckbox.Construct();
