@@ -48,7 +48,7 @@ void setup() {
 
   SEPCheckBox.toggle(0);
   
-  panelBG = new Background(0, 0, width, height, #1B1F1E, #161A19);
+  panelBG = new Background(0, 0, width, height, 75, 75);
 }
 
 

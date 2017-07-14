@@ -84,24 +84,24 @@ class BLSRingChart extends Frame {
     pushMatrix();
     
     translate(x + frameWidth*fracX, y + frameHeight*fracY);
-    fill(255, 0, 0);
-    stroke(255, 0, 0);
+    fill(#F04765);
+    stroke(#F04765);
     ellipse(0, 0, radOSepL, radOSepL);
 
-    fill(255, 255, 0);
-    stroke(255, 255, 0);
+    fill(#DB2343);
+    stroke(#DB2343);
     ellipse(0, 0, radQL, radQL);
 
-    fill(255, 0, 255);
-    stroke(255, 0, 255);
+    fill(#FF8F4C);
+    stroke(#FF8F4C);
     ellipse(0, 0, radLoL, radLoL);
 
-    fill(0, 255, 255);
-    stroke(0, 255, 255);
+    fill(#32A88B);
+    stroke(#32A88B);
     ellipse(0, 0, radTotSepL, radTotSepL);
 
-    fill(0, 255, 0);
-    stroke(0, 255, 0);
+    fill(#70DC42);
+    stroke(#70DC42);
     ellipse(0, 0, radJoL, radJoL);
 
     fill(75);
