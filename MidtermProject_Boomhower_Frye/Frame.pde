@@ -6,6 +6,7 @@ abstract class Frame {
   float y;
   float frameWidth;
   float frameHeight;
+  float c = 125;
 
 
   
@@ -29,7 +30,7 @@ abstract class Frame {
   void drawFrame() {
     pushMatrix();
     noFill();
-    stroke(0);
+    stroke(c);
     strokeWeight(width/300);
     rect(this.x, this.y, this.frameWidth, this.frameHeight);
     popMatrix();
@@ -40,7 +41,7 @@ abstract class Frame {
     PFont VISfont = loadFont("VISFont.vlw");
     textFont(VISfont, width/58);
     textAlign(CENTER);
-    fill(0);
+    fill(c);
     
     float yOffset;
     if (this.frameWidth/19.33>25) yOffset = 25;

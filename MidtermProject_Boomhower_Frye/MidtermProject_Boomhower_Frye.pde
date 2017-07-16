@@ -27,13 +27,13 @@ float curHeight;
 
 void setup() {
   size(1400, 900);
-  loadBG = new Background(0, 0, width, height, #803D15, #D4926A);
+  loadBG = new Background(0, 0, width, height, 75, 0);
   loadBG.drawBackground();
   
-  candara = loadFont("Candara-Italic-48.vlw");
+  candara = loadFont("AgencyFB-Reg-48.vlw");
   textFont(candara, 48);
   textAlign(CENTER, CENTER);
-  text("PLEASE WAIT WHILE THE DATA LOADS...", width/2, height/2);
+  text("PLEASE WAIT WHILE DATA LOADS...", width/2, height/2);
   
   surface.setResizable(true);
   curWidth = width;
@@ -48,7 +48,7 @@ void setup() {
 
   SEPCheckBox.toggle(0);
   
-  panelBG = new Background(0, 0, width, height, 75, 75);
+  panelBG = new Background(0, 0, width, height, 75, 0);
 }
 
 
