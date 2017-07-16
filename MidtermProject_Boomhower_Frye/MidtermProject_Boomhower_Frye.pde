@@ -25,6 +25,16 @@ int QTRSliderEvent = 0;
 float curWidth;
 float curHeight;
 
+/////////////////////////////////////////////////////
+// CHOOSE VISUALIZATION COLORS FROM FOLLOWING PALETTE
+// #f06292 - orange
+// #ff8a65 - red
+// #81c784 - green
+// #fff176 - yellow
+// #4fc3f7 - blue
+// #ba68c8 - purple
+/////////////////////////////////////////////////////
+
 void setup() {
   size(1400, 900);
   loadBG = new Background(0, 0, width, height, 75, 0);
