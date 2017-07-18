@@ -8,7 +8,7 @@
  ******************************************************************************************/
 import controlP5.*;
 
-PFont candara;
+PFont agency;
 
 ControlP5 cp5;
 SEPCheckBox SEPcheckbox;
@@ -40,8 +40,8 @@ void setup() {
   loadBG = new Background(0, 0, width, height, 75, 0);
   loadBG.drawBackground();
   
-  candara = loadFont("AgencyFB-Reg-48.vlw");
-  textFont(candara, 48);
+  agency = loadFont("AgencyFB-Reg-48.vlw");
+  textFont(agency, 48);
   textAlign(CENTER, CENTER);
   text("PLEASE WAIT WHILE DATA LOADS...", width/2, height/2);
   

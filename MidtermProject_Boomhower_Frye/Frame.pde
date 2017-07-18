@@ -9,7 +9,7 @@ abstract class Frame {
   float c = 125;
 
 
-  
+
   Frame() {
   }
 
@@ -42,15 +42,31 @@ abstract class Frame {
     textFont(VISfont, width/58);
     textAlign(CENTER);
     fill(c);
-    
+
     float yOffset;
     if (this.frameWidth/19.33>25) yOffset = 25;
     else yOffset = this.frameWidth/19.33;
-    
+
     text(title, this.x + this.frameWidth/2, this.y + yOffset);
     popMatrix();
   }
-  
+
   abstract void Construct();
   abstract void loadChartData();
+
+  float getX() {
+    return(x);
+  }
+  
+  float getY() {
+    return(y);
+  }
+  
+  float getFrameWidth() {
+    return frameWidth;
+  }
+  
+  float getFrameHeight() {
+    return frameHeight;
+  }
 }
