@@ -24,6 +24,7 @@ Background panelBG;
 int QTRSliderEvent = 0;
 float curWidth;
 float curHeight;
+boolean displaySplash = true;
 
 /////////////////////////////////////////////////////
 // CHOOSE VISUALIZATION COLORS FROM FOLLOWING PALETTE
@@ -39,12 +40,9 @@ void setup() {
   size(1400, 900);
   loadBG = new Background(0, 0, width, height, 75, 0);
   loadBG.drawBackground();
-  
-  agency = loadFont("AgencyFB-Reg-48.vlw");
-  textFont(agency, 48);
-  textAlign(CENTER, CENTER);
-  text("PLEASE WAIT WHILE DATA LOADS...", width/2, height/2);
-  
+
+  displayLoadSplashScreen();
+
   surface.setResizable(true);
   curWidth = width;
   curHeight= height;
@@ -54,11 +52,12 @@ void setup() {
   constructAll();
 
   execPython = new ExecPython();
-  LOADbutton.Action();
 
   SEPCheckBox.toggle(0);
-  
+
   panelBG = new Background(0, 0, width, height, 75, 0);
+
+  thread("loadData");
 }
 
 
@@ -66,20 +65,26 @@ void setup() {
 void draw() {
   //fill(#343932);
   //rect(0, 0, width, height);
+  println(displaySplash);
   panelBG.drawBackground();
   windowReSize();
-
-  QTRslider.ticks();
-  barChartAvgOverUnder.Construct();
-  circleChartRelationships.Construct();
-  blsRingChart.Construct();
+  if (displaySplash == true) displayLoadSplashScreen();
+  else {
+    QTRslider.ticks();
+    barChartAvgOverUnder.Construct();
+    circleChartRelationships.Construct();
+    blsRingChart.Construct();
+  }
 }
 
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isFrom(SEPCheckBox)) {
     SEPcheckbox.Action();
   } else if (theEvent.isFrom(LOADData)) {
-    LOADbutton.Action();
+    if (displaySplash==false) {
+      displaySplash=true;
+      thread("loadData");
+    }
   } else if (theEvent.isFrom(QTRSlider)) {
     QTRSliderEvent = 1;
   }
@@ -96,10 +101,12 @@ void windowReSize() {
   if (curWidth != width || curHeight != height) {
     curWidth = width;
     curHeight = height;
- 
+
     float[] SEPCheckBoxArrayValues = SEPcheckbox.getValues();
-    int startQTR  = round(QTRSlider.getLowValue());;
-    int endQTR = round(QTRSlider.getHighValue());;
+    int startQTR  = round(QTRSlider.getLowValue());
+    ;
+    int endQTR = round(QTRSlider.getHighValue());
+    ;
 
     constructAll();
 
@@ -111,10 +118,10 @@ void windowReSize() {
 
     QTRSlider.setHighValue(round(endQTR));
     QTRSlider.setLowValue(round(startQTR));
-    
+
     SEPcheckbox.Action();
     QTRslider.Action();
-    
+
     barChartAvgOverUnder.loadChartData();
     circleChartRelationships.loadChartData();
     blsRingChart.loadChartData();
@@ -140,4 +147,15 @@ void constructAll() {
 
   blsRingChart = new BLSRingChart(width/2.65, height/8, width/3, height/3);
   //blsRingChart.Construct();
+}
+
+void displayLoadSplashScreen() {
+  agency = loadFont("AgencyFB-Reg-48.vlw");
+  textFont(agency, width/30);
+  textAlign(CENTER, CENTER);
+  text("PLEASE WAIT WHILE DATA LOADS...", width/2, height/2);
+}
+
+void loadData() {
+  LOADbutton.Action();
 }

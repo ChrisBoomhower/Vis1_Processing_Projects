@@ -33,5 +33,6 @@ class LOADButton extends Buttons {
     barChartAvgOverUnder.loadChartData();
     circleChartRelationships.loadChartData();
     blsRingChart.loadChartData();
+    displaySplash = false;
   }
 }
