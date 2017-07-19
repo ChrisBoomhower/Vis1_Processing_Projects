@@ -22,6 +22,7 @@ class BarChartAvgOverUnder extends Frame {
     float xBarPad = this.frameWidth/75;
     float barWidth;
     float maxBarHeight;
+    int colorPosition = 0;
 
     drawFrame();
     drawTitle("Avg. Sal. Over/Under Ind. by OCCFAMT");
@@ -44,10 +45,13 @@ class BarChartAvgOverUnder extends Frame {
     //Horizontal Line
     line(xOffset*2, this.frameHeight/2, this.frameWidth - xOffset, frameHeight/2);
 
-    strokeWeight(width/700);
-      
+    noStroke();
+    
       //Bars
     for (int i = 0; i<this.displayCount; i++) {
+      if(colorPosition>colorCycle.length-1) colorPosition = 0;
+
+      fill(colorCycle[colorPosition]);
       if (AvgSalOverUnder[i]>=0) {
         rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
           barWidth, -map(AvgSalOverUnder[i], 0, maxDataVal, 0, maxBarHeight));
@@ -56,6 +60,8 @@ class BarChartAvgOverUnder extends Frame {
         rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
           barWidth, map(AvgSalOverUnder[i], 0, -maxDataVal, 0, maxBarHeight));
       }
+      
+      colorPosition++;
     }
 
     popMatrix();

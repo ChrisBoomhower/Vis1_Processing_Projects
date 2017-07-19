@@ -22,7 +22,7 @@ class Background {
 
   void drawBackground() {
     pushMatrix();
-    setGradient(x, y, backgroundW, backgroundH, c1, c2, y_axis);
+    setGradient(x, y, width, height, c1, c2, y_axis);
     popMatrix();
   }
   

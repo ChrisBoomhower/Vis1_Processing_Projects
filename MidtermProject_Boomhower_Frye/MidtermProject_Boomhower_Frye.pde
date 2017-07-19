@@ -26,6 +26,7 @@ float curWidth;
 float curHeight;
 boolean displaySplash = true;
 
+
 /////////////////////////////////////////////////////
 // CHOOSE VISUALIZATION COLORS FROM FOLLOWING PALETTE
 // #f06292 - orange
@@ -35,6 +36,8 @@ boolean displaySplash = true;
 // #4fc3f7 - blue
 // #ba68c8 - purple
 /////////////////////////////////////////////////////
+
+
 
 void setup() {
   size(1400, 900);
@@ -65,7 +68,6 @@ void setup() {
 void draw() {
   //fill(#343932);
   //rect(0, 0, width, height);
-  println(displaySplash);
   panelBG.drawBackground();
   windowReSize();
   if (displaySplash == true) displayLoadSplashScreen();
