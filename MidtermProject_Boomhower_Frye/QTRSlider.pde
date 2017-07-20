@@ -23,16 +23,16 @@ class QTRSlider extends Buttons {
   // Initialize slider here
   void Construct() {
     QTRSlider = cp5.addRange("Quarter Range")
-             .setBroadcast(false) // disable broadcasting since setRange and setRangeValues will trigger an event
-             .setPosition(x, y)
-             .setSize(width/3, height/22)
-             .setHandleSize(20)
-             .setRange(1, 4)
-             .setRangeValues(1, 4)
-             .setBroadcast(true) // after the initialization we turn broadcast back on again
-             //.setColorForeground(#193334)
-             //.setColorBackground(#151818)  
-             ;
+      .setBroadcast(false) // disable broadcasting since setRange and setRangeValues will trigger an event
+      .setPosition(x, y)
+      .setSize(width/3, height/22)
+      .setHandleSize(20)
+      .setRange(1, 4)
+      .setRangeValues(1, 4)
+      .setBroadcast(true) // after the initialization we turn broadcast back on again
+      //.setColorForeground(#193334)
+      //.setColorBackground(#151818)  
+      ;
   }
   //modify/assign slider attributes based on actions
   //Also Print to console "got an event from "slidername" : startQTR endQTR
@@ -41,14 +41,18 @@ class QTRSlider extends Buttons {
     QTRSlider.setLowValue(round(QTRSlider.getLowValue()));
     this.startQTR = round(QTRSlider.getLowValue());
     this.endQTR = round(QTRSlider.getHighValue());
+
+    //defensive code for resetting if values get flipped
+    if (this.startQTR>=this.endQTR) QTRSlider.setRangeValues(1, 4);
+
     println("got an event from "+QTRSlider.getName()+"\t: " + startQTR + " " + endQTR);
   }
-  
 
-  
+
+
   void ticks() {
     pushMatrix();
-    translate(x,y + height/22);
+    translate(x, y + height/22);
     stroke(255);
     strokeWeight(width/700);
     line(width/70, tickHigh, width/70, tickLow);

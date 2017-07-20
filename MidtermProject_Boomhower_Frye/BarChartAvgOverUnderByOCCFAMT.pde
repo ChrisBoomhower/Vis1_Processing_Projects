@@ -45,11 +45,24 @@ class BarChartAvgOverUnder extends Frame {
     //Horizontal Line
     line(xOffset*2, this.frameHeight/2, this.frameWidth - xOffset, frameHeight/2);
 
-    noStroke();
+    strokeWeight(width/700);
     
-      //Bars
+    PFont VISfont = loadFont("VISFont.vlw");
+    textFont(VISfont, width/110);
+    textAlign(RIGHT);
+    
+    //ticks
+    for (int i=-4; i<5; i++) {
+      line(xOffset*2 - width/144, this.frameHeight/2 + (i * maxBarHeight/4), 
+        xOffset*2 - width/288, this.frameHeight/2 + (i * maxBarHeight/4));
+      text(round(maxDataVal/4*i), xOffset*2 - width/275, this.frameHeight/2 - (i * maxBarHeight/4) - width/600);
+    }
+
+    noStroke();
+
+    //Bars
     for (int i = 0; i<this.displayCount; i++) {
-      if(colorPosition>colorCycle.length-1) colorPosition = 0;
+      if (colorPosition>colorCycle.length-1) colorPosition = 0;
 
       fill(colorCycle[colorPosition]);
       if (AvgSalOverUnder[i]>=0) {
@@ -60,7 +73,7 @@ class BarChartAvgOverUnder extends Frame {
         rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
           barWidth, map(AvgSalOverUnder[i], 0, -maxDataVal, 0, maxBarHeight));
       }
-      
+
       colorPosition++;
     }
 
@@ -72,7 +85,7 @@ class BarChartAvgOverUnder extends Frame {
     AvgSalOverUnder = new float[0];
     maxDataVal = 0;
     Data = loadTable("AvgSalOverUnderByOCCFAMT.csv", "header");
-    
+
     print("BarChartAvgOverUnder Data = ");
     for (int i = 0; i < Data.getRowCount(); i++) {
       TableRow row = Data.getRow(i);
@@ -81,10 +94,9 @@ class BarChartAvgOverUnder extends Frame {
         AvgSalOverUnder = append(AvgSalOverUnder, row.getFloat("AvgSalOverUnder"));
         if (abs(maxDataVal)<abs(AvgSalOverUnder[i])) maxDataVal=abs(AvgSalOverUnder[i]);
       }
-      
-      if(i < this.displayCount-1) print(AvgSalOverUnder[i] + ", ");
-      else if(i == this.displayCount-1) println(AvgSalOverUnder[i]);
 
+      if (i < this.displayCount-1) print(AvgSalOverUnder[i] + ", ");
+      else if (i == this.displayCount-1) println(AvgSalOverUnder[i]);
     }
     totalCount = Data.getRowCount();
   }
