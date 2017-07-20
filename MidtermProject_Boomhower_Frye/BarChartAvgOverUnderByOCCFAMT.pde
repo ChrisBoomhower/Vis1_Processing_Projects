@@ -111,7 +111,7 @@ class BarChartAvgOverUnder extends Frame {
     }
     totalCount = Data.getRowCount();
   
-    displayCountKnob.setRange(0, totalCount)
+    displayCountKnob.setRange(1, totalCount)
                     .setValue(displayCount)
                     .show()
                     ;
