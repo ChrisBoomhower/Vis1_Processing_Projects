@@ -1,3 +1,4 @@
+Knob displayCountKnob;
 
 class BarChartAvgOverUnder extends Frame {
 
@@ -14,6 +15,14 @@ class BarChartAvgOverUnder extends Frame {
 
   BarChartAvgOverUnder(float x, float y, float frameWidth, float frameHeight) {
     super(x, y, frameWidth, frameHeight);
+    displayCountKnob = cp5.addKnob("Num of Bars")
+                       .setPosition(x+frameWidth-frameWidth/7,y+frameHeight-frameHeight/5)
+                       .setRadius(this.frameWidth/25)
+                       .setDragDirection(Knob.HORIZONTAL)
+                       .setViewStyle(Knob.ARC)
+                       .hide()
+                       ;
+
   }
 
   void Construct() {
@@ -77,6 +86,8 @@ class BarChartAvgOverUnder extends Frame {
       colorPosition++;
     }
 
+    displayCountKnob.setValue(round(displayCountKnob.getValue()));
+    
     popMatrix();
   }
 
@@ -99,14 +110,21 @@ class BarChartAvgOverUnder extends Frame {
       else if (i == this.displayCount-1) println(AvgSalOverUnder[i]);
     }
     totalCount = Data.getRowCount();
+  
+    displayCountKnob.setRange(0, totalCount)
+                    .setValue(displayCount)
+                    .show()
+                    ;
   }
+
 
   int getDisplayCount() {
     return this.displayCount;
   }
 
   void setDisplayCount(int displayCount) {
-    this.displayCount = displayCount;
+    int DC = int(round(displayCount));
+    this.displayCount = DC;
   }
 
   void addDisplayCount() {

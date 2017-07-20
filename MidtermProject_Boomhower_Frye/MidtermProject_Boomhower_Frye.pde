@@ -27,18 +27,6 @@ float curHeight;
 boolean displaySplash = true;
 
 
-/////////////////////////////////////////////////////
-// CHOOSE VISUALIZATION COLORS FROM FOLLOWING PALETTE
-// #f06292 - orange
-// #ff8a65 - red
-// #81c784 - green
-// #fff176 - yellow
-// #4fc3f7 - blue
-// #ba68c8 - purple
-/////////////////////////////////////////////////////
-
-
-
 void setup() {
   size(1400, 900);
   loadBG = new Background(0, 0, width, height, 75, 0);
@@ -89,6 +77,8 @@ void controlEvent(ControlEvent theEvent) {
     }
   } else if (theEvent.isFrom(QTRSlider)) {
     QTRSliderEvent = 1;
+  } else if (theEvent.isFrom(displayCountKnob)) {
+    barChartAvgOverUnder.setDisplayCount(int(displayCountKnob.getValue()));
   }
 }
 
