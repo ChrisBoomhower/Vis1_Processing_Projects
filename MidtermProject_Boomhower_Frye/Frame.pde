@@ -7,7 +7,7 @@ abstract class Frame {
   float frameWidth;
   float frameHeight;
   float c = 125;
-  color[] colorCycle= {#81c784, #fff176, #81c784, #f06292, #4fc3f7, #ff8a65};
+  color[] colorCycle= {#81c784, #fff176, #ba68c8, #f06292, #4fc3f7, #ff8a65, #b2ebf2, #ef5350, #ffca28};
 
 
   Frame() {
