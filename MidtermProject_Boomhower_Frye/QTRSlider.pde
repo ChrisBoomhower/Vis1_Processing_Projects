@@ -43,7 +43,7 @@ class QTRSlider extends Buttons {
     this.endQTR = round(QTRSlider.getHighValue());
 
     //defensive code for resetting if values get flipped
-    if (this.startQTR>=this.endQTR) QTRSlider.setRangeValues(1, 4);
+    if (this.startQTR>this.endQTR) QTRSlider.setRangeValues(1, 4);
 
     println("got an event from "+QTRSlider.getName()+"\t: " + startQTR + " " + endQTR);
   }
