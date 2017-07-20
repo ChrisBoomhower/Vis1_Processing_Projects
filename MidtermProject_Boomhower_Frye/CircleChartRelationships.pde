@@ -9,25 +9,30 @@ class CircleChartRelationships extends Frame {
   }
 
   void Construct() {
+    float radius;
     drawFrame();
     drawTitle("CIRCLECHARTRELATIONSHIPS TITLE HERE");
     
     pushMatrix();
     
-    translate(x + frameWidth/2, y + frameHeight/2);
+    translate(x + frameWidth/2, y + frameHeight/1.85);
     noFill();
     stroke(255);
-    if (frameWidth < frameHeight) {
-      ellipse(0, 0, frameWidth, frameWidth);
-    }
-    else {
-      ellipse(0, 0, frameHeight, frameHeight);
-      strokeWeight(5);
-      stroke(255,0,0);
-      ellipse(cos(PI/4)*frameHeight/2, sin(PI/4)*frameHeight/2, 10, 10);
-      strokeWeight(1);
+    if (frameWidth < frameHeight) radius = frameWidth*0.8;
+    else radius = frameHeight*0.8;
+    
+    ellipse(0, 0, radius, radius);
+    stroke(255,0,0);
+    for (int i = 30; i < 60; i=i+2) {
+      println(i);
+      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
     }
     
+    stroke(255,255,0);
+    for (int i = 150; i < 180; i=i+5) {
+      println(i);
+      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+    }
     
     popMatrix();
   }
