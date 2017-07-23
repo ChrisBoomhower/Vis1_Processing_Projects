@@ -15,6 +15,9 @@ class CircleChartRelationships extends Frame {
   String[] agelvlTUnique = {};
   String[] workschTUnique = {};
   String[] sallvlTUnique = {};
+  //int[] agelvlTmagUnique = {};
+  //int[] workschTmagUnique = {};
+  //int[] sallvlTmagUnique = {};
   
   CircleChartRelationships() {
   }
@@ -51,30 +54,53 @@ class CircleChartRelationships extends Frame {
     else radius = frameHeight*0.8;
     ellipse(0, 0, radius, radius);
     
-    // Determine attribute level coordinates
-    stroke(255, 0, 0);
+    // Determine attribute level coordinates and draw magnitude colors
+    strokeWeight(getFrameWidth()/200);
+    textSize(getFrameHeight()/50);
     for (int i = 30; i < (30 + agelvlTUnique.length * 5); i=i+5) {
-      //println(i);
-      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      stroke(255, 0, 0, map(agelvlTmag[i], min(agelvlTmag), max(agelvlTmag), 0, 255)); //<>//
+      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+      pushMatrix();
+      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      pushMatrix();
+      rotate(radians(i));
+      textAlign(LEFT);
+      text("test", 0, 0);
+      popMatrix();
+      popMatrix();
     }
 
-    stroke(255, 255, 0);
     for (int i = 150; i < (150 + workschTUnique.length * 5); i=i+5) {
-      //println(i);
-      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      stroke(255, 255, 0, map(workschTmag[i], min(workschTmag), max(workschTmag), 0, 255));
+      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+      pushMatrix();
+      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      pushMatrix();
+      rotate(radians(i+180));
+      textAlign(RIGHT);
+      text("test", 0, 0);
+      popMatrix();
+      popMatrix();
     }
 
-    stroke(0,255,255);
     for (int i = 240; i < (240 + sallvlTUnique.length * 5); i=i+5) {
-      //println(i);
-      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      stroke(0, 255, 255, map(sallvlTmag[i], min(sallvlTmag), max(sallvlTmag), 0, 255));
+      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+      pushMatrix();
+      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      pushMatrix();
+      rotate(radians(i));
+      textAlign(LEFT);
+      text("test", 0, 0);
+      popMatrix();
+      popMatrix();
     }
     
     // Observation triangles
     for (int i=0; i < patco.length; i++) {
       if (colorPosition>colorCycle.length-1) colorPosition = 0;
       stroke(colorCycle[colorPosition]);
-      strokeWeight(map(cnt[i], 1, 3480, 1, 10));
+      strokeWeight(map(cnt[i], 1, 3480, getFrameWidth()/2000, getFrameWidth()/100));
       beginShape();
       for (int j=0; j < agelvlTUnique.length; j++) {
         if (agelvlT[i].contains(agelvlTUnique[j])) { //<>//
@@ -131,6 +157,9 @@ class CircleChartRelationships extends Frame {
     agelvlTUnique = getUniqueString(this.agelvlT);
     workschTUnique = getUniqueString(this.workschT);
     sallvlTUnique = getUniqueString(this.sallvlT);
+    //agelvlTmagUnique = getUniqueInt(this.agelvlTmag);
+    //workschTmagUnique = getUniqueInt(this.workschTmag);
+    //sallvlTmagUnique = getUniqueInt(this.sallvlTmag);
     
     print("PATCO unique = ");
     for (int i = 0; i < patcoUnique.length; i++) print(patcoUnique[i] + ", ");
@@ -148,6 +177,7 @@ class CircleChartRelationships extends Frame {
     for (int i = 0; i < sallvlTUnique.length; i++) print(sallvlTUnique[i] + ", ");
     print("\n");
   }
+  
   int[] getUniqueInt(int[] input) {
     int[] temp = new int[input.length];
     int p = 1;
