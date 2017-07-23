@@ -1,4 +1,5 @@
 Knob displayCountKnob;
+Toggle ZoomBar;
 
 class BarChartAvgOverUnder extends Frame {
 
@@ -16,16 +17,25 @@ class BarChartAvgOverUnder extends Frame {
   BarChartAvgOverUnder(float x, float y, float frameWidth, float frameHeight) {
     super(x, y, frameWidth, frameHeight);
     displayCountKnob = cp5.addKnob("Num of Bars")
-                       .setPosition(x+frameWidth-frameWidth/7,y+frameHeight-frameHeight/5)
-                       .setRadius(this.frameWidth/25)
-                       .setDragDirection(Knob.HORIZONTAL)
-                       .setViewStyle(Knob.ARC)
-                       .hide()
-                       ;
+      .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
+      .setRadius(this.frameWidth/25)
+      .setDragDirection(Knob.HORIZONTAL)
+      .setViewStyle(Knob.ARC)
+      .hide()
+      ;
 
+    ZoomBar = cp5.addToggle("ZoomBar")
+      .setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .setSize(int(frameWidth/18), int(frameHeight/20))
+      .setValue(false)
+      .setMode(ControlP5.SWITCH)
+      .hide()
+      ;
   }
 
   void Construct() {
+    ZoomBar.setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .show();
     float xOffset;
     float yOffset;
     float xBarPad = this.frameWidth/75;
@@ -55,11 +65,10 @@ class BarChartAvgOverUnder extends Frame {
     line(xOffset*2, this.frameHeight/2, this.frameWidth - xOffset, frameHeight/2);
 
     strokeWeight(width/700);
-    
-    PFont VISfont = loadFont("VISFont.vlw");
+
     textFont(VISfont, width/110);
     textAlign(RIGHT);
-    
+
     //ticks
     for (int i=-4; i<5; i++) {
       line(xOffset*2 - width/144, this.frameHeight/2 + (i * maxBarHeight/4), 
@@ -86,8 +95,11 @@ class BarChartAvgOverUnder extends Frame {
       colorPosition++;
     }
 
-    displayCountKnob.setValue(round(displayCountKnob.getValue()));
-    
+    displayCountKnob.setValue(round(displayCountKnob.getValue()))
+      .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
+      .setSize(int(frameWidth/18), int(frameHeight/20))
+      ;
+
     popMatrix();
   }
 
@@ -110,11 +122,12 @@ class BarChartAvgOverUnder extends Frame {
       else if (i == this.displayCount-1) println(AvgSalOverUnder[i]);
     }
     totalCount = Data.getRowCount();
-  
+
     displayCountKnob.setRange(1, totalCount)
-                    .setValue(displayCount)
-                    .show()
-                    ;
+      .setValue(displayCount)
+      .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
+      .show()
+      ;
   }
 
 

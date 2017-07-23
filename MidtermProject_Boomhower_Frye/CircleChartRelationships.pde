@@ -1,6 +1,7 @@
+Toggle ZoomRel;
 
 class CircleChartRelationships extends Frame {
-  
+
   Table circle;
   int[] patco = {};
   String[] agelvlT = {};
@@ -20,17 +21,27 @@ class CircleChartRelationships extends Frame {
 
   CircleChartRelationships(float x, float y, float frameWidth, float frameHeight) {
     super(x, y, frameWidth, frameHeight);
+    ZoomRel = cp5.addToggle("ZoomRel")
+      .setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .setSize(width/55, height/60)
+      .setValue(false)
+      .setMode(ControlP5.SWITCH)
+      .hide()
+      ;
   }
 
   void Construct() {
+    ZoomRel.setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .show();
+    //TableRow row = circle.getRow(0);
     float radius;
     int colorPosition = 0;
     
     drawFrame();
     drawTitle("CIRCLECHARTRELATIONSHIPS TITLE HERE");
-    
+
     pushMatrix();
-    
+
     // Draw circle (center set as reference)
     translate(x + frameWidth/2, y + frameHeight/1.85);
     
@@ -41,18 +52,18 @@ class CircleChartRelationships extends Frame {
     ellipse(0, 0, radius, radius);
     
     // Determine attribute level coordinates
-    stroke(255,0,0);
+    stroke(255, 0, 0);
     for (int i = 30; i < (30 + agelvlTUnique.length * 5); i=i+5) {
       //println(i);
       point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
     }
-    
-    stroke(255,255,0);
+
+    stroke(255, 255, 0);
     for (int i = 150; i < (150 + workschTUnique.length * 5); i=i+5) {
       //println(i);
       point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
     }
-    
+
     stroke(0,255,255);
     for (int i = 240; i < (240 + sallvlTUnique.length * 5); i=i+5) {
       //println(i);
@@ -137,7 +148,6 @@ class CircleChartRelationships extends Frame {
     for (int i = 0; i < sallvlTUnique.length; i++) print(sallvlTUnique[i] + ", ");
     print("\n");
   }
-  
   int[] getUniqueInt(int[] input) {
     int[] temp = new int[input.length];
     int p = 1;

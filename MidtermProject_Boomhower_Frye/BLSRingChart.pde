@@ -1,3 +1,4 @@
+Toggle ZoomBLS;
 
 class BLSRingChart extends Frame {
 
@@ -20,9 +21,18 @@ class BLSRingChart extends Frame {
 
   BLSRingChart(float x, float y, float frameWidth, float frameHeight) {
     super(x, y, frameWidth, frameHeight);
+    ZoomBLS = cp5.addToggle("ZoomBLS")
+      .setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .setSize(width/55, height/60)
+      .setValue(false)
+      .setMode(ControlP5.SWITCH)
+      .hide()
+      ;
   }
 
   void Construct() {
+    ZoomBLS.setPosition(x + frameWidth - frameWidth/17, y-height/30)
+      .show();
     drawFrame();
     drawTitle("BLS Relationships - Levels and Rates");
 
@@ -54,13 +64,12 @@ class BLSRingChart extends Frame {
     float radYLoR      =  radYTotSepR + (frameHeight * row.getFloat("BLS_FEDERAL_Layoffs_Rate")/scaleR);
     float radYQR       =  radYLoR + (frameHeight * row.getFloat("BLS_FEDERAL_Quits_Rate")/scaleR);
     float radYOSepR    =  radYQR + (frameHeight * row.getFloat("BLS_FEDERAL_OtherSep_Rate")/scaleR);
-    
-    
+
+
     if (frameWidth < frameHeight) {
       drawRings(0.25, 0.667, radXOSepL, radXQL, radXLoL, radXTotSepL, radXJoL, baseX, level);
       drawRings(0.75, 0.45, radXOSepR, radXQR, radXLoR, radXTotSepR, radXJoR, baseX, rate);
-    }
-    else {
+    } else {
       drawRings(0.25, 0.667, radYOSepL, radYQL, radYLoL, radYTotSepL, radYJoL, baseY, level);
       drawRings(0.75, 0.45, radYOSepR, radYQR, radYLoR, radYTotSepR, radYJoR, baseY, rate);
     }
@@ -88,11 +97,11 @@ class BLSRingChart extends Frame {
         qR + ", " + oSepR);
     }
   }
-  
-  void drawRings(float fracX, float fracY,
-                 float radOSep, float radQ,
-                 float radLo, float radTotSep,
-                 float radJo, float base, boolean ver) {
+
+  void drawRings(float fracX, float fracY, 
+    float radOSep, float radQ, 
+    float radLo, float radTotSep, 
+    float radJo, float base, boolean ver) {
     pushMatrix();
 
     translate(x + frameWidth*fracX, y + frameHeight*fracY);
@@ -121,41 +130,35 @@ class BLSRingChart extends Frame {
     ellipse(0, 0, base, base);
 
     popMatrix();
-    
+
     displayValue(fracX, fracY, radOSep, radQ, radLo, radTotSep, radJo, base, ver);
   }
-  
-  void displayValue(float fracX, float fracY,
-                   float radOSep, float radQ,
-                   float radLo, float radTotSep,
-                   float radJo, float base, boolean ver) {
-                     
+
+  void displayValue(float fracX, float fracY, 
+    float radOSep, float radQ, 
+    float radLo, float radTotSep, 
+    float radJo, float base, boolean ver) {
+
     textFont(agency, 24);
     fill(255);
     textAlign(LEFT, BOTTOM);
     if (mouseX > x + frameWidth*fracX - base/2 & mouseX < x + frameWidth*fracX + base/2 & mouseY > y + frameHeight*fracY - base/2 & mouseY < y + frameHeight*fracY + base/2) {
       println("Mouse over base ring");
-    }
-    else if (mouseX > x + frameWidth*fracX - radJo/2 & mouseX < x + frameWidth*fracX + radJo/2 & mouseY > y + frameHeight*fracY - radJo/2 & mouseY < y + frameHeight*fracY + radJo/2) {
+    } else if (mouseX > x + frameWidth*fracX - radJo/2 & mouseX < x + frameWidth*fracX + radJo/2 & mouseY > y + frameHeight*fracY - radJo/2 & mouseY < y + frameHeight*fracY + radJo/2) {
       if (ver == true) text("Level = " + joL, mouseX, mouseY);
       else text("Rate = " + joR, mouseX, mouseY);
-    }
-    else if (mouseX > x + frameWidth*fracX - radTotSep/2 & mouseX < x + frameWidth*fracX + radTotSep/2 & mouseY > y + frameHeight*fracY - radTotSep/2 & mouseY < y + frameHeight*fracY + radTotSep/2) {
+    } else if (mouseX > x + frameWidth*fracX - radTotSep/2 & mouseX < x + frameWidth*fracX + radTotSep/2 & mouseY > y + frameHeight*fracY - radTotSep/2 & mouseY < y + frameHeight*fracY + radTotSep/2) {
       if (ver == true) text("Level = " + totSepL, mouseX, mouseY);
       else text("Rate = " + totSepR, mouseX, mouseY);
-    }
-    else if (mouseX > x + frameWidth*fracX - radLo/2 & mouseX < x + frameWidth*fracX + radLo/2 & mouseY > y + frameHeight*fracY - radLo/2 & mouseY < y + frameHeight*fracY + radLo/2) {
+    } else if (mouseX > x + frameWidth*fracX - radLo/2 & mouseX < x + frameWidth*fracX + radLo/2 & mouseY > y + frameHeight*fracY - radLo/2 & mouseY < y + frameHeight*fracY + radLo/2) {
       if (ver == true) text("Level = " + loL, mouseX, mouseY);
       else text("Rate = " + loR, mouseX, mouseY);
-    }
-    else if (mouseX > x + frameWidth*fracX - radQ/2 & mouseX < x + frameWidth*fracX + radQ/2 & mouseY > y + frameHeight*fracY - radQ/2 & mouseY < y + frameHeight*fracY + radQ/2) {
+    } else if (mouseX > x + frameWidth*fracX - radQ/2 & mouseX < x + frameWidth*fracX + radQ/2 & mouseY > y + frameHeight*fracY - radQ/2 & mouseY < y + frameHeight*fracY + radQ/2) {
       if (ver == true) text("Level = " + qL, mouseX, mouseY);
       else text("Rate = " + qR, mouseX, mouseY);
-    }
-    else if (mouseX > x + frameWidth*fracX - radOSep/2 & mouseX < x + frameWidth*fracX + radOSep/2 & mouseY > y + frameHeight*fracY - radOSep/2 & mouseY < y + frameHeight*fracY + radOSep/2) {
+    } else if (mouseX > x + frameWidth*fracX - radOSep/2 & mouseX < x + frameWidth*fracX + radOSep/2 & mouseY > y + frameHeight*fracY - radOSep/2 & mouseY < y + frameHeight*fracY + radOSep/2) {
       if (ver == true) text("Level = " + oSepL, mouseX, mouseY);
       else text("Rate = " + oSepR, mouseX, mouseY);
     }
-    
   }
 }

@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
@@ -62,9 +62,9 @@ void draw() {
   if (displaySplash == true) displayLoadSplashScreen();
   else {
     QTRslider.ticks();
-    barChartAvgOverUnder.Construct();
-    circleChartRelationships.Construct();
-    blsRingChart.Construct();
+    if((ZoomRel.getValue()!=1) & (ZoomBLS.getValue()!=1))    barChartAvgOverUnder.Construct();
+    if((ZoomBar.getValue()!=1) & (ZoomBLS.getValue()!=1))    circleChartRelationships.Construct();
+    if((ZoomRel.getValue()!=1) & (ZoomBar.getValue()!=1))    blsRingChart.Construct();
   }
 }
 
@@ -80,6 +80,35 @@ void controlEvent(ControlEvent theEvent) {
     QTRSliderEvent = 1;
   } else if (theEvent.isFrom(displayCountKnob)) {
     barChartAvgOverUnder.setDisplayCount(int(displayCountKnob.getValue()));
+  } else if (theEvent.isFrom(ZoomBLS)) {
+    println("ZoomBLS", ZoomBLS.getValue());
+    if (ZoomBLS.getValue()==1){
+      blsRingChart.resetFrameDims(width/5.76, height/8, width-width/4, height - height/4);
+      ZoomBar.hide();
+      displayCountKnob.hide();
+      ZoomRel.hide();
+    }else {
+      blsRingChart.resetFrameDims(width/2.65, height/8, width/3, height/3);
+    }
+  } else if (theEvent.isFrom(ZoomBar)) {
+    println("ZoomBar", ZoomBar.getValue());
+    if (ZoomBar.getValue()==1){
+      barChartAvgOverUnder.resetFrameDims(width/5.76, height/8, width-width/4, height - height/4);
+      ZoomBLS.hide();
+      ZoomRel.hide();
+    }else {
+      barChartAvgOverUnder.resetFrameDims(width/5.76, height/1.8, width/3, height/3);
+    }
+  } else if (theEvent.isFrom(ZoomRel)) {
+    println("ZoomRel", ZoomRel.getValue());
+    if (ZoomRel.getValue()==1){
+      circleChartRelationships.resetFrameDims(width/5.76, height/8, width-width/4, height - height/4);
+      ZoomBar.hide();
+      displayCountKnob.hide();
+      ZoomBLS.hide();
+    }else {
+      circleChartRelationships.resetFrameDims(width/1.7, height/1.8, width/3, height/3);
+    }
   }
 }
 
@@ -140,9 +169,11 @@ void constructAll() {
 
   blsRingChart = new BLSRingChart(width/2.65, height/8, width/3, height/3);
   //blsRingChart.Construct();
+
 }
 
 void displayLoadSplashScreen() {
+  fill(255);
   agency = loadFont("AgencyFB-Reg-48.vlw");
   textFont(agency, width/30);
   textAlign(CENTER, CENTER);
