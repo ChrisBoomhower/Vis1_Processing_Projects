@@ -8,7 +8,7 @@ abstract class Frame {
   float frameHeight;
   float c = 125;
   color[] colorCycle= {#81c784, #fff176, #ba68c8, #f06292, #4fc3f7, #ff8a65, #b2ebf2, #ef5350, #ffca28};
-
+  PFont VISfont = loadFont("VISFont.vlw");
 
   Frame() {
   }
@@ -18,7 +18,7 @@ abstract class Frame {
     this.y = y;
     this.frameWidth = frameWidth;
     this.frameHeight = frameHeight;
-  }  
+}  
 
   void resetFrameDims(float x, float y, float frameWidth, float frameHeight) {
     this.x = x;
@@ -38,7 +38,6 @@ abstract class Frame {
 
   void drawTitle(String title) {
     pushMatrix();
-    PFont VISfont = loadFont("VISFont.vlw");
     textFont(VISfont, width/58);
     textAlign(CENTER);
     fill(c);
