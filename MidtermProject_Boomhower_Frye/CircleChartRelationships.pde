@@ -23,8 +23,9 @@ class CircleChartRelationships extends Frame {
   }
 
   void Construct() {
-    //TableRow row = circle.getRow(0);
     float radius;
+    int colorPosition = 0;
+    
     drawFrame();
     drawTitle("CIRCLECHARTRELATIONSHIPS TITLE HERE");
     
@@ -39,18 +40,50 @@ class CircleChartRelationships extends Frame {
     else radius = frameHeight*0.8;
     ellipse(0, 0, radius, radius);
     
-    // Draw triangles
+    // Determine attribute level coordinates
     stroke(255,0,0);
-    for (int i = 30; i < 60; i=i+2) {
+    for (int i = 30; i < (30 + agelvlTUnique.length * 5); i=i+5) {
       //println(i);
       point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
     }
     
     stroke(255,255,0);
-    for (int i = 150; i < 180; i=i+5) {
+    for (int i = 150; i < (150 + workschTUnique.length * 5); i=i+5) {
       //println(i);
       point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
     }
+    
+    stroke(0,255,255);
+    for (int i = 240; i < (240 + sallvlTUnique.length * 5); i=i+5) {
+      //println(i);
+      point(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+    }
+    
+    // Observation triangles
+    for (int i=0; i < patco.length; i++) {
+      if (colorPosition>colorCycle.length-1) colorPosition = 0;
+      stroke(colorCycle[colorPosition]);
+      strokeWeight(map(cnt[i], 1, 3480, 1, 10));
+      beginShape();
+      for (int j=0; j < agelvlTUnique.length; j++) {
+        if (agelvlT[i].contains(agelvlTUnique[j])) { //<>//
+          vertex(cos(radians(30 + j*5))*(radius/2.1), sin(radians(30 + j*5))*radius/2.1);
+        }
+      }
+      for (int j=0; j < workschTUnique.length; j++) {
+        if (workschT[i].contains(workschTUnique[j])) {
+          vertex(cos(radians(150 + j*5))*(radius/2.1), sin(radians(150 + j*5))*radius/2.1);
+        }
+      }
+      for (int j=0; j < sallvlTUnique.length; j++) {
+        if (sallvlT[i].contains(sallvlTUnique[j])) {
+          vertex(cos(radians(240 + j*5))*(radius/2.1), sin(radians(240 + j*5))*radius/2.1);
+        }
+      }
+      endShape(CLOSE);
+      colorPosition++;
+    }
+    strokeWeight(1);
     
     popMatrix();
   }
@@ -103,8 +136,6 @@ class CircleChartRelationships extends Frame {
     print("SALLVLT unique = ");
     for (int i = 0; i < sallvlTUnique.length; i++) print(sallvlTUnique[i] + ", ");
     print("\n");
-    
-    //ZoomRel.show();
   }
   
   int[] getUniqueInt(int[] input) {
@@ -125,7 +156,7 @@ class CircleChartRelationships extends Frame {
     int p = 1;
     Arrays.sort(input);
     temp[0] = input[0];
-    for (int i = 1; i < input.length; i++) //<>//
+    for (int i = 1; i < input.length; i++)
       if (!input[i].contains(input[i-1]))
         temp[p++] = input[i];
     String[] output =  new String[p];
