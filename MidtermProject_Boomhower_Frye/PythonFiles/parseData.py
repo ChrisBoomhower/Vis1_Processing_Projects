@@ -51,6 +51,27 @@ SampledOPMData[['SALARY', 'LOS', 'SEPCount_EFDATE_OCC', 'SEPCount_EFDATE_LOC', '
 OPMDataFiltered = SampledOPMData[(SampledOPMData["QTR"] >= startQTR) & (SampledOPMData["QTR"] <= endQTR)
                                  & (SampledOPMData["SEP"].isin(SEPList))]
 
+# Fix differences in spaces on WORKSCHT Column
+OPMDataFiltered["WORKSCHT"] = np.where(OPMDataFiltered["WORKSCHT"].str[0]=="F", 'Full-time Nonseasonal',
+                                np.where(OPMDataFiltered["WORKSCHT"].str[0]=="I", 'Intermittent Nonseasonal',
+                                         np.where(OPMDataFiltered["WORKSCHT"].str[0]=="P", 'Part-time Nonseasonal',
+                                                  np.where(OPMDataFiltered["WORKSCHT"].str[0]=="G", 'Full-time Seasonal',
+                                                        np.where(OPMDataFiltered["WORKSCHT"].str[0]=="J", 'Intermittent Seasonal',
+                                                                np.where(OPMDataFiltered["WORKSCHT"].str[0]=="Q", 'Part-time Seasonal',
+                                                                        np.where(OPMDataFiltered["WORKSCHT"].str[0]=="T", 'Part-time Job Sharer Seasonal',
+                                                                                np.where(OPMDataFiltered["WORKSCHT"].str[0]=="S", 'Part-time Job Sharer Nonseasonal',
+                                                                                        np.where(OPMDataFiltered["WORKSCHT"].str[0]=="B", 'Full-time Nonseasonal Baylor Plan',
+                                                                                                'NO WORK SCHEDULE REPORTED' ### ELSE case represents Night
+                                                                                                 )
+                                                                                         )
+                                                                                 )
+                                                                         )
+                                                                 )
+                                                          )
+                                                 )
+                                        )
+                               )
+
 print(len(OPMDataFiltered))
 
 ## Average Salary Over Under by Occupation Family
