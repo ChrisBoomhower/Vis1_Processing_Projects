@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
@@ -7,6 +7,7 @@
  https://GitHub.com/GoToLoop/command/blob/patch-1/src/deadpixel/command/Command.java
  ******************************************************************************************/
 import controlP5.*;
+import java.util.*;
 
 PFont agency;
 
@@ -84,6 +85,7 @@ void controlEvent(ControlEvent theEvent) {
     if (ZoomBLS.getValue()==1){
       blsRingChart.resetFrameDims(width/5.76, height/8, width-width/4, height - height/4);
       ZoomBar.hide();
+      displayCountKnob.hide();
       ZoomRel.hide();
     }else {
       blsRingChart.resetFrameDims(width/2.65, height/8, width/3, height/3);
@@ -102,6 +104,7 @@ void controlEvent(ControlEvent theEvent) {
     if (ZoomRel.getValue()==1){
       circleChartRelationships.resetFrameDims(width/5.76, height/8, width-width/4, height - height/4);
       ZoomBar.hide();
+      displayCountKnob.hide();
       ZoomBLS.hide();
     }else {
       circleChartRelationships.resetFrameDims(width/1.7, height/1.8, width/3, height/3);
