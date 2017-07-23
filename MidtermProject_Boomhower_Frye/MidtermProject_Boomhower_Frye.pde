@@ -7,6 +7,7 @@
  https://GitHub.com/GoToLoop/command/blob/patch-1/src/deadpixel/command/Command.java
  ******************************************************************************************/
 import controlP5.*;
+import java.util.*;
 
 PFont agency;
 
