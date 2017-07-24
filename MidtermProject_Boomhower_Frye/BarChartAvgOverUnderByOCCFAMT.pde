@@ -130,7 +130,6 @@ class BarChartAvgOverUnder extends Frame {
       if ((mouseX-x >= rectX) & (mouseX-x<= rectX + barWidth)     & 
         (mouseY-y <= rectY) & (mouseY-y >= rectY + rectHeight)
         ) {
-        println(OCCFAMT + "\n" + AvgSalOverUnder);
         text(OCCFAMT + "\n" + AvgSalOverUnder, mouseX-x, mouseY-y);
       }
     }
@@ -138,7 +137,6 @@ class BarChartAvgOverUnder extends Frame {
       if ((mouseX-x >= rectX) & (mouseX-x<= rectX + barWidth)     & 
         (mouseY-y >= rectY) & (mouseY-y <= rectY + rectHeight)
         ) {
-        println(OCCFAMT + "\n" + AvgSalOverUnder);
         text(OCCFAMT + "\n" + AvgSalOverUnder, mouseX-x, mouseY-y);
       }
     }
