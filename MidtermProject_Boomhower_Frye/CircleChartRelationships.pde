@@ -39,6 +39,7 @@ class CircleChartRelationships extends Frame {
     //TableRow row = circle.getRow(0);
     float radius;
     int colorPosition = 0;
+    int alignmentX;
     
     drawFrame();
     drawTitle("CIRCLECHARTRELATIONSHIPS TITLE HERE");
@@ -58,46 +59,28 @@ class CircleChartRelationships extends Frame {
     strokeWeight(getFrameWidth()/200);
     textSize(getFrameHeight()/50);
 
+    alignmentX = 0;
     for (int i = 0; i < agelvlTUnique.length; i++) {
       int k = 30 + i*5;
       stroke(255, 0, 0, map(agelvlTmagUnique[i], min(agelvlTmag), max(agelvlTmag), 0, 255)); //<>//
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
-      pushMatrix();
-      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
-      pushMatrix();
-      rotate(radians(k));
-      textAlign(LEFT);
-      text(agelvlTUnique[i], 0, 0);
-      popMatrix();
-      popMatrix();
+      drawLabels(agelvlTUnique,i, k, 0, radius, alignmentX);
     }
 
+    alignmentX = 39;
     for (int i = 0; i < workschTUnique.length; i++) {
       int k = 150 + i*5;
       stroke(255, 255, 0, map(workschTmagUnique[i], min(workschTmagUnique), max(workschTmagUnique), 0, 255));
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
-      pushMatrix();
-      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
-      pushMatrix();
-      rotate(radians(k+180));
-      textAlign(RIGHT);
-      text(workschTUnique[i], 0, 0);
-      popMatrix();
-      popMatrix();
+      drawLabels(workschTUnique, i, k, 180, radius, alignmentX);
     }
 
+    alignmentX = 0;
     for (int i = 0; i < sallvlTUnique.length; i++) {
       int k = 240 + i*5;
       stroke(0, 255, 255, map(sallvlTmagUnique[i], min(sallvlTmag), max(sallvlTmag), 0, 255));
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
-      pushMatrix();
-      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
-      pushMatrix();
-      rotate(radians(k));
-      textAlign(LEFT);
-      text(sallvlTUnique[i], 0, 0);
-      popMatrix();
-      popMatrix();
+      drawLabels(sallvlTUnique, i, k, 0, radius, alignmentX);
     }
     
     // Observation triangles
@@ -218,6 +201,17 @@ class CircleChartRelationships extends Frame {
     String[] output =  new String[p];
     arrayCopy(temp, 0, output, 0, p);
     return output;
+  }
+  
+  void drawLabels(String array[], int i, int k, int rot2, float radius, int alignmentX) {
+    pushMatrix();
+    translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
+    pushMatrix();
+    rotate(radians(k + rot2));
+    textAlign(alignmentX, CENTER);
+    text(array[i], 0, 0);
+    popMatrix();
+    popMatrix();
   }
   
 }
