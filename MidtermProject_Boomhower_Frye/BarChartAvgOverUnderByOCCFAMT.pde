@@ -80,20 +80,39 @@ class BarChartAvgOverUnder extends Frame {
 
     //Bars
     for (int i = 0; i<this.displayCount; i++) {
+      float rectX = xOffset*2 + (xBarPad*(i+1)) + (barWidth*i);
+      float rectY = this.frameHeight/2;
+      float rectHeight;
+
       if (colorPosition>colorCycle.length-1) colorPosition = 0;
 
       fill(colorCycle[colorPosition]);
       if (AvgSalOverUnder[i]>=0) {
-        rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
-          barWidth, -map(AvgSalOverUnder[i], 0, maxDataVal, 0, maxBarHeight));
+        rectHeight = -map(AvgSalOverUnder[i], 0, maxDataVal, 0, maxBarHeight);  
+        rect(rectX, rectY, barWidth, rectHeight);
       }
       if (AvgSalOverUnder[i]<0) {
-        rect(xOffset*2 + (xBarPad*(i+1)) + (barWidth*i), this.frameHeight/2, 
-          barWidth, map(AvgSalOverUnder[i], 0, -maxDataVal, 0, maxBarHeight));
+        rectHeight = map(AvgSalOverUnder[i], 0, -maxDataVal, 0, maxBarHeight);
+        rect(rectX, rectY, barWidth, rectHeight);
       }
-
       colorPosition++;
     }
+
+    for (int i = 0; i<this.displayCount; i++) {
+      float rectX = xOffset*2 + (xBarPad*(i+1)) + (barWidth*i);
+      float rectY = this.frameHeight/2;
+      float rectHeight;
+
+      if (AvgSalOverUnder[i]>=0) {
+        rectHeight = -map(AvgSalOverUnder[i], 0, maxDataVal, 0, maxBarHeight);  
+        displayValue(rectX, rectY, barWidth, rectHeight, OCCFAMT[i], AvgSalOverUnder[i]);
+      }
+      if (AvgSalOverUnder[i]<0) {
+        rectHeight = map(AvgSalOverUnder[i], 0, -maxDataVal, 0, maxBarHeight);
+        displayValue(rectX, rectY, barWidth, rectHeight, OCCFAMT[i], AvgSalOverUnder[i]);
+      }
+    }
+
 
     displayCountKnob.setValue(round(displayCountKnob.getValue()))
       .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
@@ -101,6 +120,28 @@ class BarChartAvgOverUnder extends Frame {
       ;
 
     popMatrix();
+  }
+
+  void displayValue(float rectX, float rectY, float barWidth, float rectHeight, String OCCFAMT, float AvgSalOverUnder) {
+    textFont(agency, 24);
+    fill(255);
+    textAlign(LEFT, BOTTOM);
+    if (AvgSalOverUnder>=0) {
+      if ((mouseX-x >= rectX) & (mouseX-x<= rectX + barWidth)     & 
+        (mouseY-y <= rectY) & (mouseY-y >= rectY + rectHeight)
+        ) {
+        println(OCCFAMT + "\n" + AvgSalOverUnder);
+        text(OCCFAMT + "\n" + AvgSalOverUnder, mouseX-x, mouseY-y);
+      }
+    }
+    if (AvgSalOverUnder<0) {
+      if ((mouseX-x >= rectX) & (mouseX-x<= rectX + barWidth)     & 
+        (mouseY-y >= rectY) & (mouseY-y <= rectY + rectHeight)
+        ) {
+        println(OCCFAMT + "\n" + AvgSalOverUnder);
+        text(OCCFAMT + "\n" + AvgSalOverUnder, mouseX-x, mouseY-y);
+      }
+    }
   }
 
   void loadChartData() {
