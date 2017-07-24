@@ -57,39 +57,45 @@ class CircleChartRelationships extends Frame {
     // Determine attribute level coordinates and draw magnitude colors
     strokeWeight(getFrameWidth()/200);
     textSize(getFrameHeight()/50);
-    for (int i = 30; i < (30 + agelvlTUnique.length * 5); i=i+5) {
-      stroke(255, 0, 0, map(agelvlTmag[i], min(agelvlTmag), max(agelvlTmag), 0, 255)); //<>//
-      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+    //for (int i = 30; i < (30 + agelvlTUnique.length * 5); i=i+5) {
+    for (int i = 0; i < agelvlTUnique.length; i++) {
+      int k = 30 + i*5;
+      stroke(255, 0, 0, map(agelvlTmag[k], min(agelvlTmag), max(agelvlTmag), 0, 255)); //<>//
+      point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       pushMatrix();
-      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
       pushMatrix();
-      rotate(radians(i));
+      rotate(radians(k));
       textAlign(LEFT);
       text("test", 0, 0);
       popMatrix();
       popMatrix();
     }
 
-    for (int i = 150; i < (150 + workschTUnique.length * 5); i=i+5) {
-      stroke(255, 255, 0, map(workschTmag[i], min(workschTmag), max(workschTmag), 0, 255));
-      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+    //for (int i = 150; i < (150 + workschTUnique.length * 5); i=i+5) {
+    for (int i = 0; i < workschTUnique.length; i++) {
+      int k = 150 + i*5;
+      stroke(255, 255, 0, map(workschTmag[k], min(workschTmag), max(workschTmag), 0, 255));
+      point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       pushMatrix();
-      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
       pushMatrix();
-      rotate(radians(i+180));
+      rotate(radians(k+180));
       textAlign(RIGHT);
       text("test", 0, 0);
       popMatrix();
       popMatrix();
     }
 
-    for (int i = 240; i < (240 + sallvlTUnique.length * 5); i=i+5) {
-      stroke(0, 255, 255, map(sallvlTmag[i], min(sallvlTmag), max(sallvlTmag), 0, 255));
-      point(cos(radians(i))*(radius/1.95), sin(radians(i))*radius/1.95);
+    //for (int i = 240; i < (240 + sallvlTUnique.length * 5); i=i+5) {
+    for (int i = 0; i < workschTUnique.length; i++) {
+      int k = 240 + i*5;
+      stroke(0, 255, 255, map(sallvlTmag[k], min(sallvlTmag), max(sallvlTmag), 0, 255));
+      point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       pushMatrix();
-      translate(cos(radians(i))*(radius/1.9), sin(radians(i))*radius/1.9);
+      translate(cos(radians(k))*(radius/1.9), sin(radians(k))*radius/1.9);
       pushMatrix();
-      rotate(radians(i));
+      rotate(radians(k));
       textAlign(LEFT);
       text("test", 0, 0);
       popMatrix();
