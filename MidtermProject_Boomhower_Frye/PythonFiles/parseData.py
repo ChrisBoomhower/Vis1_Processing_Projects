@@ -101,9 +101,9 @@ AvgBLS.to_csv('../data/AvgBLS.csv', index = False)
 
 ## Guardian Distinct Combinations
 
-AGELVLTMagnitude = pd.DataFrame({'AGELVLTMagnitude' : OPMDataFiltered.groupby(["AGELVLT"]).size()}).reset_index()
-WORKSCHTMagnitude = pd.DataFrame({'WORKSCHTMagnitude' : OPMDataFiltered.groupby(["WORKSCHT"]).size()}).reset_index()
-SALLVLTMagnitude = pd.DataFrame({'SALLVLTMagnitude' : OPMDataFiltered.groupby(["SALLVLT"]).size()}).reset_index()
+AGELVLTMagnitude = pd.DataFrame({'AGELVLTMagnitude' : OPMDataFiltered.groupby(["AGELVLT"]).size()}).sort_values("AGELVLTMagnitude", ascending = False).reset_index()
+WORKSCHTMagnitude = pd.DataFrame({'WORKSCHTMagnitude' : OPMDataFiltered.groupby(["WORKSCHT"]).size()}).sort_values("WORKSCHTMagnitude", ascending = False).reset_index()
+SALLVLTMagnitude = pd.DataFrame({'SALLVLTMagnitude' : OPMDataFiltered.groupby(["SALLVLT"]).size()}).sort_values("SALLVLTMagnitude", ascending = False).reset_index()
 
 DistinctPATCO_AGELVL_WORKSCH_SALLVL = pd.DataFrame({'CNT' : OPMDataFiltered.groupby(["PATCO", "AGELVLT", "WORKSCHT", "SALLVLT"]).size()}).reset_index()
 DistinctPATCO_AGELVL_WORKSCH_SALLVL = DistinctPATCO_AGELVL_WORKSCH_SALLVL.merge(AGELVLTMagnitude, on = "AGELVLT", how = 'left')
@@ -113,4 +113,8 @@ DistinctPATCO_AGELVL_WORKSCH_SALLVL = DistinctPATCO_AGELVL_WORKSCH_SALLVL.merge(
 DistinctOCCFAMT_AGELVL_WORKSCHWORKSCH_SALLVL = DistinctPATCO_AGELVL_WORKSCH_SALLVL.sort_values("CNT", ascending=False).reset_index(drop=True)
 DistinctOCCFAMT_AGELVL_WORKSCHWORKSCH_SALLVL.to_csv('../data/DistinctPATCO_AGELVL_WORKSCH_SALLVL.csv', index = False)
 DistinctOCCFAMT_AGELVL_WORKSCHWORKSCH_SALLVL.to_csv('../data/DistinctPATCO_AGELVL_WORKSCH_SALLVL_FINAL.csv', index = False)
+
+AGELVLTMagnitude.to_csv('../data/AGELVLTMagnitude.csv', index = False)
+WORKSCHTMagnitude.to_csv('../data/WORKSCHTMagnitude.csv', index = False)
+SALLVLTMagnitude.to_csv('../data/SALLVLTMagnitude.csv', index = False)
 
