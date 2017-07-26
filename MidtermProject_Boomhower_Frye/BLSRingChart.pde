@@ -67,11 +67,11 @@ class BLSRingChart extends Frame {
 
 
     if (frameWidth < frameHeight) {
-      drawRings(0.25, 0.667, radXOSepL, radXQL, radXLoL, radXTotSepL, radXJoL, baseX, level);
       drawRings(0.75, 0.45, radXOSepR, radXQR, radXLoR, radXTotSepR, radXJoR, baseX, rate);
+      drawRings(0.25, 0.667, radXOSepL, radXQL, radXLoL, radXTotSepL, radXJoL, baseX, level);
     } else {
-      drawRings(0.25, 0.667, radYOSepL, radYQL, radYLoL, radYTotSepL, radYJoL, baseY, level);
       drawRings(0.75, 0.45, radYOSepR, radYQR, radYLoR, radYTotSepR, radYJoR, baseY, rate);
+      drawRings(0.25, 0.667, radYOSepL, radYQL, radYLoL, radYTotSepL, radYJoL, baseY, level);
     }
   }
 
@@ -145,20 +145,20 @@ class BLSRingChart extends Frame {
     if (mouseX > x + frameWidth*fracX - base/2 & mouseX < x + frameWidth*fracX + base/2 & mouseY > y + frameHeight*fracY - base/2 & mouseY < y + frameHeight*fracY + base/2) {
       println("Mouse over base ring");
     } else if (mouseX > x + frameWidth*fracX - radJo/2 & mouseX < x + frameWidth*fracX + radJo/2 & mouseY > y + frameHeight*fracY - radJo/2 & mouseY < y + frameHeight*fracY + radJo/2) {
-      if (ver == true) text("Level = " + joL, mouseX, mouseY);
-      else text("Rate = " + joR, mouseX, mouseY);
+      if (ver == true) text("Job Openings\nLevel = " + joL, mouseX, mouseY);
+      else text("Job Openings\nRate = " + joR, mouseX, mouseY);
     } else if (mouseX > x + frameWidth*fracX - radTotSep/2 & mouseX < x + frameWidth*fracX + radTotSep/2 & mouseY > y + frameHeight*fracY - radTotSep/2 & mouseY < y + frameHeight*fracY + radTotSep/2) {
-      if (ver == true) text("Level = " + totSepL, mouseX, mouseY);
-      else text("Rate = " + totSepR, mouseX, mouseY);
+      if (ver == true) text("Total Separation\nLevel = " + totSepL, mouseX, mouseY);
+      else text("Total Separation\nRate = " + totSepR, mouseX, mouseY);
     } else if (mouseX > x + frameWidth*fracX - radLo/2 & mouseX < x + frameWidth*fracX + radLo/2 & mouseY > y + frameHeight*fracY - radLo/2 & mouseY < y + frameHeight*fracY + radLo/2) {
-      if (ver == true) text("Level = " + loL, mouseX, mouseY);
-      else text("Rate = " + loR, mouseX, mouseY);
+      if (ver == true) text("Layoffs\nLevel = " + loL, mouseX, mouseY);
+      else text("Layoffs\nRate = " + loR, mouseX, mouseY);
     } else if (mouseX > x + frameWidth*fracX - radQ/2 & mouseX < x + frameWidth*fracX + radQ/2 & mouseY > y + frameHeight*fracY - radQ/2 & mouseY < y + frameHeight*fracY + radQ/2) {
-      if (ver == true) text("Level = " + qL, mouseX, mouseY);
-      else text("Rate = " + qR, mouseX, mouseY);
+      if (ver == true) text("Quits\nLevel = " + qL, mouseX, mouseY);
+      else text("Quits\nRate = " + qR, mouseX, mouseY);
     } else if (mouseX > x + frameWidth*fracX - radOSep/2 & mouseX < x + frameWidth*fracX + radOSep/2 & mouseY > y + frameHeight*fracY - radOSep/2 & mouseY < y + frameHeight*fracY + radOSep/2) {
-      if (ver == true) text("Level = " + oSepL, mouseX, mouseY);
-      else text("Rate = " + oSepR, mouseX, mouseY);
+      if (ver == true) text("Other Separation\nLevel = " + oSepL, mouseX, mouseY);
+      else text("Other Separation\nRate = " + oSepR, mouseX, mouseY);
     }
   }
 }

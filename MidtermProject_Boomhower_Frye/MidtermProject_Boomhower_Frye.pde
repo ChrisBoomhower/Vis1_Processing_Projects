@@ -1,10 +1,32 @@
-/****************************************************************************************** //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+/******************************************************************************************  //<>//
  Title         : OPM Separation Analysis Dashboard
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 7/9/2017
  Assignment    : MSDS6390 - Midterm Project
+ Description   : This OOP Project Design, implements the concept of abstract inheritance amongst a myriad of class objects. Our GUI controls are produced from the controlp5 library, 
+                 and we utilize the deadpixel library to help facilitate the execution of multi-threaded python scripts within processing. 
+                 The controls found on the left and bottom of the screen help "Filter" the original dataset .csv file to specific segments of the data.
+                 Once filters are selected, you may click the "Load Data" button in the top right to update the visual with the new observation set.
+                 Zoom toggles, and a "number of bars" knob control are also present within our visualization to interact with our visuals and gain additional insights. 
+                 Finally, the entire Window is re-sizeable, and the visualization should scale as the window size changes. 
+                 
+                 We present three distinct Visual plots into our dataset:
+                     1. BLS Relationships - Levels and Rates: Stacked ellipses produce "rings" of varying width based on values obtained by the Bureau of Labor Statistics (BLS). 
+                                                              The thicker the "ring", the larger the value, as should be apparent when analyzing hover text values.
+                     2. Avg. Salary Over/Under Industry by OCCFAMT: Bar chart identifying the average Industry Average salary for an occupation family minus the observation salary. 
+                                                                    The Knob control will allow for varying number of bars to display on the screen. 
+                                                                    To prevent a busy chart with text labels, hover text will help the user analyze which occupation family represents each bar.
+                     3. Key Attribute Relationships: Visualization of categorical attributes is often difficult, thus we have created an interesting visual producing line connections around an 
+                                                     ellipse for the distinct values amongst three categorical variables {Salary Level, Age Level, and Work Schedule}. The distinct values of
+                                                     each attribute are encoded to specific regions of the exterior of an ellipse, and lines connect the distinct combination of values present within the dataset.
+                                                     Line colors represent a 4th categorical attribute, representing "PATCO", describing whether a job role is White Collar, Blue Collar, Administrative, etc.
+                                                     We recommend utilizing the Zoom Toggle for this plot, as it becomes very difficult to analyze in the smaller view.              
+                 
+ Requirements  : You must have Python 3 installed on your machine
  Resources     : https://Forum.Processing.org/two/discussion/23324/executing-python-3-code-from-within-processing#Item_9
- https://GitHub.com/GoToLoop/command/blob/patch-1/src/deadpixel/command/Command.java
+                 https://GitHub.com/GoToLoop/command/blob/patch-1/src/deadpixel/command/Command.java
+                 https://github.com/sojamo/controlp5
+                 https://processing.org/examples/lineargradient.html
  ******************************************************************************************/
 import controlP5.*;
 import java.util.*;
