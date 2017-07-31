@@ -16,6 +16,7 @@ class BarChartAvgOverUnder extends Frame {
 
   BarChartAvgOverUnder(float x, float y, float frameWidth, float frameHeight) {
     super(x, y, frameWidth, frameHeight);
+    
     displayCountKnob = cp5.addKnob("Num of Bars")
       .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
       .setRadius(this.frameWidth/25)
@@ -117,6 +118,7 @@ class BarChartAvgOverUnder extends Frame {
     displayCountKnob.setValue(round(displayCountKnob.getValue()))
       .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
       .setSize(int(frameWidth/18), int(frameHeight/20))
+      .show()
       ;
 
     popMatrix();
@@ -165,7 +167,6 @@ class BarChartAvgOverUnder extends Frame {
     displayCountKnob.setRange(1, totalCount)
       .setValue(displayCount)
       .setPosition(x+frameWidth-frameWidth/7, y+frameHeight-frameHeight/5)
-      .show()
       ;
   }
 
