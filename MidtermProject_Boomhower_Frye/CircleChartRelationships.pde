@@ -208,8 +208,12 @@ class CircleChartRelationships extends Frame {
     alignmentX = 0;
     for (int i = 0; i < agelvlTUnique.length; i++) {
       int k = 30 + i*5;
-      //stroke(255, 0, 0, map(agelvlTmagUnique[i], min(agelvlTmag), max(agelvlTmag), 50, 255));
-      stroke(255, 0, 0);
+      //if (agelvlTmag.length > 0) {
+      try {
+        stroke(255, 0, 0, map(agelvlTmagUnique[i], min(agelvlTmag), max(agelvlTmag), 50, 255));
+      } catch (ArrayIndexOutOfBoundsException e) {
+        stroke(255, 0, 0);
+      }
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(agelvlTUnique, i, k, 0, radius, alignmentX);
     }
@@ -217,8 +221,11 @@ class CircleChartRelationships extends Frame {
     alignmentX = 39;
     for (int i = 0; i < workschTUnique.length; i++) {
       int k = 150 + i*5;
-      //stroke(255, 255, 0, map(workschTmagUnique[i], min(workschTmagUnique), max(workschTmagUnique), 50, 255));
-      stroke(255, 255, 0);
+      try {
+        stroke(255, 255, 0, map(workschTmagUnique[i], min(workschTmagUnique), max(workschTmagUnique), 50, 255));
+      } catch (ArrayIndexOutOfBoundsException e) {
+        stroke(255, 255, 0);
+      }
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(workschTUnique, i, k, 180, radius, alignmentX);
     }
@@ -226,8 +233,11 @@ class CircleChartRelationships extends Frame {
     alignmentX = 0;
     for (int i = 0; i < sallvlTUnique.length; i++) {
       int k = 240 + i*5;
-      //stroke(0, 255, 255, map(sallvlTmagUnique[i], min(sallvlTmag), max(sallvlTmag), 50, 255));
-      stroke(0, 255, 255);
+      try {
+        stroke(0, 255, 255, map(sallvlTmagUnique[i], min(sallvlTmag), max(sallvlTmag), 50, 255));
+      } catch (ArrayIndexOutOfBoundsException e) {
+        stroke(0, 255, 255);
+      }
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(sallvlTUnique, i, k, 0, radius, alignmentX);
     }
