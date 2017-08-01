@@ -208,8 +208,8 @@ class CircleChartRelationships extends Frame {
     alignmentX = 0;
     for (int i = 0; i < agelvlTUnique.length; i++) {
       int k = 30 + i*5;
-      stroke(255, 0, 0, map(agelvlTmagUnique[i], min(agelvlTmag), max(agelvlTmag), 50, 255));
-      //stroke(255, 0, 0);
+      //stroke(255, 0, 0, map(agelvlTmagUnique[i], min(agelvlTmag), max(agelvlTmag), 50, 255));
+      stroke(255, 0, 0);
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(agelvlTUnique, i, k, 0, radius, alignmentX);
     }
@@ -217,8 +217,8 @@ class CircleChartRelationships extends Frame {
     alignmentX = 39;
     for (int i = 0; i < workschTUnique.length; i++) {
       int k = 150 + i*5;
-      stroke(255, 255, 0, map(workschTmagUnique[i], min(workschTmagUnique), max(workschTmagUnique), 50, 255));
-      //stroke(255, 255, 0);
+      //stroke(255, 255, 0, map(workschTmagUnique[i], min(workschTmagUnique), max(workschTmagUnique), 50, 255));
+      stroke(255, 255, 0);
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(workschTUnique, i, k, 180, radius, alignmentX);
     }
@@ -226,8 +226,8 @@ class CircleChartRelationships extends Frame {
     alignmentX = 0;
     for (int i = 0; i < sallvlTUnique.length; i++) {
       int k = 240 + i*5;
-      stroke(0, 255, 255, map(sallvlTmagUnique[i], min(sallvlTmag), max(sallvlTmag), 50, 255));
-      //stroke(0, 255, 255);
+      //stroke(0, 255, 255, map(sallvlTmagUnique[i], min(sallvlTmag), max(sallvlTmag), 50, 255));
+      stroke(0, 255, 255);
       point(cos(radians(k))*(radius/1.95), sin(radians(k))*radius/1.95);
       drawLabels(sallvlTUnique, i, k, 0, radius, alignmentX);
     }
@@ -314,44 +314,43 @@ class CircleChartRelationships extends Frame {
     ageMag            = loadTable("AGELVLTMagnitude.csv", "header");
     workMag           = loadTable("WORKSCHTMagnitude.csv", "header");
     sallMag           = loadTable("SALLVLTMagnitude.csv", "header");
-    
-    
-    for (TableRow row : circle.rows()) {
-      this.patco        =  append(patco, row.getInt("PATCO"));
-      this.agelvlT      =  append(agelvlT, row.getString("AGELVLT"));
-      this.workschT     =  append(workschT, row.getString("WORKSCHT"));
-      this.sallvlT      =  append(sallvlT, row.getString("SALLVLT"));
-      this.cnt          =  append(cnt, row.getInt("CNT"));
-      this.agelvlTmag   =  append(agelvlTmag, row.getInt("AGELVLTMagnitude"));
-      this.workschTmag  =  append(workschTmag, row.getInt("WORKSCHTMagnitude"));
-      this.sallvlTmag   =  append(sallvlTmag, row.getInt("SALLVLTMagnitude"));
-    }
 
-    for (int i = 0; i < 10; i++) {
-      println("CircleChart Line " + i + " = " + patco[i] + ", " + 
-        agelvlT[i] + ", " + workschT[i] + ", " + sallvlT[i] + ", " + cnt[i] + 
-        ", " + agelvlTmag[i] + ", " + workschTmag[i] + ", " + sallvlTmag[i]);
+    if (circle.getRowCount() > 0) {
+      for (TableRow row : circle.rows()) {
+        this.patco        =  append(patco, row.getInt("PATCO"));
+        this.agelvlT      =  append(agelvlT, row.getString("AGELVLT"));
+        this.workschT     =  append(workschT, row.getString("WORKSCHT"));
+        this.sallvlT      =  append(sallvlT, row.getString("SALLVLT"));
+        this.cnt          =  append(cnt, row.getInt("CNT"));
+        this.agelvlTmag   =  append(agelvlTmag, row.getInt("AGELVLTMagnitude"));
+        this.workschTmag  =  append(workschTmag, row.getInt("WORKSCHTMagnitude"));
+        this.sallvlTmag   =  append(sallvlTmag, row.getInt("SALLVLTMagnitude"));
+      }
     }
-    
+    //for (int i = 0; i < 10; i++) {
+    //  println("CircleChart Line " + i + " = " + patco[i] + ", " + 
+    //    agelvlT[i] + ", " + workschT[i] + ", " + sallvlT[i] + ", " + cnt[i] + 
+    //    ", " + agelvlTmag[i] + ", " + workschTmag[i] + ", " + sallvlTmag[i]);
+    //}
+
     for (TableRow row : ageMag.rows()) {
       this.agelvlTUnique      =  append(agelvlTUnique, row.getString("AGELVLT"));
       this.agelvlTmagUnique   =  append(agelvlTmagUnique, row.getInt("AGELVLTMagnitude"));
     }
-    
+
     for (TableRow row : workMag.rows()) {
       this.workschTUnique      =  append(workschTUnique, row.getString("WORKSCHT"));
       this.workschTmagUnique   =  append(workschTmagUnique, row.getInt("WORKSCHTMagnitude"));
     }
-    
+
     for (int i = 0; i < workschTUnique.length; i++) {
       println(workschTUnique[i] + " " + workschTmagUnique[i]);
     }
-    
+
     for (TableRow row : sallMag.rows()) {
       this.sallvlTUnique      =  append(sallvlTUnique, row.getString("SALLVLT"));
       this.sallvlTmagUnique   =  append(sallvlTmagUnique, row.getInt("SALLVLTMagnitude"));
     }
-    
   }
 
   void drawLabels(String array[], int i, int k, int rot2, float radius, int alignmentX) {
