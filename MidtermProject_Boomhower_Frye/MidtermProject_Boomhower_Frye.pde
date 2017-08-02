@@ -28,6 +28,17 @@
  https://github.com/sojamo/controlp5
  https://processing.org/examples/lineargradient.html
  ******************************************************************************************/
+ /****************************************************************************************** 
+ Modified By   : Chris Boomhower, Alex Frye
+ Modified Date : 8/1/2017
+ Assignment    : Advanced OOP Design
+ Description   : This week, we have added two enhancements for our Key Attribute Relationship visualization.
+ 1. Ellipse density for each category represents the magnitude of observations of that type from the original data
+ 2. Key Attribute Filters added within an accordian group object to remove/add category types from data displayed
+ 
+ OOP inheritance was maintained through abstract button and frame class, forcing coding consistency across like classes
+ when creating core Filter controls and each visualization presented.
+ ******************************************************************************************/
 import controlP5.*;
 import java.util.*;
 
