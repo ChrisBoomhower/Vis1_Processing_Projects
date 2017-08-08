@@ -61,7 +61,15 @@ public class MidtermProject_Boomhower_Frye extends PApplet {
  OOP inheritance was maintained through abstract button and frame class, forcing coding consistency across like classes
  when creating core Filter controls and each visualization presented.
  ******************************************************************************************/
-
+ /****************************************************************************************** 
+ Modified By   : Chris Boomhower, Alex Frye
+ Modified Date : 8/7/2017
+ Assignment    : .Java Conversion
+ Description   : This week, we were assigned to convert processing code into a working .java project. 
+ We chose to convert this existing project, and add the below functionality post-conversion.
+ 
+ 1. XXXXXXYYYYYYYZZZZZZZZ
+ ******************************************************************************************/
 
 
 PFont agency;

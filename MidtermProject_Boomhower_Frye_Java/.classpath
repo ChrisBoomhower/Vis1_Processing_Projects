@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Summer/MSDS6390 - Visualization of Information/Projects/Vis1_Processing_Projects/MidtermProject_Boomhower_Frye/application.windows64/lib/command.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Summer/MSDS6390 - Visualization of Information/Projects/Vis1_Processing_Projects/MidtermProject_Boomhower_Frye/application.windows64/lib/controlP5.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/core.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-linux-aarch64.jar"/>
@@ -21,5 +19,7 @@
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-macosx-universal.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-windows-amd64.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Summer/MSDS6390 - Visualization of Information/Projects/Vis1_Processing_Projects/MidtermProject_Boomhower_Frye_Java/ExternalLib/command.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Summer/MSDS6390 - Visualization of Information/Projects/Vis1_Processing_Projects/MidtermProject_Boomhower_Frye_Java/ExternalLib/controlP5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
