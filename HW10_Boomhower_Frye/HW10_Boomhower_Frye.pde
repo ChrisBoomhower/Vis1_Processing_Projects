@@ -15,7 +15,7 @@ AudioPlayer soundFile;
 AudioMetaData meta;
 FFT fft;
 
-float boxWHDim = 20;
+float boxWHDim = 17;
 float diameter;
 int bars;
 float rotation=0;
@@ -41,9 +41,11 @@ void setup()
 
 void draw() {
   background(255);
-  translate(width/2, height*0.75, 0);
+  pointLight(0, 0, 255, width/2, height/2, 400);
+  translate(width/2, height*0.68, 0);
   //camera(mouseX, mouseY, (height/2) / tan(PI/3), width/2, (height/2), 0, 0, 1, 0);
-  rotateY(radians(map(mouseX,0,700,0,width)));
+  rotateY(radians(map(-mouseX,0,width,0,360)));
+  rotateX(radians(map(mouseY,0,height,0,70)));
   /////////////////////////
   //float orbitRadius= mouseX/2+50;
   //float ypos= mouseY/3;
@@ -62,7 +64,7 @@ void equalizer() {
   
   pushMatrix();
   rotateX(PI/2);
-  ellipse(0,0,diameter,diameter);
+  //ellipse(0,0,diameter,diameter);
   for( int i = 0; i < bars; i++){
     float k = i*(2*PI)/bars;
     println (i + "; " + degrees(k));
