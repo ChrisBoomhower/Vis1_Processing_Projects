@@ -37,6 +37,11 @@ public class HW10_Boomhower_Frye extends PApplet {
                  mp3 may be added to the project's data folder and the sound file name updated in
                  the project's setup() method.
                  
+                 While all required Java jar files for running Processing methods are included in
+                 this project directory under the ExternalLib path, the user will need to be sure
+                 to add these files to the Java Build Path via Eclipse or their respective IDE
+                 before the code will build and run.
+                 
  Resources     : https://processing.org/tutorials/p3d/
                  https://github.com/ddf/Minim
  ******************************************************************************************/

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="ExternalLib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/core.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/gluegen-rt.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/gluegen-rt-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/HW10_Boomhower_Frye.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/jogl-all.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/jogl-all-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/jsminim.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/minim.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/mp3spi1.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/tritonus_aos.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Boomhower_Frye/application.windows64/lib/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/gluegen-rt-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/jogl-all.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/jogl-all-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/jsminim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/minim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Owner/Documents/GitHub/MSDS_6390/Vis1_Processing_Projects/HW10_Java_Boomhower_Frye/ExternalLib/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
