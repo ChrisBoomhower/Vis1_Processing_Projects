@@ -55,7 +55,7 @@ void setup()
 }
 
 void draw() {
-  background(255);
+  background(25);
 
   if (mousePressed) camera(mouseX, mouseY, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
 
@@ -70,13 +70,13 @@ void draw() {
     textAlign(CENTER);
     switch(i) {
     case 0:
-      text("Red",0,0);
+      text("Blue",0,0);
         break;
     case 1:
       text("Green",0,0);
         break;
     case 2:
-      text("Blue",0,0);
+      text("Red",0,0);
         break;
     }
     fill(255);
