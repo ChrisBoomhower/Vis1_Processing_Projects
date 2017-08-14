@@ -1,4 +1,4 @@
-/****************************************************************************************** //<>//
+/****************************************************************************************** //<>// //<>//
  Title         : 3d Equalizer
  Created By    : Chris Boomhower, Alex Frye
  Create Date   : 8/13/2017
@@ -35,7 +35,7 @@ void setup()
 
   // loop the file
   soundFile.loop();
-  soundFile.mute();
+  //soundFile.mute();
 
   fft = new FFT( soundFile.bufferSize(), soundFile.sampleRate());
   fft.logAverages(60, 5);
