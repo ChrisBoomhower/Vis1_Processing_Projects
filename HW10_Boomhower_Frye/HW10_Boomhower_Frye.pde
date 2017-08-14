@@ -55,7 +55,7 @@ void setup()
 }
 
 void draw() {
-  background(25);
+  background(35);
 
   if (mousePressed) camera(mouseX, mouseY, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
 
@@ -63,8 +63,23 @@ void draw() {
     pushMatrix();
     stroke(0);
     translate(randomWPoint[i], randomHPoint[i], randomZPoint[i]);
-    box(25);
     noStroke();
+        
+    switch(i) {
+    case 0:
+      fill(0,0,255);
+      sphere(25);
+        break;
+    case 1:
+      fill(0,255,0);
+      sphere(25);
+        break;
+    case 2:
+      fill(255,0,0);
+      sphere(25);
+        break;
+    }
+    
     translate(0,0,30);
     fill(0);
     textAlign(CENTER);
