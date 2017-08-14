@@ -5,7 +5,7 @@ class Equalizer {
   float boxWHDim;
   public final float randTranslateX = random(-width, width*2);
   public final float randTranslateY = random(-height, height*2);
-  public final float randTranslateZ = random(-1000, 1000);
+  public float randTranslateZ = random(-1000, 1000);
   private final float randRadianRotateY = random(0,360);
 
   Equalizer() {
@@ -14,6 +14,17 @@ class Equalizer {
   Equalizer(float diameter) {
     this.diameter = diameter;
     this.boxWHDim = diameter/14.705;
+  }
+  
+  Equalizer(float diameter, int evenOdd, float mainEQDiam) {
+    this.diameter = diameter;
+    this.boxWHDim = diameter/14.705;
+    mainEQDiam*=1.5;
+    if((randTranslateX >= -mainEQDiam & randTranslateX <= mainEQDiam ) &
+       (randTranslateY >= -mainEQDiam & randTranslateY <= mainEQDiam ) &
+       (randTranslateZ >= -mainEQDiam & randTranslateZ <= mainEQDiam ))
+    if (evenOdd == 0) randTranslateZ = random(-1000, -mainEQDiam);
+    if (evenOdd == 1) randTranslateZ = random(mainEQDiam, 1000);
   }
 
   void Construct() {

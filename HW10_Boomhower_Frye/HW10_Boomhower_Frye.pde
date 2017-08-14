@@ -44,7 +44,7 @@ void setup()
   eqBackground = new Equalizer[numEqBackground];
 
   for (int i=0; i<numEqBackground; i++) {
-    eqBackground[i] = new Equalizer(random(width/50, width/5));
+    eqBackground[i] = new Equalizer(random(width/50, width/5), i%2, eqMain.diameter);
   }
 
   for (int i = 0; i<randomWPoint.length; i++) {
